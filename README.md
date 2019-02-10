@@ -1,6 +1,22 @@
 # career
 
-- 定期的に経歴の棚卸しをする
-- 履歴書の自動生成
-- 希望の頻度で見直しのメールを送る
+> nuxt.js project
 
+## Build Setup
+
+``` bash
+# install dependencies
+$ yarn install
+
+# serve with hot reload at localhost:3000
+$ yarn run dev
+
+# build for production and launch server
+$ yarn run build
+$ yarn start
+
+# generate static project
+$ yarn run generate
+```
+
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
