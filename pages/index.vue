@@ -5,17 +5,8 @@
         <v-card>
           <v-form>
             <v-container>
-              <v-layout column>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="firstname"
-                    :rules="nameRules"
-                    :counter="10"
-                    label="First name"
-                    required
-                  />
-                </v-flex>
-                <v-flex xs12>
+              <v-layout row>
+                <v-flex xs12 md6 xl6>
                   <v-text-field
                     v-model="lastname"
                     :rules="nameRules"
@@ -24,6 +15,17 @@
                     required
                   />
                 </v-flex>
+                <v-flex xs12 md6 xl6>
+                  <v-text-field
+                    v-model="firstname"
+                    :rules="nameRules"
+                    :counter="10"
+                    label="First name"
+                    required
+                  />
+                </v-flex>
+              </v-layout>
+              <v-layout row>
                 <v-flex xs12>
                   <v-text-field
                     v-model="email"
