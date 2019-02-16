@@ -3,13 +3,6 @@
     <v-layout row wrap>
       <v-flex xs12>
         <v-card>
-          <v-card-title class="headline elevation-2">
-            職務経歴書を作る
-          </v-card-title>
-        </v-card>
-      </v-flex>
-      <v-flex xs12>
-        <v-card>
           <v-form>
             <v-container>
               <v-layout column>

@@ -1,7 +1,15 @@
 <template>
   <v-app>
     <v-navigation-drawer app />
-    <v-toolbar app />
+    <v-toolbar app>
+      <v-toolbar-title class="font-weight-thin">
+        職務経歴書を作る
+      </v-toolbar-title>
+      <v-spacer />
+      <v-btn icon>
+        <v-icon>cloud_download</v-icon>
+      </v-btn>
+    </v-toolbar>
     <v-content>
       <v-container fluid>
         <router-view />
