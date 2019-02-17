@@ -8,8 +8,7 @@
               <v-layout row>
                 <v-flex xs12 md6 xl6>
                   <v-text-field
-                    v-model="lastname"
-                    :rules="nameRules"
+                    v-model="$store.state.lastname"
                     :counter="10"
                     label="Last name"
                     required
@@ -17,8 +16,7 @@
                 </v-flex>
                 <v-flex xs12 md6 xl6>
                   <v-text-field
-                    v-model="firstname"
-                    :rules="nameRules"
+                    v-model="$store.state.firstname"
                     :counter="10"
                     label="First name"
                     required
@@ -28,11 +26,25 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="email"
-                    :rules="emailRules"
+                    v-model="$store.state.email"
                     label="E-mail"
                     required
                   />
+                </v-flex>
+              </v-layout>
+              <v-layout row justify-end>
+                <v-flex xs12>
+                  <v-card-actions>
+                    <v-btn 
+                      outline 
+                      large 
+                      nuxt
+                      color="indigo" 
+                      to="/preview"
+                    >
+                      Preview
+                    </v-btn>
+                  </v-card-actions>
                 </v-flex>
               </v-layout>
             </v-container>
