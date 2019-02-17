@@ -6,7 +6,7 @@
         職務経歴書を作る
       </v-toolbar-title>
       <v-spacer />
-      <v-btn icon>
+      <v-btn icon @click="createPdf">
         <v-icon>cloud_download</v-icon>
       </v-btn>
     </v-toolbar>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -29,6 +31,11 @@ export default {
       right: true,
       rightDrawer: false,
       title: '職務経歴書'
+    }
+  },
+  methods: {
+    createPdf: function(event) {
+      axios.post('/download/pdf')
     }
   }
 }
