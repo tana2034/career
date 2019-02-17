@@ -22,6 +22,9 @@ async function start() {
     await builder.build()
   }
 
+  const download = require('./api/download')
+  app.use('/download', download);
+
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
