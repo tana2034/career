@@ -34,7 +34,24 @@ export default {
   },
   methods: {
     createPdf: function(event) {
-      axios.post('/download/pdf')
+      axios
+        .post('/download/pdf', this.$store.state, {
+          responseType: 'blob',
+          headers: {
+            'Content-Type': 'application/pdf',
+            Accept: 'application/pdf'
+          }
+        })
+        .then(res => {
+          const url = window.URL.createObjectURL(
+            new Blob([res.data], { type: 'application/pdf' })
+          )
+          const link = document.createElement('a')
+          link.href = url
+          link.download = 'resume.pdf'
+          document.body.appendChild(link)
+          link.click()
+        })
     }
   }
 }
