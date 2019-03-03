@@ -12,8 +12,23 @@
 import Resume from '~/components/Resume.vue'
 
 export default {
+  layout: 'pdf',
   components: {
     Resume
+  },
+  asyncData({
+    isDev,
+    route,
+    store,
+    env,
+    params,
+    query,
+    req,
+    res,
+    redirect,
+    error
+  }) {
+    return req.body
   }
 }
 </script>
