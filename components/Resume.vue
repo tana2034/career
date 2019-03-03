@@ -8,9 +8,16 @@
       </v-flex>
       <v-flex sm12 lg12>
         <p class="title">
-          {{ $store.state.lastname }} {{ $store.state.firstname }}
+          <span id="lastname">
+            {{ $store.state.lastname }}
+          </span> 
+          <span id="firstname">
+            {{ $store.state.firstname }}
+          </span>
         </p>
-        <p>{{ $store.state.email }}</p>
+        <p id="email">
+          {{ $store.state.email }}
+        </p>
       </v-flex>
     </v-layout>
   </v-container>

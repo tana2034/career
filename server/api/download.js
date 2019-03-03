@@ -8,21 +8,32 @@ router.use(bodyParser.urlencoded())
 
 router.post('/pdf', function (req, res) {
   ; (async () => {
-    console.log(req.body)
-    const browser = await puppeteer.launch({ headless: false })
+    const browser = await puppeteer.launch()
     const page = await browser.newPage()
-    await page.setRequestInterception(true)
-    page.on('request', request => {
-      const headers = Object.assign({}, request.headers(), {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'method': 'POST',
-      })
-      request.continue({ headers })
-    })
     await page.goto('http://localhost:3000/print/resume', {
       waitUntil: 'networkidle2'
     })
-    await page.screenshot({ path: 'image-spa-top.png', fullPage: true });
+    await page.$eval(
+      '#lastname',
+      (el, val) => {
+        el.textContent = val
+      },
+      req.body.lastname
+    )
+    await page.$eval(
+      '#firstname',
+      (el, val) => {
+        el.textContent = val
+      },
+      req.body.firstname
+    )
+    await page.$eval(
+      '#email',
+      (el, val) => {
+        el.textContent = val
+      },
+      req.body.email
+    )
     const buff = await page.pdf({ format: 'A4' })
     await browser.close()
 
