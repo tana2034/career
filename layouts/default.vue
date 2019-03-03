@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import querystring from 'querystring'
 import axios from 'axios'
 
 export default {
@@ -35,10 +36,10 @@ export default {
   methods: {
     createPdf: function(event) {
       axios
-        .post('/download/pdf', this.$store.state, {
+        .post('/download/pdf', querystring.stringify(this.$store.state), {
           responseType: 'blob',
           headers: {
-            'Content-Type': 'application/pdf',
+            'Content-Type': 'application/x-www-form-urlencoded',
             Accept: 'application/pdf'
           }
         })
