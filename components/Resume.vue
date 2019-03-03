@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-layout row wrap>
+    <v-layout column wrap>
       <v-flex sm12 lg12>
         <span class="headline">
           職務経歴書

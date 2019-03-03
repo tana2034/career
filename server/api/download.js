@@ -10,7 +10,8 @@ router.post('/pdf', function (req, res) {
   ; (async () => {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
-    await page.goto('http://localhost:3000/print/resume', {
+    const domain = process.env.NODE_ENV === 'production' ? 'https://dazzling-meitner-437a0b.netlify.com' : 'http://localhost:3000';
+    await page.goto(domain + '/print/resume', {
       waitUntil: 'networkidle2'
     })
     await page.$eval(
