@@ -6,6 +6,14 @@ const app = express()
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
+if (config.dev) {
+  config.proxy = {
+    '/.netlify': {
+      target: 'http://localhost:9000',
+      pathRewrite: { '^/.netlify/functions': '' }
+    }
+  }
+}
 
 async function start() {
   // Init Nuxt.js
