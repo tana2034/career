@@ -2279,12 +2279,7 @@ babel-code-frame@^6.26.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-babel-core@7.0.0-bridge.0:
-  version "7.0.0-bridge.0"
-  resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-7.0.0-bridge.0.tgz#95a492ddd90f9b4e9a4a1da14eb335b87b634ece"
-  integrity sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg==
-
-babel-core@^6.0.0, babel-core@^6.26.0:
+babel-core@^6.0.0, babel-core@^6.26.0, babel-core@^6.26.3:
   version "6.26.3"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.26.3.tgz#b2e2f09e342d0f0c88e2f02e067794125e75c207"
   integrity sha512-6jyFLuDmeidKmUEb3NM+/yawG0M2bDZ9Z1qbZP59cyHLz8kYGKYwpJP0UwUKKUiTRNvxfLesJnTedqczP7cTDA==
@@ -2769,6 +2764,13 @@ buffer@^5.2.0:
   dependencies:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
+
+bufferutil@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/bufferutil/-/bufferutil-4.0.1.tgz#3a177e8e5819a1243fe16b63a199951a7ad8d4a7"
+  integrity sha512-xowrxvpxojqkagPcWRQVXZl0YXhRhAtBEIq3VoER1NH5Mw1n1o0ojdspp+GS2J//2gCVyrzQDApQ4unGF+QOoA==
+  dependencies:
+    node-gyp-build "~3.7.0"
 
 builtin-status-codes@^3.0.0:
   version "3.0.0"
@@ -7259,6 +7261,11 @@ node-fetch@^2.3.0:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.3.0.tgz#1a1d940bbfb916a1d3e0219f037e89e71f8c5fa5"
   integrity sha512-MOd8pV3fxENbryESLgVIeaGKrdl+uaYhCSSVkjeOb/31/njTpcis5aWfdqgNlHIrKOLRbMnfPINPOML2CIFeXA==
 
+node-gyp-build@~3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-3.7.0.tgz#daa77a4f547b9aed3e2aac779eaf151afd60ec8d"
+  integrity sha512-L/Eg02Epx6Si2NXmedx+Okg+4UHqmaf3TNcxd50SF9NQGcJaON3AtU++kax69XV7YWz4tUspqZSAsVofhFKG2w==
+
 node-int64@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
@@ -8794,10 +8801,10 @@ punycode@^1.2.4, punycode@^1.4.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
   integrity sha1-wNWmOycYgArY4esPpSachN1BhF4=
 
-puppeteer@^1.12.2:
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-1.12.2.tgz#dbc36afc3ba2d7182b1a37523c0081a0e8507c9a"
-  integrity sha512-xWSyCeD6EazGlfnQweMpM+Hs6X6PhUYhNTHKFj/axNZDq4OmrVERf70isBf7HsnFgB3zOC1+23/8+wCAZYg+Pg==
+puppeteer@^1.13.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-1.13.0.tgz#187ccf5ed5caf08ed1291b262d033cc364bf88ab"
+  integrity sha512-LUXgvhjfB/P6IOUDAKxOcbCz9ISwBLL9UpKghYrcBDwrOGx1m60y0iN2M64mdAUbT4+7oZM5DTxOW7equa2fxQ==
   dependencies:
     debug "^4.1.0"
     extract-zip "^1.6.6"
@@ -10454,6 +10461,13 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
+
+utf-8-validate@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/utf-8-validate/-/utf-8-validate-5.0.2.tgz#63cfbccd85dc1f2b66cf7a1d0eebc08ed056bfb3"
+  integrity sha512-SwV++i2gTD5qh2XqaPzBnNX88N6HdyhQrNNRykvcS0QKvItV9u3vPEJr+X5Hhfb1JC0r0e1alL0iB09rY8+nmw==
+  dependencies:
+    node-gyp-build "~3.7.0"
 
 utif@^2.0.1:
   version "2.0.1"
