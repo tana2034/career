@@ -36,13 +36,17 @@ export default {
   methods: {
     createPdf: function(event) {
       axios
-        .post('/download/pdf', querystring.stringify(this.$store.state), {
-          responseType: 'blob',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            Accept: 'application/pdf'
+        .post(
+          '/.netlify/functions/pdf',
+          querystring.stringify(this.$store.state),
+          {
+            responseType: 'blob',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              Accept: 'application/pdf'
+            }
           }
-        })
+        )
         .then(res => {
           const url = window.URL.createObjectURL(
             new Blob([res.data], { type: 'application/pdf' })
