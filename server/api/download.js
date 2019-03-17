@@ -8,11 +8,13 @@ router.use(bodyParser.urlencoded())
 
 router.post('/pdf', function(req, res) {
   ;(async () => {
-    const browser = await puppeteer.launch()
+    const browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    })
     const page = await browser.newPage()
     const domain =
       process.env.NODE_ENV === 'production'
-        ? 'https://dazzling-meitner-437a0b.netlify.com'
+        ? 'https://guarded-oasis-82241.herokuapp.com/'
         : 'http://localhost:3000'
     await page.goto(domain + '/print/resume', {
       waitUntil: 'networkidle2'
