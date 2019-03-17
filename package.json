@@ -13,6 +13,7 @@
     "precommit": "npm run lint",
     "build:lambda": "netlify-lambda build functions",
     "start:lambda": "netlify-lambda serve functions",
+    "heroku-postbuild": "yarn run build",
     "test": "jest"
   },
   "dependencies": {
