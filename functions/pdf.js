@@ -6,9 +6,9 @@ exports.handler = async function(event, context, callback) {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   const domain =
-      process.env.NODE_ENV === 'production'
-        ? 'https://dazzling-meitner-437a0b.netlify.com'
-        : 'http://localhost:3000'
+    process.env.NODE_ENV === 'production'
+      ? 'https://dazzling-meitner-437a0b.netlify.com'
+      : 'http://localhost:3000'
   await page.goto(domain + '/print/resume', {
     waitUntil: 'networkidle2'
   })

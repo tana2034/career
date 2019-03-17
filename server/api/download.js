@@ -6,11 +6,14 @@ const bodyParser = require('body-parser')
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded())
 
-router.post('/pdf', function (req, res) {
-  ; (async () => {
+router.post('/pdf', function(req, res) {
+  ;(async () => {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
-    const domain = process.env.NODE_ENV === 'production' ? 'https://dazzling-meitner-437a0b.netlify.com' : 'http://localhost:3000';
+    const domain =
+      process.env.NODE_ENV === 'production'
+        ? 'https://dazzling-meitner-437a0b.netlify.com'
+        : 'http://localhost:3000'
     await page.goto(domain + '/print/resume', {
       waitUntil: 'networkidle2'
     })
