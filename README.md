@@ -1,6 +1,14 @@
 # career
 
-> nuxt.js project
+自分の経歴を定期的に棚卸しするためのWEBサイト
+
+https://guarded-oasis-82241.herokuapp.com/
+
+- プラットフォーム：heroku
+- 言語：JavaScript
+- WEBフレームワーク：nuxt.js (SPA mode)
+- WEBフレームワーク（サーバサイド）：express
+- CSSフレームワーク：Vuetify
 
 ## Build Setup
 
@@ -18,5 +26,3 @@ $ yarn start
 # generate static project
 $ yarn run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
