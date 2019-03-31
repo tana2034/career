@@ -9,8 +9,13 @@ https://guarded-oasis-82241.herokuapp.com/
 - WEBフレームワーク：nuxt.js (SPA mode)
 - WEBフレームワーク（サーバサイド）：express
 - CSSフレームワーク：Vuetify
-  
+
 PDFはpuppeteerで生成
+
+## 今後の予定
+
+- localStorageに入力内容を保存
+- ログイン機能追加
 
 ## Build Setup
 
