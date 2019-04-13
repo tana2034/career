@@ -8,7 +8,7 @@
               <v-layout row>
                 <v-flex xs12 md6 xl6>
                   <v-text-field
-                    v-model="$store.state.lastname"
+                    v-model="$store.state.resume.lastname"
                     :counter="10"
                     label="Last name"
                     required
@@ -16,7 +16,7 @@
                 </v-flex>
                 <v-flex xs12 md6 xl6>
                   <v-text-field
-                    v-model="$store.state.firstname"
+                    v-model="$store.state.resume.firstname"
                     :counter="10"
                     label="First name"
                     required
@@ -26,7 +26,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.email"
+                    v-model="$store.state.resume.email"
                     label="E-mail"
                     required
                   />
@@ -35,7 +35,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.address"
+                    v-model="$store.state.resume.address"
                     label="Address"
                     required
                   />
@@ -44,7 +44,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.tel"
+                    v-model="$store.state.resume.tel"
                     label="Tel"
                     required
                   />
@@ -53,7 +53,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-textarea
-                    v-model="$store.state.summary"
+                    v-model="$store.state.resume.summary"
                     label="Summary"
                     required
                   />
@@ -62,7 +62,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.qualification"
+                    v-model="$store.state.resume.qualification"
                     label="Qualification"
                     required
                   />
@@ -71,7 +71,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.language"
+                    v-model="$store.state.resume.language"
                     label="Language"
                     required
                   />
@@ -80,7 +80,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.os"
+                    v-model="$store.state.resume.os"
                     label="OS"
                     required
                   />
@@ -89,7 +89,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.database"
+                    v-model="$store.state.resume.database"
                     label="Database"
                     required
                   />
@@ -98,7 +98,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.framework"
+                    v-model="$store.state.resume.framework"
                     label="Web Framework"
                     required
                   />
@@ -107,7 +107,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.tools"
+                    v-model="$store.state.resume.tools"
                     label="Middleware and Tools"
                     required
                   />
@@ -120,12 +120,12 @@
                 </v-flex>
               </v-layout>
               <WorkExperienceForm
-                v-for="(work, index) in $store.state.work_experiences" 
+                v-for="(work, index) in $store.state.resume.work_experiences" 
                 :key="index" 
                 :work="work"
                 :index="index"
               />
-              <v-btn color="success" @click="$store.commit('addTerm')">
+              <v-btn color="success" @click="$store.commit('resume/addTerm')">
                 期間を追加する
               </v-btn>
               <v-layout row justify-end>

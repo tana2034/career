@@ -57,7 +57,7 @@
           :content="content" 
           :indexcontent="indexcontent"
         />
-        <v-btn color="success" @click="$store.commit('addContent', index)">
+        <v-btn color="success" @click="$store.commit('resume/addContent', index)">
           コンテンツを追加する
         </v-btn>
       </v-flex>
