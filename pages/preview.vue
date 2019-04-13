@@ -12,6 +12,7 @@
 import Resume from '~/components/Resume.vue'
 
 export default {
+  layout: 'pdf',
   components: {
     Resume
   }
