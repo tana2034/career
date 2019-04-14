@@ -168,7 +168,10 @@ export default {
         return this.$store.state.resume.lastname
       },
       set(value) {
-        this.$store.commit('resume/add', 'lastname', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'lastname',
+          value: value
+        })
       }
     },
     firstname: {
@@ -176,7 +179,10 @@ export default {
         return this.$store.state.resume.firstname
       },
       set(value) {
-        this.$store.commit('resume/add', 'firstname', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'firstname',
+          value: value
+        })
       }
     },
     email: {
@@ -184,7 +190,10 @@ export default {
         return this.$store.state.resume.email
       },
       set(value) {
-        this.$store.commit('resume/add', 'email', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'email',
+          value: value
+        })
       }
     },
     address: {
@@ -192,7 +201,10 @@ export default {
         return this.$store.state.resume.address
       },
       set(value) {
-        this.$store.commit('resume/add', 'address', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'address',
+          value: value
+        })
       }
     },
     tel: {
@@ -200,7 +212,7 @@ export default {
         return this.$store.state.resume.tel
       },
       set(value) {
-        this.$store.commit('resume/add', 'tel', value)
+        this.$store.commit('resume/updateResume', { key: 'tel', value: value })
       }
     },
     summary: {
@@ -208,7 +220,10 @@ export default {
         return this.$store.state.resume.summary
       },
       set(value) {
-        this.$store.commit('resume/add', 'summary', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'summary',
+          value: value
+        })
       }
     },
     qualification: {
@@ -216,7 +231,10 @@ export default {
         return this.$store.state.resume.qualification
       },
       set(value) {
-        this.$store.commit('resume/add', 'qualification', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'qualification',
+          value: value
+        })
       }
     },
     language: {
@@ -224,7 +242,10 @@ export default {
         return this.$store.state.resume.language
       },
       set(value) {
-        this.$store.commit('resume/add', 'language', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'language',
+          value: value
+        })
       }
     },
     os: {
@@ -232,7 +253,7 @@ export default {
         return this.$store.state.resume.os
       },
       set(value) {
-        this.$store.commit('resume/add', 'os', value)
+        this.$store.commit('resume/updateResume', { key: 'os', value: value })
       }
     },
     database: {
@@ -240,7 +261,10 @@ export default {
         return this.$store.state.resume.database
       },
       set(value) {
-        this.$store.commit('resume/add', 'database', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'database',
+          value: value
+        })
       }
     },
     framework: {
@@ -248,7 +272,10 @@ export default {
         return this.$store.state.resume.framework
       },
       set(value) {
-        this.$store.commit('resume/add', 'framework', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'framework',
+          value: value
+        })
       }
     },
     tools: {
@@ -256,7 +283,10 @@ export default {
         return this.$store.state.resume.tools
       },
       set(value) {
-        this.$store.commit('resume/add', 'tools', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'tools',
+          value: value
+        })
       }
     },
     work_experiences: {
@@ -264,7 +294,10 @@ export default {
         return this.$store.state.resume.work_experiences
       },
       set(value) {
-        this.$store.commit('resume/add', 'work_experiences', value)
+        this.$store.commit('resume/updateResume', {
+          key: 'work_experiences',
+          value: value
+        })
       }
     }
   }

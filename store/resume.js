@@ -27,8 +27,8 @@ export const state = () => ({
 })
 
 export const mutations = {
-  add(state, key, text) {
-    state[key] = text
+  updateResume(state, content) {
+    state[content.key] = content.value
   },
   addTerm(state) {
     state.work_experiences.push({
@@ -60,8 +60,5 @@ export const mutations = {
     const i = content.indexParent
     const j = content.indexContent
     state.work_experiences[i].contents[j][content.key] = content.value
-  },
-  toggleModal(state, value) {
-    state.modal = value
   }
 }
