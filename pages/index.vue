@@ -8,7 +8,7 @@
               <v-layout row>
                 <v-flex xs12 md6 xl6>
                   <v-text-field
-                    v-model="$store.state.resume.lastname"
+                    v-model="lastname"
                     :counter="10"
                     label="Last name"
                     required
@@ -16,7 +16,7 @@
                 </v-flex>
                 <v-flex xs12 md6 xl6>
                   <v-text-field
-                    v-model="$store.state.resume.firstname"
+                    v-model="firstname"
                     :counter="10"
                     label="First name"
                     required
@@ -26,7 +26,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.resume.email"
+                    v-model="email"
                     label="E-mail"
                     required
                   />
@@ -35,7 +35,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.resume.address"
+                    v-model="address"
                     label="Address"
                     required
                   />
@@ -44,7 +44,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.resume.tel"
+                    v-model="tel"
                     label="Tel"
                     required
                   />
@@ -53,7 +53,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-textarea
-                    v-model="$store.state.resume.summary"
+                    v-model="summary"
                     label="Summary"
                     required
                   />
@@ -62,7 +62,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.resume.qualification"
+                    v-model="qualification"
                     label="Qualification"
                     required
                   />
@@ -71,7 +71,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.resume.language"
+                    v-model="language"
                     label="Language"
                     required
                   />
@@ -80,7 +80,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.resume.os"
+                    v-model="os"
                     label="OS"
                     required
                   />
@@ -89,7 +89,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.resume.database"
+                    v-model="database"
                     label="Database"
                     required
                   />
@@ -98,7 +98,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.resume.framework"
+                    v-model="framework"
                     label="Web Framework"
                     required
                   />
@@ -107,7 +107,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="$store.state.resume.tools"
+                    v-model="tools"
                     label="Middleware and Tools"
                     required
                   />
@@ -120,7 +120,7 @@
                 </v-flex>
               </v-layout>
               <WorkExperienceForm
-                v-for="(work, index) in $store.state.resume.work_experiences" 
+                v-for="(work, index) in work_experiences" 
                 :key="index" 
                 :work="work"
                 :index="index"
@@ -161,6 +161,112 @@ export default {
     }
   },
   layout: 'default',
-  components: { WorkExperienceForm }
+  components: { WorkExperienceForm },
+  computed: {
+    lastname: {
+      get() {
+        return this.$store.state.resume.lastname
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'lastname', value)
+      }
+    },
+    firstname: {
+      get() {
+        return this.$store.state.resume.firstname
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'firstname', value)
+      }
+    },
+    email: {
+      get() {
+        return this.$store.state.resume.email
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'email', value)
+      }
+    },
+    address: {
+      get() {
+        return this.$store.state.resume.address
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'address', value)
+      }
+    },
+    tel: {
+      get() {
+        return this.$store.state.resume.tel
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'tel', value)
+      }
+    },
+    summary: {
+      get() {
+        return this.$store.state.resume.summary
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'summary', value)
+      }
+    },
+    qualification: {
+      get() {
+        return this.$store.state.resume.qualification
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'qualification', value)
+      }
+    },
+    language: {
+      get() {
+        return this.$store.state.resume.language
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'language', value)
+      }
+    },
+    os: {
+      get() {
+        return this.$store.state.resume.os
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'os', value)
+      }
+    },
+    database: {
+      get() {
+        return this.$store.state.resume.database
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'database', value)
+      }
+    },
+    framework: {
+      get() {
+        return this.$store.state.resume.framework
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'framework', value)
+      }
+    },
+    tools: {
+      get() {
+        return this.$store.state.resume.tools
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'tools', value)
+      }
+    },
+    work_experiences: {
+      get() {
+        return this.$store.state.resume.work_experiences
+      },
+      set(value) {
+        this.$store.commit('resume/add', 'work_experiences', value)
+      }
+    }
+  }
 }
 </script>

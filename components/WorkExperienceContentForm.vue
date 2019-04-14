@@ -15,13 +15,19 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
-                v-model="content.from"
+                :value="from"
                 label="from"
                 readonly
                 v-on="on"
               />
             </template>
-            <v-date-picker v-model="content.from" scrollable landscape color="blue" @input="closeFromModal" />  
+            <v-date-picker 
+              :value="from"
+              scrollable
+              landscape 
+              color="blue" 
+              @input="updateContent('from', $event); closeFromModal()"
+            />  
           </v-menu>
         </v-flex>     
         <v-flex xs12 md6 xl6>
@@ -37,34 +43,41 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
-                v-model="content.to"
+                :value="to" 
                 label="to"
                 readonly
                 v-on="on"
               />
             </template>
-            <v-date-picker v-model="content.to" scrollable landscape color="blue" @input="closeToModal" />
+            <v-date-picker 
+              :value="to"
+              scrollable 
+              landscape 
+              color="blue" 
+              @input="updateContent('to', $event); closeToModal()"
+            />
           </v-menu>
         </v-flex>
       </v-layout>
       <v-layout row wrap>
         <v-flex xs12>
           <v-text-field
-            v-model="content.title"
-            label="title"
+            :value="title"
+            label="title" 
+            @input="updateContent('title', $event)"
           />
         </v-flex>
       </v-layout>
       <v-layout row wrap>
         <v-flex xs12>
           <v-textarea 
-            v-model="content.description"
-            label="description"
+            :value="description"
+            label="description" 
+            @input="updateContent('description', $event)"
           />
         </v-flex>
       </v-layout>
     </v-card-text>
-    </v-layout>
   </v-card>
 </template>
 
@@ -76,6 +89,18 @@ export default {
       default: () => {
         return ''
       }
+    },
+    indexContent: {
+      type: Number,
+      default: () => {
+        return 0
+      }
+    },
+    indexParent: {
+      type: Number,
+      default: () => {
+        return 0
+      }
     }
   },
   data: function() {
@@ -86,12 +111,46 @@ export default {
       }
     }
   },
+  computed: {
+    title: {
+      get() {
+        return this.$store.state.resume.work_experiences[this.indexParent]
+          .contents[this.indexContent].title
+      }
+    },
+    description: {
+      get() {
+        return this.$store.state.resume.work_experiences[this.indexParent]
+          .contents[this.indexContent].description
+      }
+    },
+    from: {
+      get() {
+        return this.$store.state.resume.work_experiences[this.indexParent]
+          .contents[this.indexContent].from
+      }
+    },
+    to: {
+      get() {
+        return this.$store.state.resume.work_experiences[this.indexParent]
+          .contents[this.indexContent].to
+      }
+    }
+  },
   methods: {
     closeFromModal() {
       this.modal.from = false
     },
     closeToModal() {
       this.modal.to = false
+    },
+    updateContent(key, value) {
+      this.$store.commit('resume/updateWorkExperienceContent', {
+        indexParent: this.indexParent,
+        indexContent: this.indexContent,
+        key: key,
+        value: value
+      })
     }
   }
 }

@@ -34,6 +34,7 @@ export const mutations = {
     state.work_experiences.push({
       from: '',
       to: '',
+      company: '',
       contents: [
         {
           from: '',
@@ -51,6 +52,14 @@ export const mutations = {
       title: '',
       description: ''
     })
+  },
+  updateWorkExperience(state, work) {
+    state.work_experiences[work.index][work.key] = work.value
+  },
+  updateWorkExperienceContent(state, content) {
+    const i = content.indexParent
+    const j = content.indexContent
+    state.work_experiences[i].contents[j][content.key] = content.value
   },
   toggleModal(state, value) {
     state.modal = value
