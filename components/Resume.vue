@@ -10,14 +10,14 @@
     <v-layout row wrap mb-3>
       <v-flex sm12 lg12>
         <div>
-        <h2 class="title">
-          <span id="lastname">
-            {{ $store.state.resume.lastname }}
-          </span>
-          <span id="firstname">
-            {{ $store.state.resume.firstname }}
-          </span>
-        </h2>
+          <h2 class="title">
+            <span>
+              {{ $store.state.resume.lastname }}
+            </span>
+            <span>
+              {{ $store.state.resume.firstname }}
+            </span>
+          </h2>
         </div>
       </v-flex>
     </v-layout>
@@ -26,8 +26,18 @@
         email
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="email">
+        <p>
           {{ $store.state.resume.email }}
+        </p>
+      </v-flex>
+    </v-layout>
+    <v-layout row wrap>
+      <v-flex xs2 sm2 lg2>
+        生年月日
+      </v-flex>
+      <v-flex xs10 sm10 lg10>
+        <p>
+          {{ $store.state.resume.birth_date }}
         </p>
       </v-flex>
     </v-layout>
@@ -36,7 +46,7 @@
         住所
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="address">
+        <p>
           {{ $store.state.resume.address }}
         </p>
       </v-flex>
@@ -46,7 +56,7 @@
         電話番号
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="tel">
+        <p>
           {{ $store.state.resume.tel }}
         </p>
       </v-flex>
@@ -56,7 +66,7 @@
         プロフィール
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="summary">
+        <p>
           {{ $store.state.resume.summary }}
         </p>
       </v-flex>
@@ -66,7 +76,7 @@
         資格
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="qualification">
+        <p>
           {{ $store.state.resume.qualification }}
         </p>
       </v-flex>
@@ -76,7 +86,7 @@
         言語
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="language">
+        <p>
           {{ $store.state.resume.language }}
         </p>
       </v-flex>
@@ -86,7 +96,7 @@
         OS
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="os">
+        <p>
           {{ $store.state.resume.os }}
         </p>
       </v-flex>
@@ -96,7 +106,7 @@
         データベース
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="database">
+        <p>
           {{ $store.state.resume.database }}
         </p>
       </v-flex>
@@ -106,7 +116,7 @@
         フレームワーク
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="framework">
+        <p>
           {{ $store.state.resume.framework }}
         </p>
       </v-flex>
@@ -116,14 +126,32 @@
         ミドルウェアやツール
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p id="tools">
+        <p>
           {{ $store.state.resume.tools }}
         </p>
       </v-flex>
     </v-layout>
     <v-layout row wrap mt-3>
       <div>
-        <h3 class="subheading">職務経歴</h3>
+        <h3 class="subheading">
+          学歴
+        </h3>
+      </div>
+    </v-layout>
+    <v-layout row wrap>
+          <v-flex xs12 md12 xl12 mb-1 mt-3>
+      <v-subheader light>
+        <div>
+          <span>{{ $store.state.resume.graduation_year }}</span><h4>{{ $store.state.resume.education }}</h4>
+        </div>
+      </v-subheader>
+          </v-flex>
+    </v-layout>
+    <v-layout row wrap mt-3>
+      <div>
+        <h3 class="subheading">
+          職務経歴
+        </h3>
       </div>
     </v-layout>
     <WorkExperienceTable

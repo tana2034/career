@@ -34,6 +34,34 @@
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
+                  <v-menu
+                    v-model="modal.birth_date"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    lazy
+                    transition="scale-transition"
+                    full-width
+                  >
+                    <template v-slot:activator="{on}">
+                      <v-text-field
+                        v-model="birth_date"
+                        name="birth_date"
+                        readonly
+                        label="birth date"
+                        v-on="on"
+                      />
+                    </template>
+                    <v-date-picker 
+                      v-model="birth_date" 
+                      landscape 
+                      color="blue"
+                      @input="closeModal('birth_date')"
+                    />
+                  </v-menu>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs12>
                   <v-text-field
                     v-model="address"
                     label="Address"
@@ -118,6 +146,46 @@
                 <v-flex x12>
                   <div>これまでの経験</div>
                 </v-flex>
+              </v-layout>              
+              <v-layout row wrap>
+                <v-flex xs12>
+                  <v-container grid-list-md>
+                    <v-layout row wrap>
+                      <v-flex xs12 md12 xl12>
+                        <v-menu
+                          v-model="modal.graduation_year"
+                          :close-on-content-click="false"
+                          :nudge-right="40"
+                          lazy
+                          transition="scale-transition"
+                          full-width
+                        >
+                          <template v-slot:activator="{on}">
+                            <v-text-field
+                              v-model="graduation_year"
+                              name="graduation_year"
+                              readonly
+                              label="the year of graduation"
+                              v-on="on"
+                            />
+                          </template>
+                          <v-date-picker 
+                            v-model="graduation_year" 
+                            landscape 
+                            type="month"
+                            color="blue"
+                            @input="closeModal('graduation_year')"
+                          />
+                        </v-menu>
+                        <v-text-field 
+                          v-model="education" 
+                          name="education" 
+                          label="education"
+                        />
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-flex>
               </v-layout>
               <WorkExperienceForm
                 v-for="(work, index) in work_experiences" 
@@ -160,8 +228,16 @@ export default {
       title: '職務経歴書'
     }
   },
-  layout: 'default',
   components: { WorkExperienceForm },
+  data: function() {
+    return {
+      modal: {
+        graduation_year: false,
+        birth_date: false
+      }
+    }
+  },
+  layout: 'default',
   computed: {
     lastname: {
       get() {
@@ -192,6 +268,17 @@ export default {
       set(value) {
         this.$store.commit('resume/updateResume', {
           key: 'email',
+          value: value
+        })
+      }
+    },
+    birth_date: {
+      get() {
+        return this.$store.state.resume.birth_date
+      },
+      set(value) {
+        this.$store.commit('resume/updateResume', {
+          key: 'birth_date',
           value: value
         })
       }
@@ -289,6 +376,28 @@ export default {
         })
       }
     },
+    education: {
+      get() {
+        return this.$store.state.resume.education
+      },
+      set(value) {
+        this.$store.commit('resume/updateResume', {
+          key: 'education',
+          value: value
+        })
+      }
+    },
+    graduation_year: {
+      get() {
+        return this.$store.state.resume.graduation_year
+      },
+      set(value) {
+        this.$store.commit('resume/updateResume', {
+          key: 'graduation_year',
+          value: value
+        })
+      }
+    },
     work_experiences: {
       get() {
         return this.$store.state.resume.work_experiences
@@ -299,6 +408,11 @@ export default {
           value: value
         })
       }
+    }
+  },
+  methods: {
+    closeModal(key) {
+      this.modal[key] = false
     }
   }
 }

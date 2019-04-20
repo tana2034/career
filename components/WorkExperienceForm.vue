@@ -1,7 +1,7 @@
 <template>
   <v-container fluid grid-list-md>
     <v-layout row wrap>
-      <v-flex xs12 md4 xl4 d-flex>
+      <v-flex xs12 md4 xl4>
         <v-card color="blue lighten-5">
           <v-card-text>
             <v-text-field

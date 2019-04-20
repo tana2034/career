@@ -2,6 +2,7 @@ export const state = () => ({
   lastname: '',
   firstname: '',
   email: '',
+  birth_date: '',
   tel: '',
   summary: '',
   language: '',
@@ -9,6 +10,8 @@ export const state = () => ({
   database: '',
   framework: '',
   tools: '',
+  education: '',
+  graduation_year: '',
   work_experiences: [
     {
       from: '',
