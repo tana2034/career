@@ -1,70 +1,72 @@
 <template>
   <v-container fluid grid-list-md>
     <v-layout row wrap>
-      <v-flex xs12 md4 xl4>
-        <v-card color="blue lighten-5">
-          <v-card-text>
+      <v-flex xs12 md6 xl6>
+        <v-menu
+          v-model="modal.from"
+          :close-on-content-click="false"
+          :nudge-right="40"
+          lazy
+          transition="scale-transition"
+          full-width
+          min-width="290px"
+        >
+          <template v-slot:activator="{on}">
             <v-text-field
-              :value="company"
-              name="company"
-              label="company"
-              @input="updateWorkExperience('company', $event)"
+              :value="from"
+              label="from"
+              readonly
+              v-on="on"
             />
-            <v-menu
-              v-model="modal.from"
-              :close-on-content-click="false"
-              :nudge-right="40"
-              lazy
-              transition="scale-transition"
-              full-width
-              min-width="290px"
-            >
-              <template v-slot:activator="{on}">
-                <v-text-field
-                  :value="from"
-                  label="from"
-                  readonly
-                  v-on="on"
-                />
-              </template>
-              <v-date-picker 
-                :value="from"
-                scrollable 
-                landscape 
-                color="blue" 
-                @input="updateWorkExperience('from', $event); closeFromModal()"
-              />  
-            </v-menu>
-            <v-menu
-              v-model="modal.to"
-              :close-on-content-click="false"
-              :nudge-right="40"
-              lazy
-              transition="scale-transition"
-              full-width
-              min-width="290px"
-            >
-              <template v-slot:activator="{on}">
-                <v-text-field
-                  :value="to"
-                  label="to"
-                  readonly
-                  @input="updateWorkExperience('to', $event)"
-                  v-on="on"
-                />
-              </template>
-              <v-date-picker 
-                :value="to"
-                scrollable
-                landscape 
-                color="blue" 
-                @input="updateWorkExperience('to', $event); closeToModal()"
-              />
-            </v-menu>
-          </v-card-text>
-        </v-card>
+          </template>
+          <v-date-picker 
+            :value="from"
+            scrollable 
+            landscape 
+            color="blue" 
+            type="month"
+            @input="updateWorkExperience('from', $event); closeFromModal()"
+          />  
+        </v-menu>
       </v-flex>
-      <v-flex xs12 md8 xl8>
+      <v-flex xs12 md6 xl6>
+        <v-menu
+          v-model="modal.to"
+          :close-on-content-click="false"
+          :nudge-right="40"
+          lazy
+          transition="scale-transition"
+          full-width
+          min-width="290px"
+        >
+          <template v-slot:activator="{on}">
+            <v-text-field
+              :value="to"
+              label="to"
+              readonly
+              @input="updateWorkExperience('to', $event)"
+              v-on="on"
+            />
+          </template>
+          <v-date-picker 
+            :value="to"
+            scrollable
+            landscape 
+            color="blue" 
+            type="month"
+            @input="updateWorkExperience('to', $event); closeToModal()"
+          />
+        </v-menu>
+      </v-flex>
+      <v-flex xs12 md12 xl12>
+        <v-text-field
+          :value="company"
+          name="company"
+          label="company"
+          @input="updateWorkExperience('company', $event)"
+        />
+      </v-flex>
+      <v-flex xs12 md12 xl12>
         <WorkExperienceContentForm
           v-for="(content, indexcontent) in work.contents" 
           :key="indexcontent" 
