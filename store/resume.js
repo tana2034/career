@@ -10,6 +10,7 @@ export const state = () => ({
   database: '',
   framework: '',
   tools: '',
+  github: '',
   education: '',
   graduation_year: '',
   work_experiences: [

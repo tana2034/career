@@ -142,6 +142,15 @@
                   />
                 </v-flex>
               </v-layout>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-text-field
+                    v-model="github"
+                    label="Github Account"
+                  />
+                </v-flex>
+              </v-layout>
+
               <v-spacer />
               <v-layout row>
                 <v-flex x12>
@@ -379,6 +388,17 @@ export default {
       set(value) {
         this.$store.commit('resume/updateResume', {
           key: 'tools',
+          value: value
+        })
+      }
+    },
+    github: {
+      get() {
+        return this.$store.state.resume.github
+      },
+      set(value) {
+        this.$store.commit('resume/updateResume', {
+          key: 'github',
           value: value
         })
       }

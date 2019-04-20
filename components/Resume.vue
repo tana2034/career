@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row wrap mb-4>
       <v-flex sm12 lg12>
-        <h1 class="headline">
+        <h1 class="display-2">
           職務経歴書
         </h1>
       </v-flex>
@@ -10,7 +10,7 @@
     <v-layout row wrap mb-3>
       <v-flex sm12 lg12>
         <div>
-          <h2 class="title">
+          <h2 class="display-1">
             <span>
               {{ $store.state.resume.lastname }}
             </span>
@@ -20,6 +20,11 @@
           </h2>
         </div>
       </v-flex>
+    </v-layout>
+    <v-layout row wrap my-3>
+      <div class="headline">
+        プロフィール
+      </div>
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
@@ -63,13 +68,18 @@
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
-        プロフィール
+        自己紹介
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
           {{ $store.state.resume.summary }}
         </p>
       </v-flex>
+    </v-layout>
+    <v-layout row wrap my-3>
+      <div class="headline">
+        スキル
+      </div>
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
@@ -131,27 +141,34 @@
         </p>
       </v-flex>
     </v-layout>
+    <v-layout row wrap>
+      <v-flex xs2 sm2 lg2>
+        GitHub
+      </v-flex>
+      <v-flex xs10 sm10 lg10>
+        <p>
+          {{ $store.state.resume.github }}
+        </p>
+      </v-flex>
+    </v-layout>
     <v-layout row wrap mt-3>
-      <div>
-        <h3 class="subheading">
-          学歴
-        </h3>
+      <div class="headline">
+        学歴
       </div>
     </v-layout>
     <v-layout row wrap>
       <v-flex xs12 md12 xl12 mb-1 mt-3>
-        <v-subheader light>
-          <div>
-            <span>{{ $store.state.resume.graduation_year }}</span><h4>{{ $store.state.resume.education }}</h4>
-          </div>
-        </v-subheader>
+        <div>
+          <span>{{ $store.state.resume.graduation_year }}</span>
+          <h4 class="subheading">
+            {{ $store.state.resume.education }}
+          </h4>
+        </div>
       </v-flex>
     </v-layout>
     <v-layout row wrap mt-3>
-      <div>
-        <h3 class="subheading">
-          職務経歴
-        </h3>
+      <div class="headline">
+        職務経歴
       </div>
     </v-layout>
     <WorkExperienceTable
