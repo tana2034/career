@@ -41,6 +41,7 @@
                     lazy
                     transition="scale-transition"
                     full-width
+                    min-width="290px"
                   >
                     <template v-slot:activator="{on}">
                       <v-text-field
@@ -144,9 +145,9 @@
               <v-spacer />
               <v-layout row>
                 <v-flex x12>
-                  <div>これまでの経験</div>
+                  <div>学歴</div>
                 </v-flex>
-              </v-layout>              
+              </v-layout>
               <v-layout row wrap>
                 <v-flex xs12>
                   <v-container grid-list-md>
@@ -159,6 +160,7 @@
                           lazy
                           transition="scale-transition"
                           full-width
+                          min-width="290px"
                         >
                           <template v-slot:activator="{on}">
                             <v-text-field
@@ -185,6 +187,11 @@
                       </v-flex>
                     </v-layout>
                   </v-container>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex x12>
+                  <div>職歴</div>
                 </v-flex>
               </v-layout>
               <WorkExperienceForm

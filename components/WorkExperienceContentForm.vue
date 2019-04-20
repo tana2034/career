@@ -26,6 +26,7 @@
               scrollable
               landscape 
               color="blue" 
+              type="month"
               @input="updateContent('from', $event); closeFromModal()"
             />  
           </v-menu>
@@ -54,6 +55,7 @@
               scrollable 
               landscape 
               color="blue" 
+              type="month"
               @input="updateContent('to', $event); closeToModal()"
             />
           </v-menu>

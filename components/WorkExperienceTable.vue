@@ -3,7 +3,7 @@
     <v-flex xs12 md12 xl12 mb-1 mt-3>
       <v-subheader light>
         <div>
-          <span>{{ work.from }}-{{ work.to }}</span><h4>{{ work.company }}</h4>
+          <span>{{ work.from }} - {{ work.to }}</span><h4>{{ work.company }}</h4>
         </div>
       </v-subheader>
     </v-flex> 

@@ -139,13 +139,13 @@
       </div>
     </v-layout>
     <v-layout row wrap>
-          <v-flex xs12 md12 xl12 mb-1 mt-3>
-      <v-subheader light>
-        <div>
-          <span>{{ $store.state.resume.graduation_year }}</span><h4>{{ $store.state.resume.education }}</h4>
-        </div>
-      </v-subheader>
-          </v-flex>
+      <v-flex xs12 md12 xl12 mb-1 mt-3>
+        <v-subheader light>
+          <div>
+            <span>{{ $store.state.resume.graduation_year }}</span><h4>{{ $store.state.resume.education }}</h4>
+          </div>
+        </v-subheader>
+      </v-flex>
     </v-layout>
     <v-layout row wrap mt-3>
       <div>
