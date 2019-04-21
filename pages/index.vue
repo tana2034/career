@@ -145,6 +145,15 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
+                    v-model="cloud_computing"
+                    label="Cloud Computing"
+                    required
+                  />
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-text-field
                     v-model="github"
                     label="Github Account"
                   />
@@ -154,7 +163,7 @@
               <v-spacer />
               <v-layout row>
                 <v-flex x12>
-                  <div>学歴</div>
+                  <div>最終学歴</div>
                 </v-flex>
               </v-layout>
               <v-layout row wrap>
@@ -388,6 +397,17 @@ export default {
       set(value) {
         this.$store.commit('resume/updateResume', {
           key: 'tools',
+          value: value
+        })
+      }
+    },
+    cloud_computing: {
+      get() {
+        return this.$store.state.resume.cloud_computing
+      },
+      set(value) {
+        this.$store.commit('resume/updateResume', {
+          key: 'cloud_computing',
           value: value
         })
       }

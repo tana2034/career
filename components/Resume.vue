@@ -143,6 +143,16 @@
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
+        クラウドサービス
+      </v-flex>
+      <v-flex xs10 sm10 lg10>
+        <p>
+          {{ $store.state.resume.cloud_computing }}
+        </p>
+      </v-flex>
+    </v-layout>
+    <v-layout row wrap>
+      <v-flex xs2 sm2 lg2>
         GitHub
       </v-flex>
       <v-flex xs10 sm10 lg10>
@@ -153,7 +163,7 @@
     </v-layout>
     <v-layout row wrap mt-3>
       <div class="headline">
-        学歴
+        最終学歴
       </div>
     </v-layout>
     <v-layout row wrap>
