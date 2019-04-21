@@ -1,35 +1,34 @@
 <template>
   <v-layout row wrap>
     <v-flex xs12 md12 xl12>
-      <v-list three-line>
+      <div>
         <div class="mt-3 mb-3">
           <span>{{ work.from }} - {{ work.to }}</span><h4 class="subheading">
             {{ work.company }}
           </h4>
+          <p class="grey--text">{{ work.company_profile }}</p>
         </div>
 
-        <v-list-tile
+        <div
           v-for="(content, i) in work.contents" 
           :key="i"
           :content="content"
         >
-          <v-list-tile-content>
-            <v-list-tile-title>
-              <div class="body-2">
-                <span>{{ content.title }}</span>
-              </div>
-            </v-list-tile-title>
-            <v-list-tile-sub-title>
+          <div class="pl-3">  
+            <div>
               <div>
                 <small class="caption"> {{ content.from }} - {{ content.to }} </small>
-                <p class="body-1">
+                <div class="body-2">
+                  <span>{{ content.title }}</span>
+                </div>
+                <p class="body-1 grey--text pt-1">
                   {{ content.description }}
                 </p>
               </div>
-            </v-list-tile-sub-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
+            </div>
+          </div>
+        </div>
+      </div>
     </v-flex>
   </v-layout>
 </template>

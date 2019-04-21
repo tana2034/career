@@ -10,6 +10,7 @@ export const state = () => ({
   database: '',
   framework: '',
   tools: '',
+  cloud_computing: '',
   github: '',
   education: '',
   graduation_year: '',
@@ -18,6 +19,7 @@ export const state = () => ({
       from: '',
       to: '',
       company: '',
+      company_profile: '',
       contents: [
         {
           from: '',
@@ -39,6 +41,7 @@ export const mutations = {
       from: '',
       to: '',
       company: '',
+      company_profile: '',
       contents: [
         {
           from: '',

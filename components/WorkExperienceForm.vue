@@ -67,6 +67,14 @@
         />
       </v-flex>
       <v-flex xs12 md12 xl12>
+        <v-text-field
+          :value="company_profile"
+          name="company profile"
+          label="company profile"
+          @input="updateWorkExperience('company_profile', $event)"
+        />
+      </v-flex>
+      <v-flex xs12 md12 xl12>
         <WorkExperienceContentForm
           v-for="(content, indexcontent) in work.contents" 
           :key="indexcontent" 
@@ -113,6 +121,12 @@ export default {
     company: {
       get() {
         return this.$store.state.resume.work_experiences[this.index].company
+      }
+    },
+    company_profile: {
+      get() {
+        return this.$store.state.resume.work_experiences[this.index]
+          .company_profile
       }
     },
     from: {
