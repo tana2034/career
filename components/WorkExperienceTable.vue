@@ -45,12 +45,6 @@ export default {
       default: () => {
         return ''
       }
-    },
-    headers: {
-      type: Array,
-      default: () => {
-        return ''
-      }
     }
   }
 }

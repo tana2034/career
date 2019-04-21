@@ -5,6 +5,7 @@ export const state = () => ({
   birth_date: '',
   tel: '',
   summary: '',
+  public_relations: '',
   language: '',
   os: '',
   database: '',
