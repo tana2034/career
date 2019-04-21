@@ -76,6 +76,16 @@
         </p>
       </v-flex>
     </v-layout>
+    <v-layout row wrap>
+      <v-flex xs2 sm2 lg2>
+        自己PR
+      </v-flex>
+      <v-flex xs10 sm10 lg10>
+        <p>
+          {{ $store.state.resume.public_relations }}
+        </p>
+      </v-flex>
+    </v-layout>
     <v-layout row wrap my-3>
       <div class="headline">
         スキル

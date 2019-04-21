@@ -90,6 +90,15 @@
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
+                  <v-textarea
+                    v-model="public_relations"
+                    label="PR"
+                    required
+                  />
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs12>
                   <v-text-field
                     v-model="qualification"
                     label="Qualification"
@@ -334,6 +343,17 @@ export default {
       set(value) {
         this.$store.commit('resume/updateResume', {
           key: 'summary',
+          value: value
+        })
+      }
+    },
+    public_relations: {
+      get() {
+        return this.$store.state.resume.public_relations
+      },
+      set(value) {
+        this.$store.commit('resume/updateResume', {
+          key: 'public_relations',
           value: value
         })
       }
