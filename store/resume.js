@@ -68,5 +68,10 @@ export const mutations = {
     const i = content.indexParent
     const j = content.indexContent
     state.work_experiences[i].contents[j][content.key] = content.value
+  },
+  deleteContent(state, content) {
+    const i = content.indexParent
+    const j = content.indexContent
+    delete state.work_experiences[i].contents.splice(j, 1)
   }
 }

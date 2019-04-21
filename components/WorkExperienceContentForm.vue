@@ -1,7 +1,14 @@
 <template>
   <v-card>
-    <v-card-text>
+    <v-card-text> 
       <v-layout row wrap>
+        <v-flex x12 md12 xl12 class="text-xs-right">
+          <div @click="deleteContent()">
+            <v-icon>
+              clear
+            </v-icon>
+          </div>
+        </v-flex>
         <v-flex xs12 md6 xl6>
           <v-menu
             v-model="modal.from"
@@ -89,7 +96,7 @@ export default {
     content: {
       type: Object,
       default: () => {
-        return ''
+        return {}
       }
     },
     indexContent: {
@@ -152,6 +159,12 @@ export default {
         indexContent: this.indexContent,
         key: key,
         value: value
+      })
+    },
+    deleteContent() {
+      this.$store.commit('resume/deleteContent', {
+        indexParent: this.indexParent,
+        indexContent: this.indexContent
       })
     }
   }

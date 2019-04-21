@@ -1,7 +1,7 @@
 <template>
   <v-container fluid grid-list-md>
     <v-layout row wrap>
-      <v-flex xs12 md6 xl6>
+      <v-flex xs6 md6 xl6>
         <v-menu
           v-model="modal.from"
           :close-on-content-click="false"
@@ -29,7 +29,7 @@
           />  
         </v-menu>
       </v-flex>
-      <v-flex xs12 md6 xl6>
+      <v-flex xs6 md6 xl6>
         <v-menu
           v-model="modal.to"
           :close-on-content-click="false"

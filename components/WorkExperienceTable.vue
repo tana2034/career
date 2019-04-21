@@ -6,7 +6,9 @@
           <span>{{ work.from }} - {{ work.to }}</span><h4 class="subheading">
             {{ work.company }}
           </h4>
-          <p class="grey--text">{{ work.company_profile }}</p>
+          <p class="grey--text">
+            {{ work.company_profile }}
+          </p>
         </div>
 
         <div
