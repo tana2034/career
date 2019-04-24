@@ -2,20 +2,20 @@
 
 自分の経歴を定期的に棚卸しするためのWEBサイト
 
-https://guarded-oasis-82241.herokuapp.com/
+https://blissful-lalande-eab957.netlify.com/
 
-- プラットフォーム：heroku
+- プラットフォーム：netlify
 - 言語：JavaScript
 - WEBフレームワーク：nuxt.js (SPA mode)
-- WEBフレームワーク（サーバサイド）：express
+- ~~WEBフレームワーク（サーバサイド）：express~~
 - CSSフレームワーク：Vuetify
 
-PDFはpuppeteerで生成
+~~PDFはpuppeteerで生成~~
 
 ## 今後の予定
 
-- localStorageに入力内容を保存
 - ログイン機能追加
+- デザイン変更
 
 ## Build Setup
 
