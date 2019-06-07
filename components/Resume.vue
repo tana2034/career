@@ -11,10 +11,10 @@
       <v-flex sm12 lg12>
         <div>
           <h2 class="display-1">
-            <span>
+            <span class="lastname">
               {{ $store.state.resume.lastname }}
             </span>
-            <span>
+            <span class="firstname">
               {{ $store.state.resume.firstname }}
             </span>
           </h2>
@@ -31,7 +31,7 @@
         email
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p>
+        <p class="email">
           {{ $store.state.resume.email }}
         </p>
       </v-flex>
@@ -41,7 +41,7 @@
         生年月日
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p>
+        <p class="birth_date">
           {{ $store.state.resume.birth_date }}
         </p>
       </v-flex>
@@ -51,7 +51,7 @@
         住所
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p>
+        <p class="address">
           {{ $store.state.resume.address }}
         </p>
       </v-flex>
@@ -61,7 +61,7 @@
         電話番号
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p>
+        <p class="tel">
           {{ $store.state.resume.tel }}
         </p>
       </v-flex>
@@ -71,7 +71,7 @@
         自己紹介
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p>
+        <p class="summary">
           {{ $store.state.resume.summary }}
         </p>
       </v-flex>
@@ -81,7 +81,7 @@
         自己PR
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p>
+        <p class="public_relations">
           {{ $store.state.resume.public_relations }}
         </p>
       </v-flex>
