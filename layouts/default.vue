@@ -1,6 +1,8 @@
 <template>
   <v-app>
+    <Sidebar :sidebar="drawer" />
     <v-toolbar app>
+      <v-toolbar-side-icon @click.stop="toggleSidebar" />
       <v-toolbar-title class="font-weight-thin">
         職務経歴書を作る
       </v-toolbar-title>
@@ -15,6 +17,9 @@
 
 <script>
 export default {
+  components: {
+    Sidebar: () => import('@/components/Sidebar.vue')
+  },
   data() {
     return {
       clipped: false,
@@ -24,6 +29,11 @@ export default {
       right: true,
       rightDrawer: false,
       title: '職務経歴書'
+    }
+  },
+  methods: {
+    toggleSidebar: function() {
+      this.drawer = !this.drawer
     }
   }
 }

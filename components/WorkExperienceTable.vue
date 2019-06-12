@@ -34,10 +34,6 @@
     </v-flex>
   </v-layout>
 </template>
-      </v-list>
-    </v-flex>
-  </v-layout>
-</template>
 
 <script>
 export default {
