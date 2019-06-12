@@ -1,0 +1,55 @@
+<template>
+  <v-container fluid grid-list-lg>
+    <v-layout row wrap>
+      <v-flex xs12>
+        <v-card>
+          <v-form>
+            <v-container>
+              <v-layout row>
+                <v-flex x12>
+                  <div>職歴</div>
+                </v-flex>
+              </v-layout>
+              <WorkExperienceForm
+                v-for="(work, index) in work_experiences" 
+                :key="index" 
+                :work="work"
+                :index="index"
+              />
+              <v-btn color="success" @click="$store.commit('resume/addTerm')">
+                期間を追加する
+              </v-btn>
+            </v-container>
+          </v-form>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
+</template>
+
+<script>
+import WorkExperienceForm from '~/components/WorkExperienceForm.vue'
+
+export default {
+  head() {
+    return {
+      title: '職務経歴書'
+    }
+  },
+  components: { WorkExperienceForm },
+  layout: 'default',
+  computed: {
+    work_experiences: {
+      get() {
+        return this.$store.state.resume.work_experiences
+      },
+      set(value) {
+        this.$store.commit('resume/updateResume', {
+          key: 'work_experiences',
+          value: value
+        })
+      }
+    }
+  }
+}
+</script>

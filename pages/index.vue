@@ -97,78 +97,6 @@
                   />
                 </v-flex>
               </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="qualification"
-                    label="Qualification"
-                    required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="language"
-                    label="Language"
-                    required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="os"
-                    label="OS"
-                    required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="database"
-                    label="Database"
-                    required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="framework"
-                    label="Web Framework"
-                    required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="tools"
-                    label="Middleware and Tools"
-                    required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="cloud_computing"
-                    label="Cloud Computing"
-                    required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="github"
-                    label="Github Account"
-                  />
-                </v-flex>
-              </v-layout>
-
               <v-spacer />
               <v-layout row>
                 <v-flex x12>
@@ -216,35 +144,6 @@
                   </v-container>
                 </v-flex>
               </v-layout>
-              <v-layout row>
-                <v-flex x12>
-                  <div>職歴</div>
-                </v-flex>
-              </v-layout>
-              <WorkExperienceForm
-                v-for="(work, index) in work_experiences" 
-                :key="index" 
-                :work="work"
-                :index="index"
-              />
-              <v-btn color="success" @click="$store.commit('resume/addTerm')">
-                期間を追加する
-              </v-btn>
-              <v-layout row justify-end>
-                <v-flex xs12>
-                  <v-card-actions>
-                    <v-btn 
-                      outline 
-                      large 
-                      nuxt
-                      color="indigo" 
-                      to="/preview"
-                    >
-                      Preview
-                    </v-btn>
-                  </v-card-actions>
-                </v-flex>
-              </v-layout>
             </v-container>
           </v-form>
         </v-card>
@@ -254,15 +153,12 @@
 </template>
 
 <script>
-import WorkExperienceForm from '~/components/WorkExperienceForm.vue'
-
 export default {
   head() {
     return {
       title: '職務経歴書'
     }
   },
-  components: { WorkExperienceForm },
   data: function() {
     return {
       modal: {
@@ -358,91 +254,6 @@ export default {
         })
       }
     },
-    qualification: {
-      get() {
-        return this.$store.state.resume.qualification
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', {
-          key: 'qualification',
-          value: value
-        })
-      }
-    },
-    language: {
-      get() {
-        return this.$store.state.resume.language
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', {
-          key: 'language',
-          value: value
-        })
-      }
-    },
-    os: {
-      get() {
-        return this.$store.state.resume.os
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', { key: 'os', value: value })
-      }
-    },
-    database: {
-      get() {
-        return this.$store.state.resume.database
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', {
-          key: 'database',
-          value: value
-        })
-      }
-    },
-    framework: {
-      get() {
-        return this.$store.state.resume.framework
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', {
-          key: 'framework',
-          value: value
-        })
-      }
-    },
-    tools: {
-      get() {
-        return this.$store.state.resume.tools
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', {
-          key: 'tools',
-          value: value
-        })
-      }
-    },
-    cloud_computing: {
-      get() {
-        return this.$store.state.resume.cloud_computing
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', {
-          key: 'cloud_computing',
-          value: value
-        })
-      }
-    },
-    github: {
-      get() {
-        return this.$store.state.resume.github
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', {
-          key: 'github',
-          value: value
-        })
-      }
-    },
     education: {
       get() {
         return this.$store.state.resume.education
@@ -461,17 +272,6 @@ export default {
       set(value) {
         this.$store.commit('resume/updateResume', {
           key: 'graduation_year',
-          value: value
-        })
-      }
-    },
-    work_experiences: {
-      get() {
-        return this.$store.state.resume.work_experiences
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', {
-          key: 'work_experiences',
           value: value
         })
       }
