@@ -97,7 +97,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
-          {{ $store.state.resume.qualification }}
+          {{ $store.state.skills.qualification }}
         </p>
       </v-flex>
     </v-layout>
@@ -107,7 +107,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
-          {{ $store.state.resume.language }}
+          {{ $store.state.skills.language }}
         </p>
       </v-flex>
     </v-layout>
@@ -117,7 +117,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
-          {{ $store.state.resume.os }}
+          {{ $store.state.skills.os }}
         </p>
       </v-flex>
     </v-layout>
@@ -127,7 +127,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
-          {{ $store.state.resume.database }}
+          {{ $store.state.skills.database }}
         </p>
       </v-flex>
     </v-layout>
@@ -137,7 +137,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
-          {{ $store.state.resume.framework }}
+          {{ $store.state.skills.framework }}
         </p>
       </v-flex>
     </v-layout>
@@ -147,7 +147,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
-          {{ $store.state.resume.tools }}
+          {{ $store.state.skills.tools }}
         </p>
       </v-flex>
     </v-layout>
@@ -157,7 +157,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
-          {{ $store.state.resume.cloud_computing }}
+          {{ $store.state.skills.cloud_computing }}
         </p>
       </v-flex>
     </v-layout>
@@ -167,7 +167,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
-          {{ $store.state.resume.github }}
+          {{ $store.state.skills.github }}
         </p>
       </v-flex>
     </v-layout>
@@ -192,7 +192,7 @@
       </div>
     </v-layout>
     <WorkExperienceTable
-      v-for="(work, index) in $store.state.resume.work_experiences"
+      v-for="(work, index) in $store.state.experiences"
       :key="index"
       :work="work"
       :index="index"

@@ -11,12 +11,12 @@
                 </v-flex>
               </v-layout>
               <WorkExperienceForm
-                v-for="(work, index) in work_experiences" 
+                v-for="(work, index) in experiences" 
                 :key="index" 
                 :work="work"
                 :index="index"
               />
-              <v-btn color="success" @click="$store.commit('resume/addTerm')">
+              <v-btn color="success" @click="$store.commit('experiences/addTerm')">
                 期間を追加する
               </v-btn>
             </v-container>
@@ -39,15 +39,9 @@ export default {
   components: { WorkExperienceForm },
   layout: 'default',
   computed: {
-    work_experiences: {
+    experiences: {
       get() {
-        return this.$store.state.resume.work_experiences
-      },
-      set(value) {
-        this.$store.commit('resume/updateResume', {
-          key: 'work_experiences',
-          value: value
-        })
+        return this.$store.state.experiences
       }
     }
   }

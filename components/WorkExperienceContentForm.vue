@@ -30,6 +30,7 @@
             </template>
             <v-date-picker 
               :value="from"
+              class="from"
               scrollable
               landscape 
               color="blue" 
@@ -59,6 +60,7 @@
             </template>
             <v-date-picker 
               :value="to"
+              class="to"
               scrollable 
               landscape 
               color="blue" 
@@ -73,6 +75,7 @@
           <v-text-field
             :value="title"
             label="title" 
+            class="title"
             @input="updateContent('title', $event)"
           />
         </v-flex>
@@ -82,6 +85,7 @@
           <v-textarea 
             :value="description"
             label="description" 
+            class="description"
             @input="updateContent('description', $event)"
           />
         </v-flex>
@@ -99,13 +103,13 @@ export default {
         return {}
       }
     },
-    indexContent: {
+    j: {
       type: Number,
       default: () => {
         return 0
       }
     },
-    indexParent: {
+    i: {
       type: Number,
       default: () => {
         return 0
@@ -123,26 +127,23 @@ export default {
   computed: {
     title: {
       get() {
-        return this.$store.state.resume.work_experiences[this.indexParent]
-          .contents[this.indexContent].title
+        return this.$store.state.experiences[this.i].contents[this.j].title
       }
     },
     description: {
       get() {
-        return this.$store.state.resume.work_experiences[this.indexParent]
-          .contents[this.indexContent].description
+        return this.$store.state.experiences[this.i].contents[this.j]
+          .description
       }
     },
     from: {
       get() {
-        return this.$store.state.resume.work_experiences[this.indexParent]
-          .contents[this.indexContent].from
+        return this.$store.state.experiences[this.i].contents[this.j].from
       }
     },
     to: {
       get() {
-        return this.$store.state.resume.work_experiences[this.indexParent]
-          .contents[this.indexContent].to
+        return this.$store.state.experiences[this.i].contents[this.j].to
       }
     }
   },
@@ -154,17 +155,17 @@ export default {
       this.modal.to = false
     },
     updateContent(key, value) {
-      this.$store.commit('resume/updateWorkExperienceContent', {
-        indexParent: this.indexParent,
-        indexContent: this.indexContent,
+      this.$store.commit('experiences/updateWorkExperienceContent', {
+        i: this.i,
+        j: this.j,
         key: key,
         value: value
       })
     },
     deleteContent() {
-      this.$store.commit('resume/deleteContent', {
-        indexParent: this.indexParent,
-        indexContent: this.indexContent
+      this.$store.commit('experiences/deleteContent', {
+        i: this.i,
+        j: this.j
       })
     }
   }

@@ -100,10 +100,10 @@ export default {
   computed: {
     qualification: {
       get() {
-        return this.$store.state.resume.qualification
+        return this.$store.state.skills.qualification
       },
       set(value) {
-        this.$store.commit('resume/updateResume', {
+        this.$store.commit('skills/updateSkills', {
           key: 'qualification',
           value: value
         })
@@ -111,10 +111,10 @@ export default {
     },
     language: {
       get() {
-        return this.$store.state.resume.language
+        return this.$store.state.skills.language
       },
       set(value) {
-        this.$store.commit('resume/updateResume', {
+        this.$store.commit('skills/updateSkills', {
           key: 'language',
           value: value
         })
@@ -122,18 +122,18 @@ export default {
     },
     os: {
       get() {
-        return this.$store.state.resume.os
+        return this.$store.state.skills.os
       },
       set(value) {
-        this.$store.commit('resume/updateResume', { key: 'os', value: value })
+        this.$store.commit('skills/updateSkills', { key: 'os', value: value })
       }
     },
     database: {
       get() {
-        return this.$store.state.resume.database
+        return this.$store.state.skills.database
       },
       set(value) {
-        this.$store.commit('resume/updateResume', {
+        this.$store.commit('skills/updateSkills', {
           key: 'database',
           value: value
         })
@@ -141,10 +141,10 @@ export default {
     },
     framework: {
       get() {
-        return this.$store.state.resume.framework
+        return this.$store.state.skills.framework
       },
       set(value) {
-        this.$store.commit('resume/updateResume', {
+        this.$store.commit('skills/updateSkills', {
           key: 'framework',
           value: value
         })
@@ -152,10 +152,10 @@ export default {
     },
     tools: {
       get() {
-        return this.$store.state.resume.tools
+        return this.$store.state.skills.tools
       },
       set(value) {
-        this.$store.commit('resume/updateResume', {
+        this.$store.commit('skills/updateSkills', {
           key: 'tools',
           value: value
         })
@@ -163,10 +163,10 @@ export default {
     },
     cloud_computing: {
       get() {
-        return this.$store.state.resume.cloud_computing
+        return this.$store.state.skills.cloud_computing
       },
       set(value) {
-        this.$store.commit('resume/updateResume', {
+        this.$store.commit('skills/updateSkills', {
           key: 'cloud_computing',
           value: value
         })
@@ -174,10 +174,10 @@ export default {
     },
     github: {
       get() {
-        return this.$store.state.resume.github
+        return this.$store.state.skills.github
       },
       set(value) {
-        this.$store.commit('resume/updateResume', {
+        this.$store.commit('skills/updateSkills', {
           key: 'github',
           value: value
         })
@@ -185,10 +185,10 @@ export default {
     },
     education: {
       get() {
-        return this.$store.state.resume.education
+        return this.$store.state.skills.education
       },
       set(value) {
-        this.$store.commit('resume/updateResume', {
+        this.$store.commit('skills/updateSkills', {
           key: 'education',
           value: value
         })
