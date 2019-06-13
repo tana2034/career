@@ -6,13 +6,6 @@ export const state = () => ({
   tel: '',
   summary: '',
   public_relations: '',
-  language: '',
-  os: '',
-  database: '',
-  framework: '',
-  tools: '',
-  cloud_computing: '',
-  github: '',
   education: '',
   graduation_year: '',
   work_experiences: [
@@ -65,13 +58,13 @@ export const mutations = {
     state.work_experiences[work.index][work.key] = work.value
   },
   updateWorkExperienceContent(state, content) {
-    const i = content.indexParent
-    const j = content.indexContent
+    const i = content.i
+    const j = content.j
     state.work_experiences[i].contents[j][content.key] = content.value
   },
   deleteContent(state, content) {
-    const i = content.indexParent
-    const j = content.indexContent
+    const i = content.i
+    const j = content.j
     delete state.work_experiences[i].contents.splice(j, 1)
   }
 }

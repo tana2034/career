@@ -4,6 +4,8 @@ import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Resume from '@/components/Resume.vue'
 import { state as resumeState } from '@/store/resume.js'
+import { state as experienceState } from '@/store/experiences.js'
+import { state as skillState } from '@/store/skills.js'
 
 Vue.use(Vuetify)
 
@@ -18,7 +20,9 @@ describe('Resume', () => {
 
   beforeEach(() => {
     const state = {
-      resume: resumeState()
+      resume: resumeState(),
+      skills: skillState(),
+      experiences: experienceState()
     }
     state.resume.lastname = '山田'
     state.resume.firstname = '太郎'
@@ -72,12 +76,6 @@ describe('Resume', () => {
   test('summary', () => {
     expect(wrapper.find('.summary').html()).toContain(
       '設計・開発をやっています。'
-    )
-  })
-
-  test('public_relations', () => {
-    expect(wrapper.find('.public_relations').html()).toContain(
-      'JavaScriptが得意です。'
     )
   })
 

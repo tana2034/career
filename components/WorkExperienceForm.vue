@@ -25,6 +25,7 @@
             landscape 
             color="blue" 
             type="month"
+            class="from"
             @input="updateWorkExperience('from', $event); closeFromModal()"
           />  
         </v-menu>
@@ -54,6 +55,7 @@
             landscape 
             color="blue" 
             type="month"
+            class="to"
             @input="updateWorkExperience('to', $event); closeToModal()"
           />
         </v-menu>
@@ -63,6 +65,7 @@
           :value="company"
           name="company"
           label="company"
+          class="company"
           @input="updateWorkExperience('company', $event)"
         />
       </v-flex>
@@ -71,18 +74,19 @@
           :value="company_profile"
           name="company profile"
           label="company profile"
+          class="company_profile"
           @input="updateWorkExperience('company_profile', $event)"
         />
       </v-flex>
       <v-flex xs12 md12 xl12>
         <WorkExperienceContentForm
-          v-for="(content, indexcontent) in work.contents" 
-          :key="indexcontent" 
+          v-for="(content, j) in work.contents" 
+          :key="j" 
           :content="content" 
-          :index-content="indexcontent"
-          :index-parent="index"
+          :j="j"
+          :i="index"
         />
-        <v-btn color="success" @click="$store.commit('resume/addContent', index)">
+        <v-btn color="success" @click="$store.commit('experiences/addContent', index)">
           コンテンツを追加する
         </v-btn>
       </v-flex>
@@ -120,23 +124,22 @@ export default {
   computed: {
     company: {
       get() {
-        return this.$store.state.resume.work_experiences[this.index].company
+        return this.$store.state.experiences[this.index].company
       }
     },
     company_profile: {
       get() {
-        return this.$store.state.resume.work_experiences[this.index]
-          .company_profile
+        return this.$store.state.experiences[this.index].company_profile
       }
     },
     from: {
       get() {
-        return this.$store.state.resume.work_experiences[this.index].from
+        return this.$store.state.experiences[this.index].from
       }
     },
     to: {
       get() {
-        return this.$store.state.resume.work_experiences[this.index].to
+        return this.$store.state.experiences[this.index].to
       }
     }
   },
@@ -148,7 +151,7 @@ export default {
       this.modal.to = false
     },
     updateWorkExperience(key, value) {
-      this.$store.commit('resume/updateWorkExperience', {
+      this.$store.commit('experiences/updateWorkExperience', {
         index: this.index,
         key: key,
         value: value
