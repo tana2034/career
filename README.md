@@ -32,4 +32,11 @@ $ yarn start
 
 # generate static project
 $ yarn run generate
+
+# test
+yarn test
+
+# coverage
+yarn test --coverage
+
 ```
