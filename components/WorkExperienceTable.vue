@@ -37,12 +37,14 @@
 </template>
 
 <script>
+import { state } from '@/store/experiences.js'
+
 export default {
   props: {
     work: {
       type: Object,
       default: () => {
-        return ''
+        return state()[0]
       }
     }
   }

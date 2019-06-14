@@ -96,6 +96,7 @@
 
 <script>
 import WorkExperienceContentForm from '~/components/WorkExperienceContentForm.vue'
+import { state } from '@/store/experiences.js'
 
 export default {
   components: { WorkExperienceContentForm },
@@ -103,7 +104,7 @@ export default {
     work: {
       type: Object,
       default: () => {
-        return ''
+        return state()[0]
       }
     },
     index: {

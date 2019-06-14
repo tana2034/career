@@ -3,9 +3,10 @@ import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import WorkExperienceTable from '@/components/WorkExperienceTable.vue'
-import { state as resumeState } from '@/store/resume.js'
-import { state as experienceState } from '@/store/experiences.js'
-import { state as skillState } from '@/store/skills.js'
+import {
+  state as experienceState,
+  mutations as experienceMutations
+} from '@/store/experiences.js'
 
 Vue.use(Vuetify)
 
@@ -17,32 +18,35 @@ describe('WorkExperienceTable', () => {
   let actions
   let store
   let wrapper
+  let state
 
   beforeEach(() => {
-    const state = {
-      resume: resumeState(),
-      skills: skillState(),
-      experiences: experienceState()
-    }
-    state.experiences[0].from = '2019-04'
-    state.experiences[0].to = '2019-05'
-    state.experiences[0].company = '株式会社テスト'
-    state.experiences[0].company_profile = 'IT企業'
-    state.experiences[0].contents[0].from = '2019-04'
-    state.experiences[0].contents[0].to = '2019-05'
-    state.experiences[0].contents[0].title = 'SPAの開発'
-    state.experiences[0].contents[0].description = 'nuxt.jsでSPAアプリを開発'
+    state = experienceState()
+    state[0].from = '2019-04'
+    state[0].to = '2019-05'
+    state[0].company = '株式会社テスト'
+    state[0].company_profile = 'IT企業'
+    state[0].contents[0].from = '2019-04'
+    state[0].contents[0].to = '2019-05'
+    state[0].contents[0].title = 'SPAの開発'
+    state[0].contents[0].description = 'nuxt.jsでSPAアプリを開発'
 
     actions = {
       testAction: jest.fn()
     }
     store = new Vuex.Store({
-      state: state,
-      actions
+      modules: {
+        experiences: {
+          namespaced: true,
+          state: state,
+          actions,
+          mutations: experienceMutations
+        }
+      }
     })
     wrapper = shallowMount(WorkExperienceTable, {
       propsData: {
-        work: state.experiences[0]
+        work: state[0]
       },
       store,
       localVue
@@ -50,6 +54,10 @@ describe('WorkExperienceTable', () => {
   })
 
   test('is a Vue instance', () => {
+    wrapper = shallowMount(WorkExperienceTable, {
+      store,
+      localVue
+    })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 

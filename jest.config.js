@@ -1,6 +1,11 @@
 module.exports = {
   collectCoverage: true,
-  collectCoverageFrom: ["**/*.{js,vue}", "!**/node_modules/**", "!**/dist/**"],
+  collectCoverageFrom: [
+    '**/*.{js,vue}',
+    '!**/node_modules/**',
+    '!**/dist/**',
+    '!**/coverage/**'
+  ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^~/(.*)$': '<rootDir>/$1',

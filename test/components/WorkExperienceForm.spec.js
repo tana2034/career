@@ -38,8 +38,7 @@ describe('WorkExperienceForm', () => {
     })
     wrapper = shallowMount(WorkExperienceForm, {
       propsData: {
-        work: state.experiences[0],
-        index: 0
+        work: state.experiences[0]
       },
       store,
       localVue
@@ -47,6 +46,10 @@ describe('WorkExperienceForm', () => {
   })
 
   test('is a Vue instance', () => {
+    wrapper = shallowMount(WorkExperienceForm, {
+      store,
+      localVue
+    })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 

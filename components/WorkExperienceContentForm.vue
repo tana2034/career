@@ -95,12 +95,14 @@
 </template>
 
 <script>
+import { state } from '@/store/experiences.js'
+
 export default {
   props: {
     content: {
       type: Object,
       default: () => {
-        return {}
+        return state().contents
       }
     },
     j: {
