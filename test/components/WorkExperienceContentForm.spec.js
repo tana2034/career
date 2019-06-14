@@ -3,7 +3,10 @@ import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import WorkExperienceContentForm from '@/components/WorkExperienceContentForm.vue'
-import { state as experienceState } from '@/store/experiences.js'
+import {
+  state as experienceState,
+  mutations as experienceMutations
+} from '@/store/experiences.js'
 
 Vue.use(Vuetify)
 
@@ -17,27 +20,26 @@ describe('WorkExperienceContentForm', () => {
   let wrapper
 
   beforeEach(() => {
-    const state = {
-      experiences: experienceState()
-    }
-    state.experiences[0].contents[0].from = '2019-04'
-    state.experiences[0].contents[0].to = '2019-05'
-    state.experiences[0].contents[0].title = 'SPAの開発'
-    state.experiences[0].contents[0].description = 'nuxt.jsでSPAアプリを開発'
+    const state = experienceState()
+    state[0].contents[0].from = '2019-04'
+    state[0].contents[0].to = '2019-05'
+    state[0].contents[0].title = 'SPAの開発'
+    state[0].contents[0].description = 'nuxt.jsでSPAアプリを開発'
 
     actions = {
       testAction: jest.fn()
     }
     store = new Vuex.Store({
-      state: state,
-      actions
+      modules: {
+        experiences: {
+          namespaced: true,
+          state: state,
+          actions,
+          mutations: experienceMutations
+        }
+      }
     })
     wrapper = shallowMount(WorkExperienceContentForm, {
-      propsData: {
-        content: state.experiences[0].contents[0],
-        i: 0,
-        j: 0
-      },
       store,
       localVue
     })
