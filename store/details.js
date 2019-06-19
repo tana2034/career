@@ -11,7 +11,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  updateResume(state, content) {
+  updateDetail(state, content) {
     state[content.key] = content.value
   }
 }

@@ -15,7 +15,7 @@
           <v-list-tile-title>Home</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile to="/" class="personal_information">
+      <v-list-tile to="/details" class="personal_information">
         <v-list-tile-action>
           <v-icon>face</v-icon>
         </v-list-tile-action>

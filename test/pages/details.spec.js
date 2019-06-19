@@ -2,15 +2,15 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import index from '@/pages/index.vue'
+import details from '@/pages/details.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
 } from '@/store/experiences.js'
 import {
-  state as resumeState,
-  mutations as resumeMutations
-} from '@/store/resume.js'
+  state as detailsState,
+  mutations as detailsMutations
+} from '@/store/details.js'
 
 Vue.use(Vuetify)
 
@@ -18,7 +18,7 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-describe('index', () => {
+describe('details', () => {
   let actions
   let store
   let wrapper
@@ -35,22 +35,22 @@ describe('index', () => {
           actions,
           mutations: experienceMutations
         },
-        resume: {
+        details: {
           namespaced: true,
-          state: resumeState(),
+          state: detailsState(),
           actions,
-          mutations: resumeMutations
+          mutations: detailsMutations
         }
       }
     })
-    wrapper = shallowMount(index, {
+    wrapper = shallowMount(details, {
       store,
       localVue
     })
   })
 
   test('is a Vue instance', () => {
-    wrapper = shallowMount(index, {
+    wrapper = shallowMount(details, {
       store,
       localVue
     })

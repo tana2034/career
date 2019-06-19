@@ -21,7 +21,7 @@ router.post('/pdf', function(req, res) {
       process.env.NODE_ENV === 'production'
         ? 'https://guarded-oasis-82241.herokuapp.com'
         : 'http://localhost:3000'
-    await page.goto(domain + '/print/resume', {
+    await page.goto(domain + '/print/details', {
       waitUntil: 'networkidle2'
     })
     await page.$eval(
@@ -50,7 +50,7 @@ router.post('/pdf', function(req, res) {
 
     res.type('application/pdf')
     res.set('Content-Length', buff.byteLength)
-    res.set('Content-Disposition', 'attachment; filename="resume.pdf"')
+    res.set('Content-Disposition', 'attachment; filename="details.pdf"')
     res.send(buff)
     res.status(200)
     res.end()
