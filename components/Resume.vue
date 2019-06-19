@@ -12,10 +12,10 @@
         <div>
           <h2 class="display-1">
             <span class="lastname">
-              {{ $store.state.resume.lastname }}
+              {{ $store.state.details.lastname }}
             </span>
             <span class="firstname">
-              {{ $store.state.resume.firstname }}
+              {{ $store.state.details.firstname }}
             </span>
           </h2>
         </div>
@@ -32,7 +32,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p class="email">
-          {{ $store.state.resume.email }}
+          {{ $store.state.details.email }}
         </p>
       </v-flex>
     </v-layout>
@@ -42,7 +42,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p class="birth_date">
-          {{ $store.state.resume.birth_date }}
+          {{ $store.state.details.birth_date }}
         </p>
       </v-flex>
     </v-layout>
@@ -52,7 +52,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p class="address">
-          {{ $store.state.resume.address }}
+          {{ $store.state.details.address }}
         </p>
       </v-flex>
     </v-layout>
@@ -62,7 +62,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p class="tel">
-          {{ $store.state.resume.tel }}
+          {{ $store.state.details.tel }}
         </p>
       </v-flex>
     </v-layout>
@@ -72,7 +72,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p class="summary">
-          {{ $store.state.resume.summary }}
+          {{ $store.state.details.summary }}
         </p>
       </v-flex>
     </v-layout>
@@ -82,7 +82,7 @@
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p class="public_relations">
-          {{ $store.state.resume.public_relations }}
+          {{ $store.state.details.public_relations }}
         </p>
       </v-flex>
     </v-layout>
@@ -179,9 +179,9 @@
     <v-layout row wrap>
       <v-flex xs12 md12 xl12 mb-1 mt-3>
         <div>
-          <span>{{ $store.state.resume.graduation_year }}</span>
+          <span>{{ $store.state.details.graduation_year }}</span>
           <h4 class="subheading">
-            {{ $store.state.resume.education }}
+            {{ $store.state.details.education }}
           </h4>
         </div>
       </v-flex>

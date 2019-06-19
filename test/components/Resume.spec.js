@@ -3,9 +3,9 @@ import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Resume from '@/components/Resume.vue'
-import { state as resumeState } from '@/store/resume.js'
-import { state as experienceState } from '@/store/experiences.js'
-import { state as skillState } from '@/store/skills.js'
+import { state as detailsState, mutations as detailsMutations } from '@/store/details.js'
+import { state as experiencesState, mutations as experiencesMutations } from '@/store/experiences.js'
+import { state as skillsState, mutations as skillsMutations } from '@/store/skills.js'
 
 Vue.use(Vuetify)
 
@@ -19,26 +19,40 @@ describe('Resume', () => {
   let wrapper
 
   beforeEach(() => {
-    const state = {
-      resume: resumeState(),
-      skills: skillState(),
-      experiences: experienceState()
-    }
-    state.resume.lastname = '山田'
-    state.resume.firstname = '太郎'
-    state.resume.email = 'example@example.com'
-    state.resume.birth_date = '2019-01-01'
-    state.resume.address = '東京都千代田区丸の内一丁目'
-    state.resume.tel = '000-0000-0000'
-    state.resume.summary = '設計・開発をやっています。'
-    state.resume.public_relations = 'JavaScriptが得意です。'
+    const state = detailsState()
+    state.lastname = '山田'
+    state.firstname = '太郎'
+    state.email = 'example@example.com'
+    state.birth_date = '2019-01-01'
+    state.address = '東京都千代田区丸の内一丁目'
+    state.tel = '000-0000-0000'
+    state.summary = '設計・開発をやっています。'
+    state.public_relations = 'JavaScriptが得意です。'
 
     actions = {
       testAction: jest.fn()
     }
     store = new Vuex.Store({
-      state: state,
-      actions
+      modules: {
+        details: {
+          namespaced: true,
+          state: state,
+          actions,
+          mutations: detailsMutations
+        },
+        experiences: {
+          namespaced: true,
+          state: experiencesState(),
+          actions,
+          mutations: experiencesMutations
+        },
+        skills: {
+          namespaced: true,
+          state: skillsState(),
+          actions,
+          mutations: skillsMutations
+        }
+      }
     })
     wrapper = shallowMount(Resume, { store, localVue })
   })
