@@ -3,9 +3,18 @@ import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Resume from '@/components/Resume.vue'
-import { state as detailsState, mutations as detailsMutations } from '@/store/details.js'
-import { state as experiencesState, mutations as experiencesMutations } from '@/store/experiences.js'
-import { state as skillsState, mutations as skillsMutations } from '@/store/skills.js'
+import {
+  state as detailsState,
+  mutations as detailsMutations
+} from '@/store/details.js'
+import {
+  state as experiencesState,
+  mutations as experiencesMutations
+} from '@/store/experiences.js'
+import {
+  state as skillsState,
+  mutations as skillsMutations
+} from '@/store/skills.js'
 
 Vue.use(Vuetify)
 
