@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <Sidebar />
     <v-content>
       <v-container fluid>
         <router-view />
@@ -11,9 +10,6 @@
 
 <script>
 export default {
-  components: {
-    Sidebar: () => import('@/components/Sidebar.vue')
-  },
   data() {
     return {
       clipped: false,

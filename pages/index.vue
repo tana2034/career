@@ -19,6 +19,7 @@ export default {
     return {
       title: '職務経歴書'
     }
-  }
+  },
+  layout: 'top'
 }
 </script>
