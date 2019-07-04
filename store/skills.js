@@ -1,5 +1,5 @@
 export const state = () => ({
-  language: '',
+  language: [],
   os: '',
   database: '',
   framework: '',
@@ -9,7 +9,16 @@ export const state = () => ({
 })
 
 export const mutations = {
-  updateSkills(state, content) {
-    state[content.key] = content.value
+  updateSkills(state, {key, value}) {
+    state[key] = value
+  },
+  addLanguage(state) {
+    state['language'].push({
+      name: '',
+      description: ''
+    })
+  },
+  updateLanguage(state, {index, key, value}) {
+    state.language[index][key] = value
   }
 }
