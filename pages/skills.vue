@@ -21,11 +21,19 @@
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <v-text-field
-                    v-model="language"
-                    label="Language"
-                    required
+                  <Language
+                    v-for="(language, index) in this.$store.state.skills.languages" 
+                    :key="index" 
+                    :language="language"
+                    :index="index"
                   />
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-btn color="success" @click="$store.commit('skills/addLanguage')">
+                    言語を追加する
+                  </v-btn>
                 </v-flex>
               </v-layout>
               <v-layout row>
@@ -42,15 +50,6 @@
                   <v-text-field
                     v-model="database"
                     label="Database"
-                    required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="framework"
-                    label="Web Framework"
                     required
                   />
                 </v-flex>
@@ -90,6 +89,8 @@
 </template>
 
 <script>
+import Language from '@/components/Language.vue'
+
 export default {
   head() {
     return {
@@ -97,6 +98,7 @@ export default {
     }
   },
   layout: 'default',
+  components: { Language },
   computed: {
     qualification: {
       get() {
@@ -105,17 +107,6 @@ export default {
       set(value) {
         this.$store.commit('skills/updateSkills', {
           key: 'qualification',
-          value: value
-        })
-      }
-    },
-    language: {
-      get() {
-        return this.$store.state.skills.language
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', {
-          key: 'language',
           value: value
         })
       }
@@ -135,17 +126,6 @@ export default {
       set(value) {
         this.$store.commit('skills/updateSkills', {
           key: 'database',
-          value: value
-        })
-      }
-    },
-    framework: {
-      get() {
-        return this.$store.state.skills.framework
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', {
-          key: 'framework',
           value: value
         })
       }

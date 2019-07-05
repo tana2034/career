@@ -1,24 +1,26 @@
 export const state = () => ({
-  language: [],
+  languages: [],
   os: '',
   database: '',
-  framework: '',
   tools: '',
   cloud_computing: '',
   github: ''
 })
 
 export const mutations = {
-  updateSkills(state, {key, value}) {
+  updateSkills(state, { key, value }) {
     state[key] = value
   },
-  addLanguage(state) {
-    state['language'].push({
-      name: '',
-      description: ''
-    })
+  getInitializedLanguage() {
+    return { name: '', description: '' }
   },
-  updateLanguage(state, {index, key, value}) {
-    state.language[index][key] = value
+  addLanguage(state) {
+    state.languages.push(mutations.getInitializedLanguage())
+  },
+  updateLanguage(state, { index, key, value }) {
+    state.languages[index][key] = value
+  },
+  deleteLanguage(state, { index }) {
+    delete state.languages.splice(index, 1)
   }
 }
