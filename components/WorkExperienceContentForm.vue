@@ -3,11 +3,9 @@
     <v-card-text> 
       <v-layout row wrap>
         <v-flex x12 md12 xl12 class="text-xs-right">
-          <div @click="deleteContent()">
-            <v-icon>
-              clear
-            </v-icon>
-          </div>
+          <v-icon @click="deleteContent()">
+            clear
+          </v-icon>
         </v-flex>
         <v-flex xs12 md6 xl6>
           <v-menu

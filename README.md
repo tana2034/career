@@ -9,6 +9,7 @@ https://blissful-lalande-eab957.netlify.com/
 - WEBフレームワーク：nuxt.js (SPA mode)
 - ~~WEBフレームワーク（サーバサイド）：express~~
 - CSSフレームワーク：Vuetify
+- CIツール(テスト実行)：Travis CI
 
 ~~PDFはpuppeteerで生成~~
 

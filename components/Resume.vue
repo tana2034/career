@@ -106,9 +106,23 @@
         言語
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p>
-          {{ $store.state.skills.language }}
-        </p>
+        <v-layout 
+          v-for="(language, index) in this.$store.state.skills.languages" 
+          :key="index" 
+          :language="language"
+          :index="index"
+          row
+          wrap
+        >
+          <v-flex xs12 sm2 xl2>
+            <p>
+              {{ language.name }}
+            </p>
+          </v-flex>
+          <v-flex xs12 sm8 xl8>
+            <p> {{ language.description }} </p>
+          </v-flex>
+        </v-layout>
       </v-flex>
     </v-layout>
     <v-layout row wrap>
@@ -128,16 +142,6 @@
       <v-flex xs10 sm10 lg10>
         <p>
           {{ $store.state.skills.database }}
-        </p>
-      </v-flex>
-    </v-layout>
-    <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
-        フレームワーク
-      </v-flex>
-      <v-flex xs10 sm10 lg10>
-        <p>
-          {{ $store.state.skills.framework }}
         </p>
       </v-flex>
     </v-layout>
