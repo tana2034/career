@@ -46,6 +46,9 @@ export const mutations = {
   updateWorkExperienceContent(state, content) {
     state[content.i].contents[content.j][content.key] = content.value
   },
+  updateWorkExperienceContents(state, { index, value }) {
+    state[index].contents = value
+  },
   deleteContent(state, content) {
     delete state[content.i].contents.splice(content.j, 1)
   }

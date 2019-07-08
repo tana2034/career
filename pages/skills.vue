@@ -21,12 +21,14 @@
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <Language
-                    v-for="(language, index) in this.$store.state.skills.languages" 
-                    :key="index" 
-                    :language="language"
-                    :index="index"
-                  />
+                  <draggable v-model="languages">
+                    <Language
+                      v-for="(language, index) in languages" 
+                      :key="index" 
+                      :language="language"
+                      :index="index"
+                    />
+                  </draggable>
                 </v-flex>
               </v-layout>
               <v-layout row>
@@ -90,6 +92,7 @@
 
 <script>
 import Language from '@/components/Language.vue'
+import draggable from 'vuedraggable'
 
 export default {
   head() {
@@ -98,8 +101,16 @@ export default {
     }
   },
   layout: 'default',
-  components: { Language },
+  components: { Language, draggable },
   computed: {
+    languages: {
+      get() {
+        return this.$store.state.skills.languages
+      },
+      set(value) {
+        this.$store.commit('skills/updateLanguages', value)
+      }
+    },
     qualification: {
       get() {
         return this.$store.state.skills.qualification

@@ -5,6 +5,7 @@ const {
   addContent,
   updateWorkExperience,
   updateWorkExperienceContent,
+  updateWorkExperienceContents,
   deleteContent
 } = mutations
 let testState
@@ -41,6 +42,24 @@ describe('mutations', () => {
       value: 'プロジェクト参画'
     })
     expect(testState[0].contents[0].title).toBe('プロジェクト参画')
+  })
+
+  test('updateWorkExperienceContents', () => {
+    updateWorkExperienceContents(testState, {
+      index: 0,
+      value: [
+        {
+          from: '2019-07',
+          to: '2019-08',
+          title: '株式会社テスト',
+          description: 'IT企業'
+        }
+      ]
+    })
+    expect(testState[0].contents[0].from).toBe('2019-07')
+    expect(testState[0].contents[0].to).toBe('2019-08')
+    expect(testState[0].contents[0].title).toBe('株式会社テスト')
+    expect(testState[0].contents[0].description).toBe('IT企業')
   })
 
   test('deleteContent', () => {
