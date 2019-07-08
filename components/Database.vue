@@ -1,9 +1,9 @@
 <template>
   <v-card>     
     <v-card-actions>
-      言語
+      DB
       <v-spacer />
-      <v-icon @click="deleteLanguage()">
+      <v-icon @click="deleteDatabase()">
         clear
       </v-icon>
     </v-card-actions>
@@ -11,16 +11,16 @@
       <v-text-field
         v-model="name"
         box
-        label="Language"
-        class="language-name"
+        label="Database"
+        class="database-name"
         required
       />
       <v-textarea 
         v-model="description" 
         box 
         label="description" 
-        class="language-description" 
-        hint="使ったことのあるバージョン、実務経験、フレームワーク等を記載してください。" 
+        class="database-description" 
+        hint="使ったことのあるバージョン、使用年数等を記載してください。" 
       />
     </v-card-text>
   </v-card>
@@ -31,10 +31,10 @@ import { mutations } from '@/store/skills.js'
 
 export default {
   props: {
-    language: {
+    database: {
       type: Object,
       default: () => {
-        return mutations.getInitializedLanguage()
+        return mutations.getInitializedDatabase()
       }
     },
     index: {
@@ -47,10 +47,10 @@ export default {
   computed: {
     name: {
       get() {
-        return this.language.name
+        return this.database.name
       },
       set(value) {
-        this.$store.commit('skills/updateLanguage', {
+        this.$store.commit('skills/updateDatabase', {
           index: this.index,
           key: 'name',
           value: value
@@ -59,10 +59,10 @@ export default {
     },
     description: {
       get() {
-        return this.language.description
+        return this.database.description
       },
       set(value) {
-        this.$store.commit('skills/updateLanguage', {
+        this.$store.commit('skills/updateDatabase', {
           index: this.index,
           key: 'description',
           value: value
@@ -71,8 +71,8 @@ export default {
     }
   },
   methods: {
-    deleteLanguage() {
-      this.$store.commit('skills/deleteLanguage', {
+    deleteDatabase() {
+      this.$store.commit('skills/deleteDatabase', {
         index: this.index
       })
     }

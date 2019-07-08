@@ -3,10 +3,13 @@ import { mutations, state } from '@/store/skills.js'
 const {
   updateSkills,
   addLanguage,
+  addDatabase,
   updateLanguage,
-  updateLanguages,
+  updateDatabase,
   getInitializedLanguage,
-  deleteLanguage
+  getInitializedDatabase,
+  deleteLanguage,
+  deleteDatabase
 } = mutations
 let testState
 
@@ -55,14 +58,38 @@ describe('mutations', () => {
     expect(testState.languages[0]).toBeTruthy()
   })
 
-  test('updateLanguages', () => {
-    updateLanguages(testState, [
-      {
-        name: 'JavaScript',
-        description: '業務で３年経験'
-      }
-    ])
-    expect(testState.languages[0].name).toBe('JavaScript')
-    expect(testState.languages[0].description).toBe('業務で３年経験')
+  test('addDatabase', () => {
+    addDatabase(testState)
+    expect(testState.databases.length).toBe(1)
+    expect(testState.databases[0].name).toBe('')
+    expect(testState.databases[0].description).toBe('')
+  })
+
+  test('updateDatabase', () => {
+    addDatabase(testState)
+    updateDatabase(testState, { index: 0, key: 'name', value: 'MySQL' })
+    expect(testState.databases[0].name).toBe('MySQL')
+    updateDatabase(testState, {
+      index: 0,
+      key: 'description',
+      value: '業務で３年経験'
+    })
+    expect(testState.databases[0].description).toBe('業務で３年経験')
+  })
+
+  test('getInitializedDatabase', () => {
+    const db = getInitializedDatabase()
+    expect(db).toEqual({ name: '', description: '' })
+  })
+
+  test('deleteDatabase', () => {
+    addDatabase(testState)
+    addDatabase(testState)
+    expect(testState.databases.length).toBe(2)
+    deleteDatabase(testState, {
+      index: 0
+    })
+    expect(testState.databases.length).toBe(1)
+    expect(testState.databases[0]).toBeTruthy()
   })
 })

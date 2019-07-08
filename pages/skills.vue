@@ -40,18 +40,28 @@
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <v-text-field
-                    v-model="os"
-                    label="OS"
-                    required
-                  />
+                  <draggable v-model="databases">
+                    <Database
+                      v-for="(database, index) in databases" 
+                      :key="index" 
+                      :database="database"
+                      :index="index"
+                    />
+                  </draggable>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-btn color="success" @click="$store.commit('skills/addDatabase')">
+                    DBを追加する
+                  </v-btn>
                 </v-flex>
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="database"
-                    label="Database"
+                    v-model="os"
+                    label="OS"
                     required
                   />
                 </v-flex>
@@ -92,6 +102,7 @@
 
 <script>
 import Language from '@/components/Language.vue'
+import Database from '@/components/Database.vue'
 import draggable from 'vuedraggable'
 
 export default {
@@ -101,14 +112,17 @@ export default {
     }
   },
   layout: 'default',
-  components: { Language, draggable },
+  components: { Language, draggable, Database },
   computed: {
     languages: {
       get() {
         return this.$store.state.skills.languages
       },
       set(value) {
-        this.$store.commit('skills/updateLanguages', value)
+        this.$store.commit('skills/updateSkills', {
+          key: 'languages',
+          value: value
+        })
       }
     },
     qualification: {
@@ -130,13 +144,13 @@ export default {
         this.$store.commit('skills/updateSkills', { key: 'os', value: value })
       }
     },
-    database: {
+    databases: {
       get() {
-        return this.$store.state.skills.database
+        return this.$store.state.skills.databases
       },
       set(value) {
         this.$store.commit('skills/updateSkills', {
-          key: 'database',
+          key: 'databases',
           value: value
         })
       }
