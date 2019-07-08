@@ -33,7 +33,7 @@
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <v-btn color="success" @click="$store.commit('skills/addLanguage')">
+                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addLanguage')">
                     言語を追加する
                   </v-btn>
                 </v-flex>
@@ -52,7 +52,7 @@
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <v-btn color="success" @click="$store.commit('skills/addDatabase')">
+                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addDatabase')">
                     DBを追加する
                   </v-btn>
                 </v-flex>

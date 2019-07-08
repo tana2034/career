@@ -5,7 +5,7 @@
         <h1 mb-4 display-3>
           職務経歴書を作る
         </h1>
-        <v-btn color="info" to="/details">
+        <v-btn color="lime" to="/details">
           入力する
         </v-btn>
       </v-flex>

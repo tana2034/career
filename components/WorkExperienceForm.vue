@@ -88,7 +88,7 @@
             :i="index"
           />
         </draggable>
-        <v-btn color="success" @click="$store.commit('experiences/addContent', index)">
+        <v-btn color="lime lighten-3" @click="$store.commit('experiences/addContent', index)">
           コンテンツを追加する
         </v-btn>
       </v-flex>
