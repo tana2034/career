@@ -56,9 +56,12 @@ describe('mutations', () => {
   })
 
   test('updateLanguages', () => {
-    updateLanguages(testState, [{
-      name: 'JavaScript', description: '業務で３年経験'
-    }])
+    updateLanguages(testState, [
+      {
+        name: 'JavaScript',
+        description: '業務で３年経験'
+      }
+    ])
     expect(testState.languages[0].name).toBe('JavaScript')
     expect(testState.languages[0].description).toBe('業務で３年経験')
   })

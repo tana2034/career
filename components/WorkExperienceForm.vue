@@ -79,13 +79,15 @@
         />
       </v-flex>
       <v-flex xs12 md12 xl12>
-        <WorkExperienceContentForm
-          v-for="(content, j) in work.contents" 
-          :key="j" 
-          :content="content" 
-          :j="j"
-          :i="index"
-        />
+        <draggable v-model="contents">
+          <WorkExperienceContentForm
+            v-for="(content, j) in contents" 
+            :key="j" 
+            :content="content" 
+            :j="j"
+            :i="index"
+          />
+        </draggable>
         <v-btn color="success" @click="$store.commit('experiences/addContent', index)">
           コンテンツを追加する
         </v-btn>
@@ -95,11 +97,12 @@
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import WorkExperienceContentForm from '~/components/WorkExperienceContentForm.vue'
 import { state } from '@/store/experiences.js'
 
 export default {
-  components: { WorkExperienceContentForm },
+  components: { WorkExperienceContentForm, draggable },
   props: {
     work: {
       type: Object,
@@ -123,6 +126,17 @@ export default {
     }
   },
   computed: {
+    contents: {
+      get() {
+        return this.$store.state.experiences[this.index].contents
+      },
+      set(value) {
+        return this.$store.commit('experiences/updateWorkExperienceContents', {
+          index: this.index,
+          value: value
+        })
+      }
+    },
     company: {
       get() {
         return this.$store.state.experiences[this.index].company
