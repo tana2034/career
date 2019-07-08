@@ -1,7 +1,7 @@
 export const state = () => ({
   languages: [],
   os: '',
-  database: '',
+  databases: [],
   tools: '',
   cloud_computing: '',
   github: ''
@@ -20,10 +20,19 @@ export const mutations = {
   updateLanguage(state, { index, key, value }) {
     state.languages[index][key] = value
   },
-  updateLanguages(state, value) {
-    state.languages = value
-  },
   deleteLanguage(state, { index }) {
     delete state.languages.splice(index, 1)
+  },
+  getInitializedDatabase() {
+    return { name: '', description: '' }
+  },
+  addDatabase(state) {
+    state.databases.push(mutations.getInitializedDatabase())
+  },
+  updateDatabase(state, { index, key, value }) {
+    state.databases[index][key] = value
+  },
+  deleteDatabase(state, { index }) {
+    delete state.databases.splice(index, 1)
   }
 }
