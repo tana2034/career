@@ -127,21 +127,35 @@
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
+        DB
+      </v-flex>
+      <v-flex xs10 sm10 lg10>
+        <v-layout 
+          v-for="(database, index) in this.$store.state.skills.databases" 
+          :key="index" 
+          :database="database"
+          :index="index"
+          row
+          wrap
+        >
+          <v-flex xs12 sm2 xl2>
+            <p>
+              {{ database.name }}
+            </p>
+          </v-flex>
+          <v-flex xs12 sm8 xl8>
+            <p> {{ database.description }} </p>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-layout>
+    <v-layout row wrap>
+      <v-flex xs2 sm2 lg2>
         OS
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p>
           {{ $store.state.skills.os }}
-        </p>
-      </v-flex>
-    </v-layout>
-    <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
-        データベース
-      </v-flex>
-      <v-flex xs10 sm10 lg10>
-        <p>
-          {{ $store.state.skills.database }}
         </p>
       </v-flex>
     </v-layout>
