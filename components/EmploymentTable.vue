@@ -13,19 +13,19 @@
         </div>
 
         <div
-          v-for="(content, i) in work.contents" 
+          v-for="(project, i) in work.projects" 
           :key="i"
-          :content="content"
+          :project="project"
         >
           <div class="pl-3">  
             <div>
               <div>
-                <small class="caption content-term"> {{ content.from }} - {{ content.to }} </small>
+                <small class="caption content-term"> {{ project.from }} - {{ project.to }} </small>
                 <div class="body-2 title">
-                  <span>{{ content.title }}</span>
+                  <span>{{ project.title }}</span>
                 </div>
                 <p class="body-1 grey--text pt-1 description">
-                  {{ content.description }}
+                  {{ project.description }}
                 </p>
               </div>
             </div>

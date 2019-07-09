@@ -10,7 +10,7 @@
                   <div>職歴</div>
                 </v-flex>
               </v-layout>
-              <EmploymentForm
+              <Employment
                 v-for="(work, index) in employment" 
                 :key="index" 
                 :work="work"
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import EmploymentForm from '~/components/EmploymentForm.vue'
+import Employment from '~/components/Employment.vue'
 
 export default {
   head() {
@@ -36,7 +36,7 @@ export default {
       title: '職務経歴書'
     }
   },
-  components: { EmploymentForm },
+  components: { Employment },
   layout: 'default',
   computed: {
     employment: {

@@ -4,7 +4,7 @@ export const state = () => [
     to: '',
     company: '',
     company_profile: '',
-    contents: [
+    projects: [
       {
         from: '',
         to: '',
@@ -16,13 +16,21 @@ export const state = () => [
 ]
 
 export const mutations = {
+  getInitializedProject() {
+    return {
+      from: '',
+      to: '',
+      title: '',
+      description: ''
+    }
+  },
   addTerm(state) {
     state.push({
       from: '',
       to: '',
       company: '',
       company_profile: '',
-      contents: [
+      projects: [
         {
           from: '',
           to: '',
@@ -32,24 +40,19 @@ export const mutations = {
       ]
     })
   },
-  addContent(state, index) {
-    state[index].contents.push({
-      from: '',
-      to: '',
-      title: '',
-      description: ''
-    })
+  addProject(state, index) {
+    state[index].projects.push(mutations.getInitializedProject())
   },
-  updateEmployment(state, work) {
-    state[work.index][work.key] = work.value
+  updateEmployment(state, { index, key, value }) {
+    state[index][key] = value
   },
-  updateEmploymentContent(state, content) {
-    state[content.i].contents[content.j][content.key] = content.value
+  updateProject(state, { i, j, key, value }) {
+    state[i].projects[j][key] = value
   },
-  updateEmploymentContents(state, { index, value }) {
-    state[index].contents = value
+  updateProjects(state, { index, value }) {
+    state[index].projects = value
   },
-  deleteContent(state, content) {
-    delete state[content.i].contents.splice(content.j, 1)
+  deleteProject(state, { i, j }) {
+    delete state[i].projects.splice(j, 1)
   }
 }

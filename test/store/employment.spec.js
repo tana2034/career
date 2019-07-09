@@ -2,11 +2,12 @@ import { mutations, state } from '@/store/employment.js'
 
 const {
   addTerm,
-  addContent,
+  addProject,
   updateEmployment,
-  updateEmploymentContent,
-  updateEmploymentContents,
-  deleteContent
+  updateProject,
+  updateProjects,
+  deleteProject,
+  getInitializedProject
 } = mutations
 let testState
 
@@ -20,9 +21,9 @@ describe('mutations', () => {
     expect(testState.length).toBe(2)
   })
 
-  test('addContent', () => {
-    addContent(testState, 0)
-    expect(testState[0].contents.length).toBe(2)
+  test('addProject', () => {
+    addProject(testState, 0)
+    expect(testState[0].projects.length).toBe(2)
   })
 
   test('updateEmployment', () => {
@@ -34,18 +35,18 @@ describe('mutations', () => {
     expect(testState[0].company).toBe('株式会社テスト')
   })
 
-  test('updateEmploymentContent', () => {
-    updateEmploymentContent(testState, {
+  test('updateProject', () => {
+    updateProject(testState, {
       i: 0,
       j: 0,
       key: 'title',
       value: 'プロジェクト参画'
     })
-    expect(testState[0].contents[0].title).toBe('プロジェクト参画')
+    expect(testState[0].projects[0].title).toBe('プロジェクト参画')
   })
 
-  test('updateEmploymentContents', () => {
-    updateEmploymentContents(testState, {
+  test('updateProjects', () => {
+    updateProjects(testState, {
       index: 0,
       value: [
         {
@@ -56,18 +57,28 @@ describe('mutations', () => {
         }
       ]
     })
-    expect(testState[0].contents[0].from).toBe('2019-07')
-    expect(testState[0].contents[0].to).toBe('2019-08')
-    expect(testState[0].contents[0].title).toBe('株式会社テスト')
-    expect(testState[0].contents[0].description).toBe('IT企業')
+    expect(testState[0].projects[0].from).toBe('2019-07')
+    expect(testState[0].projects[0].to).toBe('2019-08')
+    expect(testState[0].projects[0].title).toBe('株式会社テスト')
+    expect(testState[0].projects[0].description).toBe('IT企業')
   })
 
-  test('deleteContent', () => {
-    addContent(testState, 0)
-    deleteContent(testState, {
+  test('deleteProject', () => {
+    addProject(testState, 0)
+    deleteProject(testState, {
       i: 0,
       j: 0
     })
-    expect(testState[0].contents.length).toBe(1)
+    expect(testState[0].projects.length).toBe(1)
+  })
+
+  test('getInitializedProject', () => {
+    const project = getInitializedProject()
+    expect(project).toEqual({
+      from: '',
+      to: '',
+      title: '',
+      description: ''
+    })
   })
 })

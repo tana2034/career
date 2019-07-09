@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import EmploymentContentForm from '@/components/EmploymentContentForm.vue'
+import Project from '@/components/Project.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
@@ -14,17 +14,17 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-describe('EmploymentContentForm', () => {
+describe('Project', () => {
   let actions
   let store
   let wrapper
 
   beforeEach(() => {
     const state = experienceState()
-    state[0].contents[0].from = '2019-04'
-    state[0].contents[0].to = '2019-05'
-    state[0].contents[0].title = 'SPAの開発'
-    state[0].contents[0].description = 'nuxt.jsでSPAアプリを開発'
+    state[0].projects[0].from = '2019-04'
+    state[0].projects[0].to = '2019-05'
+    state[0].projects[0].title = 'SPAの開発'
+    state[0].projects[0].description = 'nuxt.jsでSPAアプリを開発'
 
     actions = {
       testAction: jest.fn()
@@ -39,7 +39,7 @@ describe('EmploymentContentForm', () => {
         }
       }
     })
-    wrapper = shallowMount(EmploymentContentForm, {
+    wrapper = shallowMount(Project, {
       store,
       localVue
     })

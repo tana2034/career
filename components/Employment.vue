@@ -79,16 +79,16 @@
         />
       </v-flex>
       <v-flex xs12 md12 xl12>
-        <draggable v-model="contents">
-          <EmploymentContentForm
-            v-for="(content, j) in contents" 
+        <draggable v-model="projects">
+          <Project
+            v-for="(project, j) in projects" 
             :key="j" 
-            :content="content" 
+            :project="project" 
             :j="j"
             :i="index"
           />
         </draggable>
-        <v-btn color="lime lighten-3" @click="$store.commit('employment/addContent', index)">
+        <v-btn color="lime lighten-3" @click="$store.commit('employment/addProject', index)">
           コンテンツを追加する
         </v-btn>
       </v-flex>
@@ -98,11 +98,11 @@
 
 <script>
 import draggable from 'vuedraggable'
-import EmploymentContentForm from '~/components/EmploymentContentForm.vue'
+import Project from '@/components/Project.vue'
 import { state } from '@/store/employment.js'
 
 export default {
-  components: { EmploymentContentForm, draggable },
+  components: { Project, draggable },
   props: {
     work: {
       type: Object,
@@ -126,12 +126,12 @@ export default {
     }
   },
   computed: {
-    contents: {
+    projects: {
       get() {
-        return this.$store.state.employment[this.index].contents
+        return this.$store.state.employment[this.index].projects
       },
       set(value) {
-        return this.$store.commit('employment/updateEmploymentContents', {
+        return this.$store.commit('employment/updateProjects', {
           index: this.index,
           value: value
         })
