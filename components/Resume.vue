@@ -197,11 +197,15 @@
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
-        GitHub
+        URL
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p>
-          {{ $store.state.skills.github }}
+        <p
+          v-for="(link, index) in this.$store.state.skills.links"
+          :key="index"
+          :link="link"
+        >
+          {{ link }}
         </p>
       </v-flex>
     </v-layout>

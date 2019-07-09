@@ -13,7 +13,10 @@ const {
   getInitializedQualification,
   deleteLanguage,
   deleteDatabase,
-  deleteQualification
+  deleteQualification,
+  addLink,
+  updateLink,
+  deleteLink
 } = mutations
 let testState
 
@@ -134,5 +137,25 @@ describe('mutations', () => {
     })
     expect(testState.qualifications.length).toBe(1)
     expect(testState.qualifications[0]).toBeTruthy()
+  })
+
+  test('addLink', () => {
+    addLink(testState)
+    expect(testState.links.length).toBe(1)
+    expect(testState.links[0]).toBe('')
+  })
+
+  test('updateLink', () => {
+    addLink(testState)
+    updateLink(testState, { index: 0, value: 'https://www.github.com' })
+    expect(testState.links[0]).toBe('https://www.github.com')
+  })
+
+  test('deleteLink', () => {
+    addLink(testState)
+    addLink(testState)
+    expect(testState.links.length).toBe(2)
+    deleteLink(testState, { index: 0 })
+    expect(testState.links.length).toBe(1)
   })
 })

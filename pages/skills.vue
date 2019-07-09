@@ -96,10 +96,20 @@
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <v-text-field
-                    v-model="github"
-                    label="Github Account"
-                  />
+                  <draggable v-model="links">
+                    <Link
+                      v-for="(value, index) in links" 
+                      :key="index"
+                      :index="index"
+                    />
+                  </draggable>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addLink')">
+                    URLを追加する
+                  </v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -114,6 +124,7 @@
 import Language from '@/components/Language.vue'
 import Database from '@/components/Database.vue'
 import Qualification from '@/components/Qualification.vue'
+import Link from '@/components/Link.vue'
 import draggable from 'vuedraggable'
 
 export default {
@@ -123,7 +134,7 @@ export default {
     }
   },
   layout: 'default',
-  components: { Language, draggable, Database, Qualification },
+  components: { Language, draggable, Database, Qualification, Link },
   computed: {
     languages: {
       get() {
@@ -188,13 +199,13 @@ export default {
         })
       }
     },
-    github: {
+    links: {
       get() {
-        return this.$store.state.skills.github
+        return this.$store.state.skills.links
       },
       set(value) {
         this.$store.commit('skills/updateSkills', {
-          key: 'github',
+          key: 'links',
           value: value
         })
       }
