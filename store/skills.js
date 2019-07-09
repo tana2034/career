@@ -4,8 +4,8 @@ export const state = () => ({
   databases: [],
   tools: '',
   cloud_computing: '',
-  github: '',
-  qualifications: []
+  qualifications: [],
+  links: []
 })
 
 export const mutations = {
@@ -47,5 +47,14 @@ export const mutations = {
   },
   deleteQualification(state, { index }) {
     delete state.qualifications.splice(index, 1)
+  },
+  addLink(state) {
+    state.links.push('')
+  },
+  updateLink(state, { index, value }) {
+    state.links[index] = value
+  },
+  deleteLink(state, { index }) {
+    delete state.links.splice(index, 1)
   }
 }
