@@ -6,6 +6,11 @@
           <v-form>
             <v-container>
               <v-layout row>
+                <v-flex x12>
+                  <div>基本情報</div>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
                 <v-flex xs12 md6 xl6>
                   <v-text-field
                     v-model="lastname"
@@ -105,43 +110,37 @@
               </v-layout>
               <v-layout row wrap>
                 <v-flex xs12>
-                  <v-container grid-list-md>
-                    <v-layout row wrap>
-                      <v-flex xs12 md12 xl12>
-                        <v-menu
-                          v-model="modal.graduation_year"
-                          :close-on-content-click="false"
-                          :nudge-right="40"
-                          lazy
-                          transition="scale-transition"
-                          full-width
-                          min-width="290px"
-                        >
-                          <template v-slot:activator="{on}">
-                            <v-text-field
-                              v-model="graduation_year"
-                              name="graduation_year"
-                              readonly
-                              label="the year of graduation"
-                              v-on="on"
-                            />
-                          </template>
-                          <v-date-picker 
-                            v-model="graduation_year" 
-                            landscape 
-                            type="month"
-                            color="blue"
-                            @input="closeModal('graduation_year')"
-                          />
-                        </v-menu>
-                        <v-text-field 
-                          v-model="education" 
-                          name="education" 
-                          label="education"
-                        />
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
+                  <v-menu
+                    v-model="modal.graduation_year"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    lazy
+                    transition="scale-transition"
+                    full-width
+                    min-width="290px"
+                  >
+                    <template v-slot:activator="{on}">
+                      <v-text-field
+                        v-model="graduation_year"
+                        name="graduation_year"
+                        readonly
+                        label="the year of graduation"
+                        v-on="on"
+                      />
+                    </template>
+                    <v-date-picker 
+                      v-model="graduation_year" 
+                      landscape 
+                      type="month"
+                      color="blue"
+                      @input="closeModal('graduation_year')"
+                    />
+                  </v-menu>
+                  <v-text-field 
+                    v-model="education" 
+                    name="education" 
+                    label="education"
+                  />
                 </v-flex>
               </v-layout>
             </v-container>
