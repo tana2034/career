@@ -26,7 +26,7 @@
             color="blue" 
             type="month"
             class="from"
-            @input="updateWorkExperience('from', $event); closeFromModal()"
+            @input="updateEmployment('from', $event); closeFromModal()"
           />  
         </v-menu>
       </v-flex>
@@ -45,7 +45,7 @@
               :value="to"
               label="to"
               readonly
-              @input="updateWorkExperience('to', $event)"
+              @input="updateEmployment('to', $event)"
               v-on="on"
             />
           </template>
@@ -56,7 +56,7 @@
             color="blue" 
             type="month"
             class="to"
-            @input="updateWorkExperience('to', $event); closeToModal()"
+            @input="updateEmployment('to', $event); closeToModal()"
           />
         </v-menu>
       </v-flex>
@@ -66,7 +66,7 @@
           name="company"
           label="company"
           class="company"
-          @input="updateWorkExperience('company', $event)"
+          @input="updateEmployment('company', $event)"
         />
       </v-flex>
       <v-flex xs12 md12 xl12>
@@ -75,12 +75,12 @@
           name="company profile"
           label="company profile"
           class="company_profile"
-          @input="updateWorkExperience('company_profile', $event)"
+          @input="updateEmployment('company_profile', $event)"
         />
       </v-flex>
       <v-flex xs12 md12 xl12>
         <draggable v-model="contents">
-          <WorkExperienceContentForm
+          <EmploymentContentForm
             v-for="(content, j) in contents" 
             :key="j" 
             :content="content" 
@@ -88,7 +88,7 @@
             :i="index"
           />
         </draggable>
-        <v-btn color="lime lighten-3" @click="$store.commit('experiences/addContent', index)">
+        <v-btn color="lime lighten-3" @click="$store.commit('employment/addContent', index)">
           コンテンツを追加する
         </v-btn>
       </v-flex>
@@ -98,11 +98,11 @@
 
 <script>
 import draggable from 'vuedraggable'
-import WorkExperienceContentForm from '~/components/WorkExperienceContentForm.vue'
-import { state } from '@/store/experiences.js'
+import EmploymentContentForm from '~/components/EmploymentContentForm.vue'
+import { state } from '@/store/employment.js'
 
 export default {
-  components: { WorkExperienceContentForm, draggable },
+  components: { EmploymentContentForm, draggable },
   props: {
     work: {
       type: Object,
@@ -128,10 +128,10 @@ export default {
   computed: {
     contents: {
       get() {
-        return this.$store.state.experiences[this.index].contents
+        return this.$store.state.employment[this.index].contents
       },
       set(value) {
-        return this.$store.commit('experiences/updateWorkExperienceContents', {
+        return this.$store.commit('employment/updateEmploymentContents', {
           index: this.index,
           value: value
         })
@@ -139,22 +139,22 @@ export default {
     },
     company: {
       get() {
-        return this.$store.state.experiences[this.index].company
+        return this.$store.state.employment[this.index].company
       }
     },
     company_profile: {
       get() {
-        return this.$store.state.experiences[this.index].company_profile
+        return this.$store.state.employment[this.index].company_profile
       }
     },
     from: {
       get() {
-        return this.$store.state.experiences[this.index].from
+        return this.$store.state.employment[this.index].from
       }
     },
     to: {
       get() {
-        return this.$store.state.experiences[this.index].to
+        return this.$store.state.employment[this.index].to
       }
     }
   },
@@ -165,8 +165,8 @@ export default {
     closeToModal() {
       this.modal.to = false
     },
-    updateWorkExperience(key, value) {
-      this.$store.commit('experiences/updateWorkExperience', {
+    updateEmployment(key, value) {
+      this.$store.commit('employment/updateEmployment', {
         index: this.index,
         key: key,
         value: value

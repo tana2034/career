@@ -40,13 +40,13 @@ export const mutations = {
       description: ''
     })
   },
-  updateWorkExperience(state, work) {
+  updateEmployment(state, work) {
     state[work.index][work.key] = work.value
   },
-  updateWorkExperienceContent(state, content) {
+  updateEmploymentContent(state, content) {
     state[content.i].contents[content.j][content.key] = content.value
   },
-  updateWorkExperienceContents(state, { index, value }) {
+  updateEmploymentContents(state, { index, value }) {
     state[index].contents = value
   },
   deleteContent(state, content) {

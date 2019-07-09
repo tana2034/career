@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import { state } from '@/store/experiences.js'
+import { state } from '@/store/employment.js'
 
 export default {
   props: {
@@ -127,23 +127,22 @@ export default {
   computed: {
     title: {
       get() {
-        return this.$store.state.experiences[this.i].contents[this.j].title
+        return this.$store.state.employment[this.i].contents[this.j].title
       }
     },
     description: {
       get() {
-        return this.$store.state.experiences[this.i].contents[this.j]
-          .description
+        return this.$store.state.employment[this.i].contents[this.j].description
       }
     },
     from: {
       get() {
-        return this.$store.state.experiences[this.i].contents[this.j].from
+        return this.$store.state.employment[this.i].contents[this.j].from
       }
     },
     to: {
       get() {
-        return this.$store.state.experiences[this.i].contents[this.j].to
+        return this.$store.state.employment[this.i].contents[this.j].to
       }
     }
   },
@@ -155,7 +154,7 @@ export default {
       this.modal.to = false
     },
     updateContent(key, value) {
-      this.$store.commit('experiences/updateWorkExperienceContent', {
+      this.$store.commit('employment/updateEmploymentContent', {
         i: this.i,
         j: this.j,
         key: key,
@@ -163,7 +162,7 @@ export default {
       })
     },
     deleteContent() {
-      this.$store.commit('experiences/deleteContent', {
+      this.$store.commit('employment/deleteContent', {
         i: this.i,
         j: this.j
       })

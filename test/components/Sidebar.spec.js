@@ -44,8 +44,8 @@ describe('Sidebar', () => {
     expect(wrapper.find('.skills').html()).toContain('スキル')
   })
 
-  test('exists work experiences', () => {
-    expect(wrapper.find('.work_experiences').html()).toContain('職務経歴')
+  test('exists work employment', () => {
+    expect(wrapper.find('.work_employment').html()).toContain('職務経歴')
   })
 
   test('exists preview', () => {

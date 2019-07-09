@@ -6,7 +6,7 @@ import details from '@/pages/details.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
-} from '@/store/experiences.js'
+} from '@/store/employment.js'
 import {
   state as detailsState,
   mutations as detailsMutations
@@ -29,7 +29,7 @@ describe('details', () => {
     }
     store = new Vuex.Store({
       modules: {
-        experiences: {
+        employment: {
           namespaced: true,
           state: experienceState(),
           actions,

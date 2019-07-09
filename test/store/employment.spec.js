@@ -1,11 +1,11 @@
-import { mutations, state } from '@/store/experiences.js'
+import { mutations, state } from '@/store/employment.js'
 
 const {
   addTerm,
   addContent,
-  updateWorkExperience,
-  updateWorkExperienceContent,
-  updateWorkExperienceContents,
+  updateEmployment,
+  updateEmploymentContent,
+  updateEmploymentContents,
   deleteContent
 } = mutations
 let testState
@@ -25,8 +25,8 @@ describe('mutations', () => {
     expect(testState[0].contents.length).toBe(2)
   })
 
-  test('updateWorkExperience', () => {
-    updateWorkExperience(testState, {
+  test('updateEmployment', () => {
+    updateEmployment(testState, {
       index: 0,
       key: 'company',
       value: '株式会社テスト'
@@ -34,8 +34,8 @@ describe('mutations', () => {
     expect(testState[0].company).toBe('株式会社テスト')
   })
 
-  test('updateWorkExperienceContent', () => {
-    updateWorkExperienceContent(testState, {
+  test('updateEmploymentContent', () => {
+    updateEmploymentContent(testState, {
       i: 0,
       j: 0,
       key: 'title',
@@ -44,8 +44,8 @@ describe('mutations', () => {
     expect(testState[0].contents[0].title).toBe('プロジェクト参画')
   })
 
-  test('updateWorkExperienceContents', () => {
-    updateWorkExperienceContents(testState, {
+  test('updateEmploymentContents', () => {
+    updateEmploymentContents(testState, {
       index: 0,
       value: [
         {

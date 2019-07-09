@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { state } from '@/store/experiences.js'
+import { state } from '@/store/employment.js'
 
 export default {
   props: {

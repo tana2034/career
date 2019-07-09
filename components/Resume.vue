@@ -209,8 +209,8 @@
         職務経歴
       </div>
     </v-layout>
-    <WorkExperienceTable
-      v-for="(work, index) in $store.state.experiences"
+    <EmploymentTable
+      v-for="(work, index) in $store.state.employment"
       :key="index"
       :work="work"
       :index="index"
@@ -219,9 +219,9 @@
 </template>
 
 <script>
-import WorkExperienceTable from '~/components/WorkExperienceTable.vue'
+import EmploymentTable from '~/components/EmploymentTable.vue'
 
 export default {
-  components: { WorkExperienceTable }
+  components: { EmploymentTable }
 }
 </script>

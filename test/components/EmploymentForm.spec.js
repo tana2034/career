@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import WorkExperienceContentForm from '@/components/WorkExperienceContentForm.vue'
+import EmploymentForm from '@/components/EmploymentForm.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
-} from '@/store/experiences.js'
+} from '@/store/employment.js'
 
 Vue.use(Vuetify)
 
@@ -14,24 +14,24 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-describe('WorkExperienceContentForm', () => {
+describe('EmploymentForm', () => {
   let actions
   let store
   let wrapper
 
   beforeEach(() => {
     const state = experienceState()
-    state[0].contents[0].from = '2019-04'
-    state[0].contents[0].to = '2019-05'
-    state[0].contents[0].title = 'SPAの開発'
-    state[0].contents[0].description = 'nuxt.jsでSPAアプリを開発'
+    state[0].from = '2019-04'
+    state[0].to = '2019-05'
+    state[0].company = '株式会社テスト'
+    state[0].company_profile = 'IT企業'
 
     actions = {
       testAction: jest.fn()
     }
     store = new Vuex.Store({
       modules: {
-        experiences: {
+        employment: {
           namespaced: true,
           state: state,
           actions,
@@ -39,13 +39,20 @@ describe('WorkExperienceContentForm', () => {
         }
       }
     })
-    wrapper = shallowMount(WorkExperienceContentForm, {
+    wrapper = shallowMount(EmploymentForm, {
+      propsData: {
+        work: state[0]
+      },
       store,
       localVue
     })
   })
 
   test('is a Vue instance', () => {
+    wrapper = shallowMount(EmploymentForm, {
+      store,
+      localVue
+    })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
@@ -57,13 +64,11 @@ describe('WorkExperienceContentForm', () => {
     expect(wrapper.find('.to').html()).toContain('2019-05')
   })
 
-  test('title', () => {
-    expect(wrapper.find('.title').html()).toContain('SPAの開発')
+  test('company', () => {
+    expect(wrapper.find('.company').html()).toContain('株式会社テスト')
   })
 
-  test('description', () => {
-    expect(wrapper.find('.description').html()).toContain(
-      'nuxt.jsでSPAアプリを開発'
-    )
+  test('company_profile', () => {
+    expect(wrapper.find('.company_profile').html()).toContain('IT企業')
   })
 })
