@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import WorkExperienceForm from '@/components/WorkExperienceForm.vue'
+import Employment from '@/components/Employment.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
-} from '@/store/experiences.js'
+} from '@/store/employment.js'
 
 Vue.use(Vuetify)
 
@@ -14,7 +14,7 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-describe('WorkExperienceForm', () => {
+describe('Employment', () => {
   let actions
   let store
   let wrapper
@@ -31,7 +31,7 @@ describe('WorkExperienceForm', () => {
     }
     store = new Vuex.Store({
       modules: {
-        experiences: {
+        employment: {
           namespaced: true,
           state: state,
           actions,
@@ -39,7 +39,7 @@ describe('WorkExperienceForm', () => {
         }
       }
     })
-    wrapper = shallowMount(WorkExperienceForm, {
+    wrapper = shallowMount(Employment, {
       propsData: {
         work: state[0]
       },
@@ -49,7 +49,7 @@ describe('WorkExperienceForm', () => {
   })
 
   test('is a Vue instance', () => {
-    wrapper = shallowMount(WorkExperienceForm, {
+    wrapper = shallowMount(Employment, {
       store,
       localVue
     })

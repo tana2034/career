@@ -10,13 +10,13 @@
                   <div>職歴</div>
                 </v-flex>
               </v-layout>
-              <WorkExperienceForm
-                v-for="(work, index) in experiences" 
+              <Employment
+                v-for="(work, index) in employment" 
                 :key="index" 
                 :work="work"
                 :index="index"
               />
-              <v-btn color="lime lighten-3" @click="$store.commit('experiences/addTerm')">
+              <v-btn color="lime lighten-3" @click="$store.commit('employment/addTerm')">
                 期間を追加する
               </v-btn>
             </v-container>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import WorkExperienceForm from '~/components/WorkExperienceForm.vue'
+import Employment from '~/components/Employment.vue'
 
 export default {
   head() {
@@ -36,12 +36,12 @@ export default {
       title: '職務経歴書'
     }
   },
-  components: { WorkExperienceForm },
+  components: { Employment },
   layout: 'default',
   computed: {
-    experiences: {
+    employment: {
       get() {
-        return this.$store.state.experiences
+        return this.$store.state.employment
       }
     }
   }

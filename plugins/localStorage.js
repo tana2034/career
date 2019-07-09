@@ -4,7 +4,7 @@ export default ({ store }) => {
   window.onNuxtReady(() => {
     createPersistedState({
       key: 'career',
-      paths: ['details', 'experiences', 'skills']
+      paths: ['details', 'employment', 'skills']
     })(store)
   })
 }

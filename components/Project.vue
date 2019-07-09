@@ -3,7 +3,7 @@
     <v-card-text> 
       <v-layout row wrap>
         <v-flex x12 md12 xl12 class="text-xs-right">
-          <v-icon @click="deleteContent()">
+          <v-icon @click="deleteProject()">
             clear
           </v-icon>
         </v-flex>
@@ -33,7 +33,7 @@
               landscape 
               color="blue" 
               type="month"
-              @input="updateContent('from', $event); closeFromModal()"
+              @input="updateProject('from', $event); closeFromModal()"
             />  
           </v-menu>
         </v-flex>     
@@ -63,7 +63,7 @@
               landscape 
               color="blue" 
               type="month"
-              @input="updateContent('to', $event); closeToModal()"
+              @input="updateProject('to', $event); closeToModal()"
             />
           </v-menu>
         </v-flex>
@@ -74,7 +74,7 @@
             :value="title"
             label="title" 
             class="title"
-            @input="updateContent('title', $event)"
+            @input="updateProject('title', $event)"
           />
         </v-flex>
       </v-layout>
@@ -84,7 +84,7 @@
             :value="description"
             label="description" 
             class="description"
-            @input="updateContent('description', $event)"
+            @input="updateProject('description', $event)"
           />
         </v-flex>
       </v-layout>
@@ -93,14 +93,14 @@
 </template>
 
 <script>
-import { state } from '@/store/experiences.js'
+import { state } from '@/store/employment.js'
 
 export default {
   props: {
-    content: {
+    project: {
       type: Object,
       default: () => {
-        return state().contents
+        return state().projects
       }
     },
     j: {
@@ -127,23 +127,22 @@ export default {
   computed: {
     title: {
       get() {
-        return this.$store.state.experiences[this.i].contents[this.j].title
+        return this.$store.state.employment[this.i].projects[this.j].title
       }
     },
     description: {
       get() {
-        return this.$store.state.experiences[this.i].contents[this.j]
-          .description
+        return this.$store.state.employment[this.i].projects[this.j].description
       }
     },
     from: {
       get() {
-        return this.$store.state.experiences[this.i].contents[this.j].from
+        return this.$store.state.employment[this.i].projects[this.j].from
       }
     },
     to: {
       get() {
-        return this.$store.state.experiences[this.i].contents[this.j].to
+        return this.$store.state.employment[this.i].projects[this.j].to
       }
     }
   },
@@ -154,16 +153,16 @@ export default {
     closeToModal() {
       this.modal.to = false
     },
-    updateContent(key, value) {
-      this.$store.commit('experiences/updateWorkExperienceContent', {
+    updateProject(key, value) {
+      this.$store.commit('employment/updateProject', {
         i: this.i,
         j: this.j,
         key: key,
         value: value
       })
     },
-    deleteContent() {
-      this.$store.commit('experiences/deleteContent', {
+    deleteProject() {
+      this.$store.commit('employment/deleteProject', {
         i: this.i,
         j: this.j
       })

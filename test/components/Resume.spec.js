@@ -8,9 +8,9 @@ import {
   mutations as detailsMutations
 } from '@/store/details.js'
 import {
-  state as experiencesState,
-  mutations as experiencesMutations
-} from '@/store/experiences.js'
+  state as employmentState,
+  mutations as employmentMutations
+} from '@/store/employment.js'
 import {
   state as skillsState,
   mutations as skillsMutations
@@ -49,11 +49,11 @@ describe('Resume', () => {
           actions,
           mutations: detailsMutations
         },
-        experiences: {
+        employment: {
           namespaced: true,
-          state: experiencesState(),
+          state: employmentState(),
           actions,
-          mutations: experiencesMutations
+          mutations: employmentMutations
         },
         skills: {
           namespaced: true,

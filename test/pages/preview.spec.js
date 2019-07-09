@@ -6,7 +6,7 @@ import preview from '@/pages/preview.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
-} from '@/store/experiences.js'
+} from '@/store/employment.js'
 
 Vue.use(Vuetify)
 
@@ -28,7 +28,7 @@ describe('preview', () => {
     }
     store = new Vuex.Store({
       modules: {
-        experiences: {
+        employment: {
           namespaced: true,
           state: state,
           actions,
