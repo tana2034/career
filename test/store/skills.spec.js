@@ -4,12 +4,16 @@ const {
   updateSkills,
   addLanguage,
   addDatabase,
+  addQualification,
   updateLanguage,
   updateDatabase,
+  updateQualification,
   getInitializedLanguage,
   getInitializedDatabase,
+  getInitializedQualification,
   deleteLanguage,
-  deleteDatabase
+  deleteDatabase,
+  deleteQualification
 } = mutations
 let testState
 
@@ -91,5 +95,44 @@ describe('mutations', () => {
     })
     expect(testState.databases.length).toBe(1)
     expect(testState.databases[0]).toBeTruthy()
+  })
+
+  test('addQualification', () => {
+    addQualification(testState)
+    expect(testState.qualifications.length).toBe(1)
+    expect(testState.qualifications[0].date).toBe('')
+    expect(testState.qualifications[0].name).toBe('')
+  })
+
+  test('updateQualification', () => {
+    addQualification(testState)
+    updateQualification(testState, {
+      index: 0,
+      key: 'name',
+      value: '基本情報技術者'
+    })
+    expect(testState.qualifications[0].name).toBe('基本情報技術者')
+    updateQualification(testState, {
+      index: 0,
+      key: 'date',
+      value: '2019-07'
+    })
+    expect(testState.qualifications[0].date).toBe('2019-07')
+  })
+
+  test('getInitializedQualification', () => {
+    const qualification = getInitializedQualification()
+    expect(qualification).toEqual({ date: '', name: '' })
+  })
+
+  test('deleteQualification', () => {
+    addQualification(testState)
+    addQualification(testState)
+    expect(testState.qualifications.length).toBe(2)
+    deleteQualification(testState, {
+      index: 0
+    })
+    expect(testState.qualifications.length).toBe(1)
+    expect(testState.qualifications[0]).toBeTruthy()
   })
 })

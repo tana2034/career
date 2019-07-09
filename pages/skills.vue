@@ -12,15 +12,6 @@
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <v-text-field
-                    v-model="qualification"
-                    label="Qualification"
-                    required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
                   <draggable v-model="languages">
                     <Language
                       v-for="(language, index) in languages" 
@@ -54,6 +45,25 @@
                 <v-flex xs12>
                   <v-btn color="lime lighten-3" @click="$store.commit('skills/addDatabase')">
                     DBを追加する
+                  </v-btn>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs12>
+                  <draggable v-model="qualifications">
+                    <Qualification
+                      v-for="(qualification, index) in qualifications" 
+                      :key="index" 
+                      :qualification="qualification"
+                      :index="index"
+                    />
+                  </draggable>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addQualification')">
+                    資格を追加する
                   </v-btn>
                 </v-flex>
               </v-layout>
@@ -103,6 +113,7 @@
 <script>
 import Language from '@/components/Language.vue'
 import Database from '@/components/Database.vue'
+import Qualification from '@/components/Qualification.vue'
 import draggable from 'vuedraggable'
 
 export default {
@@ -112,7 +123,7 @@ export default {
     }
   },
   layout: 'default',
-  components: { Language, draggable, Database },
+  components: { Language, draggable, Database, Qualification },
   computed: {
     languages: {
       get() {
@@ -125,13 +136,13 @@ export default {
         })
       }
     },
-    qualification: {
+    qualifications: {
       get() {
-        return this.$store.state.skills.qualification
+        return this.$store.state.skills.qualifications
       },
       set(value) {
         this.$store.commit('skills/updateSkills', {
-          key: 'qualification',
+          key: 'qualifications',
           value: value
         })
       }
