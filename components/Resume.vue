@@ -148,6 +148,22 @@
           </v-flex>
         </v-layout>
       </v-flex>
+    </v-layout>    <v-layout row wrap>
+      <v-flex xs2 sm2 lg2>
+        資格
+      </v-flex>
+      <v-flex xs10 sm10 lg10>
+        <v-layout 
+          v-for="(qualification, index) in this.$store.state.skills.qualifications" 
+          :key="index" 
+          :qualification="qualification"
+          :index="index"
+          row
+          wrap
+        >
+          <p> {{ qualification.name }} ({{ qualification.date }} 取得)</p>
+        </v-layout>
+      </v-flex>
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
