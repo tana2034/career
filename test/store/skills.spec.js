@@ -11,12 +11,9 @@ const {
   getInitializedLanguage,
   getInitializedDatabase,
   getInitializedQualification,
-  deleteLanguage,
-  deleteDatabase,
-  deleteQualification,
   addLink,
   updateLink,
-  deleteLink
+  removeElement
 } = mutations
 let testState
 
@@ -54,11 +51,12 @@ describe('mutations', () => {
     expect(lang).toEqual({ name: '', description: '' })
   })
 
-  test('deleteLanguage', () => {
+  test('removeElement', () => {
     addLanguage(testState)
     addLanguage(testState)
     expect(testState.languages.length).toBe(2)
-    deleteLanguage(testState, {
+    removeElement(testState, {
+      key: 'languages',
       index: 0
     })
     expect(testState.languages.length).toBe(1)
@@ -89,17 +87,6 @@ describe('mutations', () => {
     expect(db).toEqual({ name: '', description: '' })
   })
 
-  test('deleteDatabase', () => {
-    addDatabase(testState)
-    addDatabase(testState)
-    expect(testState.databases.length).toBe(2)
-    deleteDatabase(testState, {
-      index: 0
-    })
-    expect(testState.databases.length).toBe(1)
-    expect(testState.databases[0]).toBeTruthy()
-  })
-
   test('addQualification', () => {
     addQualification(testState)
     expect(testState.qualifications.length).toBe(1)
@@ -128,17 +115,6 @@ describe('mutations', () => {
     expect(qualification).toEqual({ date: '', name: '' })
   })
 
-  test('deleteQualification', () => {
-    addQualification(testState)
-    addQualification(testState)
-    expect(testState.qualifications.length).toBe(2)
-    deleteQualification(testState, {
-      index: 0
-    })
-    expect(testState.qualifications.length).toBe(1)
-    expect(testState.qualifications[0]).toBeTruthy()
-  })
-
   test('addLink', () => {
     addLink(testState)
     expect(testState.links.length).toBe(1)
@@ -149,13 +125,5 @@ describe('mutations', () => {
     addLink(testState)
     updateLink(testState, { index: 0, value: 'https://www.github.com' })
     expect(testState.links[0]).toBe('https://www.github.com')
-  })
-
-  test('deleteLink', () => {
-    addLink(testState)
-    addLink(testState)
-    expect(testState.links.length).toBe(2)
-    deleteLink(testState, { index: 0 })
-    expect(testState.links.length).toBe(1)
   })
 })

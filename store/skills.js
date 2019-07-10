@@ -12,6 +12,9 @@ export const mutations = {
   updateSkills(state, { key, value }) {
     state[key] = value
   },
+  removeElement(state, { key, index }) {
+    delete state[key].splice(index, 1)
+  },
   getInitializedLanguage() {
     return { name: '', description: '' }
   },
@@ -20,9 +23,6 @@ export const mutations = {
   },
   updateLanguage(state, { index, key, value }) {
     state.languages[index][key] = value
-  },
-  deleteLanguage(state, { index }) {
-    delete state.languages.splice(index, 1)
   },
   getInitializedDatabase() {
     return { name: '', description: '' }
@@ -33,9 +33,6 @@ export const mutations = {
   updateDatabase(state, { index, key, value }) {
     state.databases[index][key] = value
   },
-  deleteDatabase(state, { index }) {
-    delete state.databases.splice(index, 1)
-  },
   getInitializedQualification() {
     return { name: '', date: '' }
   },
@@ -45,16 +42,10 @@ export const mutations = {
   updateQualification(state, { index, key, value }) {
     state.qualifications[index][key] = value
   },
-  deleteQualification(state, { index }) {
-    delete state.qualifications.splice(index, 1)
-  },
   addLink(state) {
     state.links.push('')
   },
   updateLink(state, { index, value }) {
     state.links[index] = value
-  },
-  deleteLink(state, { index }) {
-    delete state.links.splice(index, 1)
   }
 }
