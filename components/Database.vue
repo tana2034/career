@@ -72,7 +72,8 @@ export default {
   },
   methods: {
     deleteDatabase() {
-      this.$store.commit('skills/deleteDatabase', {
+      this.$store.commit('skills/removeElement', {
+        key: 'databases',
         index: this.index
       })
     }

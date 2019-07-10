@@ -115,7 +115,8 @@ export default {
       })
     },
     deleteQualification() {
-      this.$store.commit('skills/deleteQualification', {
+      this.$store.commit('skills/removeElement', {
+        key: 'qualification',
         index: this.index
       })
     }

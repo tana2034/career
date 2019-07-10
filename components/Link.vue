@@ -2,7 +2,7 @@
   <v-card>
     <v-card-actions>
       <v-spacer />
-      <v-icon @click="$store.commit('skills/deleteLink', {index})">
+      <v-icon @click="$store.commit('skills/removeElement', {key: 'links', index: index})">
         clear
       </v-icon>
     </v-card-actions>

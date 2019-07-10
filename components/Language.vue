@@ -72,7 +72,8 @@ export default {
   },
   methods: {
     deleteLanguage() {
-      this.$store.commit('skills/deleteLanguage', {
+      this.$store.commit('skills/removeElement', {
+        key: 'languages',
         index: this.index
       })
     }
