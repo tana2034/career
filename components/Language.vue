@@ -1,7 +1,6 @@
 <template>
   <v-card>     
     <v-card-actions>
-      言語
       <v-spacer />
       <v-icon @click="deleteLanguage()">
         clear

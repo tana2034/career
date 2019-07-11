@@ -1,7 +1,6 @@
 <template>
   <v-card>     
     <v-card-actions>
-      DB
       <v-spacer />
       <v-icon @click="deleteDatabase()">
         clear

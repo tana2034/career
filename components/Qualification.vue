@@ -1,7 +1,6 @@
 <template>
   <v-card>     
     <v-card-actions>
-      資格
       <v-spacer />
       <v-icon @click="deleteQualification()">
         clear
@@ -116,7 +115,7 @@ export default {
     },
     deleteQualification() {
       this.$store.commit('skills/removeElement', {
-        key: 'qualification',
+        key: 'qualifications',
         index: this.index
       })
     }
