@@ -11,6 +11,18 @@
                 </v-flex>
               </v-layout>
               <v-layout row>
+                <v-subheader>
+                  言語
+                </v-subheader>
+              </v-layout>
+              <v-layout row>
+                <v-flex>
+                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addLanguage')">
+                    言語を追加する
+                  </v-btn>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
                 <v-flex xs12>
                   <draggable v-model="languages">
                     <Language
@@ -22,10 +34,16 @@
                   </draggable>
                 </v-flex>
               </v-layout>
+              <v-divider />
+              <v-layout row>
+                <v-subheader>
+                  DB
+                </v-subheader>
+              </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addLanguage')">
-                    言語を追加する
+                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addDatabase')">
+                    DBを追加する
                   </v-btn>
                 </v-flex>
               </v-layout>
@@ -41,10 +59,16 @@
                   </draggable>
                 </v-flex>
               </v-layout>
+              <v-divider />
+              <v-layout row>
+                <v-subheader>
+                  資格
+                </v-subheader>
+              </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addDatabase')">
-                    DBを追加する
+                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addQualification')">
+                    資格を追加する
                   </v-btn>
                 </v-flex>
               </v-layout>
@@ -60,13 +84,31 @@
                   </draggable>
                 </v-flex>
               </v-layout>
+              <v-divider />
+              <v-layout row>
+                <v-subheader>
+                  URL
+                </v-subheader>
+              </v-layout>
               <v-layout row>
                 <v-flex xs12>
-                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addQualification')">
-                    資格を追加する
+                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addLink')">
+                    URLを追加する
                   </v-btn>
                 </v-flex>
               </v-layout>
+              <v-layout row>
+                <v-flex xs12>
+                  <draggable v-model="links">
+                    <Link
+                      v-for="(value, index) in links" 
+                      :key="index"
+                      :index="index"
+                    />
+                  </draggable>
+                </v-flex>
+              </v-layout>
+              <v-divider />
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
@@ -92,24 +134,6 @@
                     label="Cloud Computing"
                     required
                   />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <draggable v-model="links">
-                    <Link
-                      v-for="(value, index) in links" 
-                      :key="index"
-                      :index="index"
-                    />
-                  </draggable>
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-btn color="lime lighten-3" @click="$store.commit('skills/addLink')">
-                    URLを追加する
-                  </v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
