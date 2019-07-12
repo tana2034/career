@@ -12,6 +12,7 @@ const {
   getInitializedDatabase,
   getInitializedQualification,
   addLink,
+  addTool,
   updateLink,
   removeElement
 } = mutations
@@ -125,5 +126,11 @@ describe('mutations', () => {
     addLink(testState)
     updateLink(testState, { index: 0, value: 'https://www.github.com' })
     expect(testState.links[0]).toBe('https://www.github.com')
+  })
+
+  test('addTool', () => {
+    addTool(testState, 'Apache')
+    expect(testState.tools.length).toBe(1)
+    expect(testState.tools[0]).toBe('Apache')
   })
 })

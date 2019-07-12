@@ -110,29 +110,34 @@
               </v-layout>
               <v-divider />
               <v-layout row>
+                <v-subheader>
+                  OS、ミドルウェア、ツール、クラウドコンピューティング等
+                </v-subheader>
+              </v-layout>
+              <v-layout row>
                 <v-flex xs12>
-                  <v-text-field
-                    v-model="os"
-                    label="OS"
-                    required
-                  />
+                  <draggable v-model="tools">
+                    <v-chip 
+                      v-for="(tag, index) in tools"
+                      :key="index"
+                      :index="index"
+                      :tag="tag"
+                      close
+                      @input="$store.commit('skills/removeElement', { key: 'tools', index: index })"
+                    >
+                      {{ tag }}
+                    </v-chip>
+                  </draggable>
                 </v-flex>
               </v-layout>
               <v-layout row>
                 <v-flex xs12>
                   <v-text-field
-                    v-model="tools"
-                    label="Middleware and Tools"
+                    v-model="tool"
+                    box
+                    hint="追加したい単語を入力してEnterを押してください"
                     required
-                  />
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12>
-                  <v-text-field
-                    v-model="cloud_computing"
-                    label="Cloud Computing"
-                    required
+                    @keydown.enter="addTool()"
                   />
                 </v-flex>
               </v-layout>
@@ -145,11 +150,11 @@
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import Language from '@/components/Language.vue'
 import Database from '@/components/Database.vue'
 import Qualification from '@/components/Qualification.vue'
 import Link from '@/components/Link.vue'
-import draggable from 'vuedraggable'
 
 export default {
   head() {
@@ -159,6 +164,11 @@ export default {
   },
   layout: 'default',
   components: { Language, draggable, Database, Qualification, Link },
+  data: function() {
+    return {
+      tool: ''
+    }
+  },
   computed: {
     languages: {
       get() {
@@ -180,14 +190,6 @@ export default {
           key: 'qualifications',
           value: value
         })
-      }
-    },
-    os: {
-      get() {
-        return this.$store.state.skills.os
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', { key: 'os', value: value })
       }
     },
     databases: {
@@ -212,17 +214,6 @@ export default {
         })
       }
     },
-    cloud_computing: {
-      get() {
-        return this.$store.state.skills.cloud_computing
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', {
-          key: 'cloud_computing',
-          value: value
-        })
-      }
-    },
     links: {
       get() {
         return this.$store.state.skills.links
@@ -233,17 +224,12 @@ export default {
           value: value
         })
       }
-    },
-    education: {
-      get() {
-        return this.$store.state.skills.education
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', {
-          key: 'education',
-          value: value
-        })
-      }
+    }
+  },
+  methods: {
+    addTool() {
+      this.$store.commit('skills/addTool', this.tool)
+      this.tool = ''
     }
   }
 }

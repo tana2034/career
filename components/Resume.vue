@@ -167,36 +167,6 @@
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
-        OS
-      </v-flex>
-      <v-flex xs10 sm10 lg10>
-        <p>
-          {{ $store.state.skills.os }}
-        </p>
-      </v-flex>
-    </v-layout>
-    <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
-        ミドルウェアやツール
-      </v-flex>
-      <v-flex xs10 sm10 lg10>
-        <p>
-          {{ $store.state.skills.tools }}
-        </p>
-      </v-flex>
-    </v-layout>
-    <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
-        クラウドサービス
-      </v-flex>
-      <v-flex xs10 sm10 lg10>
-        <p>
-          {{ $store.state.skills.cloud_computing }}
-        </p>
-      </v-flex>
-    </v-layout>
-    <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
         URL
       </v-flex>
       <v-flex xs10 sm10 lg10>
@@ -207,6 +177,20 @@
         >
           {{ link }}
         </p>
+      </v-flex>
+    </v-layout>
+    <v-layout row wrap>
+      <v-flex xs2 sm2 lg2>
+        ミドルウェアやツール
+      </v-flex>
+      <v-flex xs10 sm10 lg10>
+        <v-chip
+          v-for="(tool, index) in this.$store.state.skills.tools"
+          :key="index"
+          :tool="tool"
+        >
+          {{ tool }}
+        </v-chip>
       </v-flex>
     </v-layout>
     <v-layout row wrap mt-3>
