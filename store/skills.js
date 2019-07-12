@@ -1,9 +1,7 @@
 export const state = () => ({
   languages: [],
-  os: '',
   databases: [],
-  tools: '',
-  cloud_computing: '',
+  tools: [],
   qualifications: [],
   links: []
 })
@@ -47,5 +45,8 @@ export const mutations = {
   },
   updateLink(state, { index, value }) {
     state.links[index] = value
+  },
+  addTool(state, value) {
+    state.tools.push(value)
   }
 }
