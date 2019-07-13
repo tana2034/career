@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card color="lime lighten-5">
     <v-card-text> 
       <v-layout row wrap>
         <v-flex x12 md12 xl12 class="text-xs-right">
@@ -7,6 +7,18 @@
             clear
           </v-icon>
         </v-flex>
+      </v-layout>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <v-text-field
+            :value="title"
+            label="title" 
+            class="project-title"
+            @input="updateProject('title', $event)"
+          />
+        </v-flex>
+      </v-layout>
+      <v-layout>
         <v-flex xs12 md6 xl6>
           <v-menu
             v-model="modal.from"
@@ -66,16 +78,6 @@
               @input="updateProject('to', $event); closeToModal()"
             />
           </v-menu>
-        </v-flex>
-      </v-layout>
-      <v-layout row wrap>
-        <v-flex xs12>
-          <v-text-field
-            :value="title"
-            label="title" 
-            class="title"
-            @input="updateProject('title', $event)"
-          />
         </v-flex>
       </v-layout>
       <v-layout row wrap>

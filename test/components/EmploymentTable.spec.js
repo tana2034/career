@@ -26,10 +26,12 @@ describe('EmploymentTable', () => {
     state[0].to = '2019-05'
     state[0].company = '株式会社テスト'
     state[0].company_profile = 'IT企業'
-    state[0].projects[0].from = '2019-04'
-    state[0].projects[0].to = '2019-05'
-    state[0].projects[0].title = 'SPAの開発'
-    state[0].projects[0].description = 'nuxt.jsでSPAアプリを開発'
+    state[0].projects.push({
+      from: '2019-04',
+      to: '2019-05',
+      title: 'SPAの開発',
+      description: 'nuxt.jsでSPAアプリを開発'
+    })
 
     actions = {
       testAction: jest.fn()

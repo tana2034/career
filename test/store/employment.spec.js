@@ -23,7 +23,7 @@ describe('mutations', () => {
 
   test('addProject', () => {
     addProject(testState, 0)
-    expect(testState[0].projects.length).toBe(2)
+    expect(testState[0].projects.length).toBe(1)
   })
 
   test('updateEmployment', () => {
@@ -36,6 +36,7 @@ describe('mutations', () => {
   })
 
   test('updateProject', () => {
+    addProject(testState, 0)
     updateProject(testState, {
       i: 0,
       j: 0,
@@ -64,6 +65,7 @@ describe('mutations', () => {
   })
 
   test('deleteProject', () => {
+    addProject(testState, 0)
     addProject(testState, 0)
     deleteProject(testState, {
       i: 0,
