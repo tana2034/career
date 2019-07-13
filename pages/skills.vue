@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex xs12>
         <v-card>
-          <v-form>
+          <v-form @submit.prevent>
             <v-container>
               <v-layout row>
                 <v-flex x12>
@@ -137,7 +137,7 @@
                     box
                     hint="追加したい単語を入力してEnterを押してください"
                     required
-                    @keydown.enter="addTool()"
+                    @keydown.enter="addTool($event)"
                   />
                 </v-flex>
               </v-layout>
@@ -227,7 +227,10 @@ export default {
     }
   },
   methods: {
-    addTool() {
+    addTool(event) {
+      if (event.keyCode !== 13) {
+        return
+      }
       this.$store.commit('skills/addTool', this.tool)
       this.tool = ''
     }
