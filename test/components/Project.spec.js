@@ -60,7 +60,7 @@ describe('Project', () => {
   })
 
   test('title', () => {
-    expect(wrapper.find('.title').html()).toContain('SPAの開発')
+    expect(wrapper.find('.project-title').html()).toContain('SPAの開発')
   })
 
   test('description', () => {

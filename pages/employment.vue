@@ -11,10 +11,11 @@
                 </v-flex>
               </v-layout>
               <Employment
-                v-for="(work, index) in employment" 
+                v-for="(work, index) in employment"
                 :key="index" 
                 :work="work"
                 :index="index"
+                row
               />
               <v-layout row>
                 <v-flex xs12>
