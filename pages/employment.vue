@@ -6,8 +6,8 @@
           <v-form>
             <v-container>
               <v-layout row>
-                <v-flex x12>
-                  <div>職歴</div>
+                <v-flex xs12>
+                  <div>職務経歴</div>
                 </v-flex>
               </v-layout>
               <Employment
@@ -16,9 +16,13 @@
                 :work="work"
                 :index="index"
               />
-              <v-btn color="lime lighten-3" @click="$store.commit('employment/addTerm')">
-                期間を追加する
-              </v-btn>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-btn color="lime lighten-3" @click="$store.commit('employment/addTerm')">
+                    期間を追加する
+                  </v-btn>
+                </v-flex>
+              </v-layout>
             </v-container>
           </v-form>
         </v-card>

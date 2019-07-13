@@ -4,14 +4,7 @@ export const state = () => [
     to: '',
     company: '',
     company_profile: '',
-    projects: [
-      {
-        from: '',
-        to: '',
-        title: '',
-        description: ''
-      }
-    ]
+    projects: []
   }
 ]
 
@@ -30,14 +23,7 @@ export const mutations = {
       to: '',
       company: '',
       company_profile: '',
-      projects: [
-        {
-          from: '',
-          to: '',
-          title: '',
-          description: ''
-        }
-      ]
+      projects: []
     })
   },
   addProject(state, index) {
