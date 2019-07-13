@@ -47,6 +47,13 @@ export const mutations = {
     state.links[index] = value
   },
   addTool(state, value) {
+    let duplicate = false
+    state.tools.forEach(v => {
+      if (v === value) {
+        duplicate = true
+      }
+    })
+    if (duplicate || value === '') return
     state.tools.push(value)
   }
 }

@@ -133,4 +133,17 @@ describe('mutations', () => {
     expect(testState.tools.length).toBe(1)
     expect(testState.tools[0]).toBe('Apache')
   })
+
+  test('addTool set duplicate value', () => {
+    addTool(testState, 'Apache')
+    expect(testState.tools.length).toBe(1)
+    expect(testState.tools[0]).toBe('Apache')
+    addTool(testState, 'Apache')
+    expect(testState.tools.length).toBe(1)
+    expect(testState.tools[0]).toBe('Apache')
+  })
+  test('addTool set empty value', () => {
+    addTool(testState, '')
+    expect(testState.tools.length).toBe(0)
+  })
 })
