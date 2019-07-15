@@ -47,6 +47,8 @@ export const mutations = {
     state.links[index] = value
   },
   addTool(state, value) {
-    state.tools.push(value)
+    const tool = value.trim()
+    if (state.tools.includes(tool) || tool === '') return
+    state.tools.push(tool)
   }
 }
