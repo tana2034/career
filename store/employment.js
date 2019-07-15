@@ -26,6 +26,9 @@ export const mutations = {
       projects: []
     })
   },
+  deleteTerm(state, { index }) {
+    delete state.splice(index, 1)
+  },
   addProject(state, index) {
     state[index].projects.push(mutations.getInitializedProject())
   },

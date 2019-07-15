@@ -6,6 +6,7 @@ const {
   updateEmployment,
   updateProject,
   updateProjects,
+  deleteTerm,
   deleteProject,
   getInitializedProject
 } = mutations
@@ -19,6 +20,13 @@ describe('mutations', () => {
   test('addTerm', () => {
     addTerm(testState)
     expect(testState.length).toBe(2)
+  })
+
+  test('deleteTerm', () => {
+    addTerm(testState)
+    expect(testState.length).toBe(2)
+    deleteTerm(testState, { index: 0 })
+    expect(testState.length).toBe(1)
   })
 
   test('addProject', () => {

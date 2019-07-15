@@ -1,6 +1,12 @@
 <template>
   <v-layout row wrap>
     <v-card>
+      <v-card-actions>
+        <v-spacer />
+        <v-icon @click="deleteTerm()">
+          clear
+        </v-icon>
+      </v-card-actions>
       <v-card-text>
         <v-layout row wrap>
           <v-flex xs12 md12 xl12>
@@ -12,7 +18,6 @@
               @input="updateEmployment('company', $event)"
             />
           </v-flex>
-
           <v-flex xs6 md6 xl6>
             <v-menu
               v-model="modal.from"
@@ -180,6 +185,11 @@ export default {
         index: this.index,
         key: key,
         value: value
+      })
+    },
+    deleteTerm() {
+      this.$store.commit('employment/deleteTerm', {
+        index: this.index
       })
     }
   }

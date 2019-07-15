@@ -20,7 +20,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-btn color="lime lighten-3" @click="$store.commit('employment/addTerm')">
-                    期間を追加する
+                    会社を追加する
                   </v-btn>
                 </v-flex>
               </v-layout>
