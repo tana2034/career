@@ -135,6 +135,7 @@ describe('mutations', () => {
     expect(testState.tools[0]).toBe('Apache')
     addTool(testState, 'Nginx')
     expect(testState.tools.length).toBe(2)
+    expect(testState.tools[0]).toBe('Apache')
     expect(testState.tools[1]).toBe('Nginx')
   })
 
