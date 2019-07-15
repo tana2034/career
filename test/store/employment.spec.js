@@ -24,12 +24,22 @@ describe('mutations', () => {
 
   test('deleteCompany', () => {
     addCompany(testState)
+    updateCompany(testState, {
+      index: 0,
+      key: 'company',
+      value: '株式会社AAAA'
+    })
+    updateCompany(testState, {
+      index: 1,
+      key: 'company',
+      value: '株式会社BBBB'
+    })
     expect(testState.length).toBe(2)
-    expect(testState[0]).toBeTruthy()
-    expect(testState[1]).toBeTruthy()
+    expect(testState[0].company).toBe('株式会社AAAA')
+    expect(testState[1].company).toBe('株式会社BBBB')
     deleteCompany(testState, { index: 0 })
     expect(testState.length).toBe(1)
-    expect(testState[0]).toBeTruthy()
+    expect(testState[0].company).toBe('株式会社BBBB')
     expect(testState[1]).toBeFalsy()
   })
 
