@@ -1,6 +1,12 @@
 <template>
   <v-layout row wrap>
     <v-card>
+      <v-card-actions>
+        <v-spacer />
+        <v-icon @click="deleteCompany()">
+          clear
+        </v-icon>
+      </v-card-actions>
       <v-card-text>
         <v-layout row wrap>
           <v-flex xs12 md12 xl12>
@@ -9,10 +15,9 @@
               name="company"
               label="company"
               class="company"
-              @input="updateEmployment('company', $event)"
+              @input="updateCompany('company', $event)"
             />
           </v-flex>
-
           <v-flex xs6 md6 xl6>
             <v-menu
               v-model="modal.from"
@@ -38,7 +43,7 @@
                 color="blue" 
                 type="month"
                 class="from"
-                @input="updateEmployment('from', $event); closeFromModal()"
+                @input="updateCompany('from', $event); closeFromModal()"
               />  
             </v-menu>
           </v-flex>
@@ -57,7 +62,7 @@
                   :value="to"
                   label="to"
                   readonly
-                  @input="updateEmployment('to', $event)"
+                  @input="updateCompany('to', $event)"
                   v-on="on"
                 />
               </template>
@@ -68,7 +73,7 @@
                 color="blue" 
                 type="month"
                 class="to"
-                @input="updateEmployment('to', $event); closeToModal()"
+                @input="updateCompany('to', $event); closeToModal()"
               />
             </v-menu>
           </v-flex>
@@ -78,7 +83,7 @@
               name="company profile"
               label="company profile"
               class="company_profile"
-              @input="updateEmployment('company_profile', $event)"
+              @input="updateCompany('company_profile', $event)"
             />
           </v-flex>
           <v-flex xs12 md12 xl12>
@@ -109,17 +114,10 @@
 <script>
 import draggable from 'vuedraggable'
 import Project from '@/components/Project.vue'
-import { state } from '@/store/employment.js'
 
 export default {
   components: { Project, draggable },
   props: {
-    work: {
-      type: Object,
-      default: () => {
-        return state()[0]
-      }
-    },
     index: {
       type: Number,
       default: () => {
@@ -175,11 +173,16 @@ export default {
     closeToModal() {
       this.modal.to = false
     },
-    updateEmployment(key, value) {
-      this.$store.commit('employment/updateEmployment', {
+    updateCompany(key, value) {
+      this.$store.commit('employment/updateCompany', {
         index: this.index,
         key: key,
         value: value
+      })
+    },
+    deleteCompany() {
+      this.$store.commit('employment/deleteCompany', {
+        index: this.index
       })
     }
   }

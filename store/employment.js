@@ -17,7 +17,7 @@ export const mutations = {
       description: ''
     }
   },
-  addTerm(state) {
+  addCompany(state) {
     state.push({
       from: '',
       to: '',
@@ -26,10 +26,13 @@ export const mutations = {
       projects: []
     })
   },
+  deleteCompany(state, { index }) {
+    delete state.splice(index, 1)
+  },
   addProject(state, index) {
     state[index].projects.push(mutations.getInitializedProject())
   },
-  updateEmployment(state, { index, key, value }) {
+  updateCompany(state, { index, key, value }) {
     state[index][key] = value
   },
   updateProject(state, { i, j, key, value }) {
