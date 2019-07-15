@@ -129,9 +129,13 @@ describe('mutations', () => {
   })
 
   test('addTool', () => {
+    expect(testState.tools.length).toBe(0)
     addTool(testState, 'Apache')
     expect(testState.tools.length).toBe(1)
     expect(testState.tools[0]).toBe('Apache')
+    addTool(testState, 'Nginx')
+    expect(testState.tools.length).toBe(2)
+    expect(testState.tools[1]).toBe('Nginx')
   })
 
   test('addTool set duplicate value', () => {
@@ -142,8 +146,15 @@ describe('mutations', () => {
     expect(testState.tools.length).toBe(1)
     expect(testState.tools[0]).toBe('Apache')
   })
+
   test('addTool set empty value', () => {
     addTool(testState, '')
+    expect(testState.tools.length).toBe(0)
+    // 全角スペース
+    addTool(testState, '　')
+    expect(testState.tools.length).toBe(0)
+    // 半角スペース
+    addTool(testState, ' ')
     expect(testState.tools.length).toBe(0)
   })
 })
