@@ -1,12 +1,12 @@
 import { mutations, state } from '@/store/employment.js'
 
 const {
-  addTerm,
+  addCompany,
   addProject,
-  updateEmployment,
+  updateCompany,
   updateProject,
   updateProjects,
-  deleteTerm,
+  deleteCompany,
   deleteProject,
   getInitializedProject
 } = mutations
@@ -17,16 +17,20 @@ beforeEach(() => {
 })
 
 describe('mutations', () => {
-  test('addTerm', () => {
-    addTerm(testState)
+  test('addCompany', () => {
+    addCompany(testState)
     expect(testState.length).toBe(2)
   })
 
-  test('deleteTerm', () => {
-    addTerm(testState)
+  test('deleteCompany', () => {
+    addCompany(testState)
     expect(testState.length).toBe(2)
-    deleteTerm(testState, { index: 0 })
+    expect(testState[0]).toBeTruthy()
+    expect(testState[1]).toBeTruthy()
+    deleteCompany(testState, { index: 0 })
     expect(testState.length).toBe(1)
+    expect(testState[0]).toBeTruthy()
+    expect(testState[1]).toBeFalsy()
   })
 
   test('addProject', () => {
@@ -34,8 +38,8 @@ describe('mutations', () => {
     expect(testState[0].projects.length).toBe(1)
   })
 
-  test('updateEmployment', () => {
-    updateEmployment(testState, {
+  test('updateCompany', () => {
+    updateCompany(testState, {
       index: 0,
       key: 'company',
       value: '株式会社テスト'

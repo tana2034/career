@@ -10,16 +10,15 @@
                   <div>職務経歴</div>
                 </v-flex>
               </v-layout>
-              <Employment
-                v-for="(work, index) in employment"
+              <Company
+                v-for="(company, index) in companies"
                 :key="index" 
-                :work="work"
                 :index="index"
                 row
               />
               <v-layout row>
                 <v-flex xs12>
-                  <v-btn color="lime lighten-3" @click="$store.commit('employment/addTerm')">
+                  <v-btn color="lime lighten-3" @click="$store.commit('employment/addCompany')">
                     会社を追加する
                   </v-btn>
                 </v-flex>
@@ -33,7 +32,7 @@
 </template>
 
 <script>
-import Employment from '~/components/Employment.vue'
+import Company from '~/components/Company.vue'
 
 export default {
   head() {
@@ -41,10 +40,10 @@ export default {
       title: '職務経歴書'
     }
   },
-  components: { Employment },
+  components: { Company },
   layout: 'default',
   computed: {
-    employment: {
+    companies: {
       get() {
         return this.$store.state.employment
       }
