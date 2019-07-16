@@ -16,6 +16,7 @@
                     v-model="lastname"
                     :counter="10"
                     label="Last name"
+                    prepend-icon="person"
                     required
                   />
                 </v-flex>
@@ -33,6 +34,7 @@
                   <v-text-field
                     v-model="email"
                     label="E-mail"
+                    prepend-icon="email"
                     required
                   />
                 </v-flex>
@@ -40,12 +42,14 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-menu
-                    v-model="modal.birth_date"
+                    ref="modal_birth_date"
+                    v-model="modal_birth_date"
                     :close-on-content-click="false"
                     :nudge-right="40"
                     lazy
                     transition="scale-transition"
                     full-width
+                    offset-y
                     min-width="290px"
                   >
                     <template v-slot:activator="{on}">
@@ -54,14 +58,18 @@
                         name="birth_date"
                         readonly
                         label="birth date"
+                        prepend-icon="event"
                         v-on="on"
                       />
                     </template>
-                    <v-date-picker 
+                    <v-date-picker
+                      ref="picker"
                       v-model="birth_date" 
                       landscape 
                       color="blue"
-                      @input="closeModal('birth_date')"
+                      :max="new Date().toISOString().substr(0, 10)"
+                      min="1950-01-01"
+                      @input="closeModal('modal_birth_date')"
                     />
                   </v-menu>
                 </v-flex>
@@ -71,6 +79,7 @@
                   <v-text-field
                     v-model="address"
                     label="Address"
+                    prepend-icon="map"
                     required
                   />
                 </v-flex>
@@ -80,6 +89,7 @@
                   <v-text-field
                     v-model="tel"
                     label="Tel"
+                    prepend-icon="phone"
                     required
                   />
                 </v-flex>
@@ -111,7 +121,7 @@
               <v-layout row wrap>
                 <v-flex xs12>
                   <v-menu
-                    v-model="modal.graduation_year"
+                    v-model="modal_graduation_year"
                     :close-on-content-click="false"
                     :nudge-right="40"
                     lazy
@@ -133,7 +143,7 @@
                       landscape 
                       type="month"
                       color="blue"
-                      @input="closeModal('graduation_year')"
+                      @input="closeModal('modal_graduation_year')"
                     />
                   </v-menu>
                   <v-text-field 
@@ -160,10 +170,8 @@ export default {
   },
   data: function() {
     return {
-      modal: {
-        graduation_year: false,
-        birth_date: false
-      }
+      modal_birth_date: false,
+      modal_graduation_year: false
     }
   },
   layout: 'default',
@@ -279,9 +287,14 @@ export default {
       }
     }
   },
+  watch: {
+    modal_birth_date(val) {
+      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
+    }
+  },
   methods: {
     closeModal(key) {
-      this.modal[key] = false
+      this.key = false
     }
   }
 }
