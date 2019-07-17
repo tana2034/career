@@ -65,7 +65,6 @@
                     <v-date-picker
                       ref="picker"
                       v-model="birth_date" 
-                      landscape 
                       color="blue"
                       :max="new Date().toISOString().substr(0, 10)"
                       min="1950-01-01"
