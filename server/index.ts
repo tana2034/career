@@ -1,11 +1,10 @@
 const express = require('express')
 const consola = require('consola')
-const bodyParser = require('body-parser')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 
 // Import and Set Nuxt.js options
-const config = require('../nuxt.config.js')
+const config = require('../nuxt.config.ts')
 config.dev = !(process.env.NODE_ENV === 'production')
 
 async function start() {
@@ -22,14 +21,6 @@ async function start() {
     const builder = new Builder(nuxt)
     await builder.build()
   }
-
-  const download = require('./api/download')
-  app.use('/download', download)
-
-  // parse application/x-www-form-urlencoded
-  app.use(bodyParser.urlencoded({ extended: false }))
-  // parse application/json
-  app.use(bodyParser.json())
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
