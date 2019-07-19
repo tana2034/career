@@ -11,7 +11,7 @@ export const mutations = {
     state[key] = value
   },
   removeElement(state, { key, index }) {
-    delete state[key].splice(index, 1)
+    state[key].splice(index, 1)
   },
   getInitializedLanguage() {
     return { name: '', description: '' }

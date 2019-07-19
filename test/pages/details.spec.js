@@ -6,11 +6,11 @@ import details from '@/pages/details.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
-} from '@/store/employment.js'
+} from '@/store/employment.ts'
 import {
   state as detailsState,
   mutations as detailsMutations
-} from '@/store/details.js'
+} from '@/store/details.ts'
 
 Vue.use(Vuetify)
 

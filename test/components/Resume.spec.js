@@ -6,15 +6,15 @@ import Resume from '@/components/Resume.vue'
 import {
   state as detailsState,
   mutations as detailsMutations
-} from '@/store/details.js'
+} from '@/store/details.ts'
 import {
   state as employmentState,
   mutations as employmentMutations
-} from '@/store/employment.js'
+} from '@/store/employment.ts'
 import {
   state as skillsState,
   mutations as skillsMutations
-} from '@/store/skills.js'
+} from '@/store/skills.ts'
 
 Vue.use(Vuetify)
 

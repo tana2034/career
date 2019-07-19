@@ -6,7 +6,7 @@ import Database from '@/components/Database.vue'
 import {
   state as skillsState,
   mutations as skillsMutations
-} from '@/store/skills.js'
+} from '@/store/skills.ts'
 
 Vue.use(Vuetify)
 

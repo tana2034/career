@@ -1,4 +1,4 @@
-import { mutations, state } from '@/store/employment.js'
+import { mutations, state } from '@/store/employment.ts'
 
 const {
   addCompany,

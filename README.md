@@ -5,7 +5,7 @@
 https://blissful-lalande-eab957.netlify.com/
 
 - プラットフォーム：netlify
-- 言語：JavaScript
+- 言語：TypeScript 3.5.3
 - WEBフレームワーク：nuxt.js (SPA mode)
 - ~~WEBフレームワーク（サーバサイド）：express~~
 - CSSフレームワーク：Vuetify
