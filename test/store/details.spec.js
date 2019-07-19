@@ -1,4 +1,4 @@
-import { mutations, state } from '@/store/details.js'
+import { mutations, state } from '@/store/details.ts'
 
 const { updateDetail } = mutations
 let testState

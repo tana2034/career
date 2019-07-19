@@ -95,7 +95,7 @@
 </template>
 
 <script>
-import { state } from '@/store/employment.js'
+import { state } from '@/store/employment.ts'
 
 export default {
   props: {

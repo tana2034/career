@@ -6,7 +6,7 @@ import Link from '@/components/Link.vue'
 import {
   state as skillsState,
   mutations as skillsMutations
-} from '@/store/skills.js'
+} from '@/store/skills.ts'
 
 Vue.use(Vuetify)
 

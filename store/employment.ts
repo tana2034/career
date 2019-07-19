@@ -27,7 +27,7 @@ export const mutations = {
     })
   },
   deleteCompany(state, { index }) {
-    delete state.splice(index, 1)
+    state.splice(index, 1)
   },
   addProject(state, index) {
     state[index].projects.push(mutations.getInitializedProject())
@@ -42,6 +42,6 @@ export const mutations = {
     state[index].projects = value
   },
   deleteProject(state, { i, j }) {
-    delete state[i].projects.splice(j, 1)
+    state[i].projects.splice(j, 1)
   }
 }

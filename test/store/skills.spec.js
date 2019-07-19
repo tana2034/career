@@ -1,4 +1,4 @@
-import { mutations, state } from '@/store/skills.js'
+import { mutations, state } from '@/store/skills.ts'
 
 const {
   updateSkills,

@@ -6,7 +6,7 @@ import EmploymentTable from '@/components/EmploymentTable.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
-} from '@/store/employment.js'
+} from '@/store/employment.ts'
 
 Vue.use(Vuetify)
 

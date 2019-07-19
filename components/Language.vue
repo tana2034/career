@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mutations } from '@/store/skills.js'
+import { mutations } from '@/store/skills.ts'
 
 export default {
   props: {
