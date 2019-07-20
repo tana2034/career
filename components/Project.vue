@@ -11,6 +11,7 @@
       <v-layout row wrap>
         <v-flex xs12>
           <v-text-field
+            box
             :value="title"
             label="title" 
             class="project-title"
@@ -32,6 +33,7 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
+                box
                 :value="from"
                 label="from"
                 readonly
@@ -62,6 +64,7 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
+                box
                 :value="to" 
                 label="to"
                 readonly
@@ -83,6 +86,7 @@
       <v-layout row wrap>
         <v-flex xs12>
           <v-textarea 
+            box
             :value="description"
             label="description" 
             class="description"
