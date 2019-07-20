@@ -102,8 +102,8 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-textarea
-                    box
                     v-model="summary"
+                    box
                     label="Summary"
                     required
                   />
@@ -112,8 +112,8 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-textarea
-                    box
                     v-model="public_relations"
+                    box
                     label="PR"
                     required
                   />
