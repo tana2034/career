@@ -93,16 +93,6 @@
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
-        資格
-      </v-flex>
-      <v-flex xs10 sm10 lg10>
-        <p>
-          {{ $store.state.skills.qualification }}
-        </p>
-      </v-flex>
-    </v-layout>
-    <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
         言語
       </v-flex>
       <v-flex xs10 sm10 lg10>

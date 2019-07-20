@@ -20,10 +20,10 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
+                box
                 :value="date"
                 label="取得年月"
                 readonly
-                box
                 v-on="on"
               />
             </template>

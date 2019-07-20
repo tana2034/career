@@ -14,6 +14,7 @@
                 <v-flex xs12 md6 xl6>
                   <v-text-field
                     v-model="lastname"
+                    box
                     :counter="10"
                     label="Last name"
                     prepend-icon="person"
@@ -23,6 +24,7 @@
                 <v-flex xs12 md6 xl6>
                   <v-text-field
                     v-model="firstname"
+                    box
                     :counter="10"
                     label="First name"
                     required
@@ -33,6 +35,7 @@
                 <v-flex xs12>
                   <v-text-field
                     v-model="email"
+                    box
                     label="E-mail"
                     prepend-icon="email"
                     required
@@ -55,6 +58,7 @@
                     <template v-slot:activator="{on}">
                       <v-text-field
                         v-model="birth_date"
+                        box
                         name="birth_date"
                         readonly
                         label="birth date"
@@ -77,6 +81,7 @@
                 <v-flex xs12>
                   <v-text-field
                     v-model="address"
+                    box
                     label="Address"
                     prepend-icon="map"
                     required
@@ -87,6 +92,7 @@
                 <v-flex xs12>
                   <v-text-field
                     v-model="tel"
+                    box
                     label="Tel"
                     prepend-icon="phone"
                     required
@@ -96,6 +102,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-textarea
+                    box
                     v-model="summary"
                     label="Summary"
                     required
@@ -105,6 +112,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-textarea
+                    box
                     v-model="public_relations"
                     label="PR"
                     required
@@ -131,6 +139,7 @@
                     <template v-slot:activator="{on}">
                       <v-text-field
                         v-model="graduation_year"
+                        box
                         name="graduation_year"
                         readonly
                         label="the year of graduation"
@@ -145,8 +154,9 @@
                       @input="closeModal('modal_graduation_year')"
                     />
                   </v-menu>
-                  <v-text-field 
-                    v-model="education" 
+                  <v-text-field
+                    v-model="education"
+                    box 
                     name="education" 
                     label="education"
                   />

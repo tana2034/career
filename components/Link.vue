@@ -7,7 +7,7 @@
       </v-icon>
     </v-card-actions>
     <v-card-text>
-      <v-text-field 
+      <v-text-field
         v-model="link"
         box
         label="URL"

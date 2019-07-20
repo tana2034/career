@@ -11,6 +11,7 @@
         <v-layout row wrap>
           <v-flex xs12 md12 xl12>
             <v-text-field
+              box
               :value="company"
               name="company"
               label="company"
@@ -30,6 +31,7 @@
             >
               <template v-slot:activator="{on}">
                 <v-text-field
+                  box
                   :value="from"
                   label="from"
                   readonly
@@ -59,6 +61,7 @@
             >
               <template v-slot:activator="{on}">
                 <v-text-field
+                  box
                   :value="to"
                   label="to"
                   readonly
@@ -79,6 +82,7 @@
           </v-flex>
           <v-flex xs12 md12 xl12>
             <v-text-field
+              box
               :value="company_profile"
               name="company profile"
               label="company profile"
