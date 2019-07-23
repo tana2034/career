@@ -83,11 +83,11 @@
           <v-flex xs12 md12 xl12>
             <v-text-field
               box
-              :value="company_profile"
+              :value="companyProfile"
               name="company profile"
               label="company profile"
-              class="company_profile"
-              @input="updateCompany('company_profile', $event)"
+              class="companyProfile"
+              @input="updateCompany('companyProfile', $event)"
             />
           </v-flex>
           <v-flex xs12 md12 xl12>
@@ -154,9 +154,9 @@ export default {
         return this.$store.state.employment[this.index].company
       }
     },
-    company_profile: {
+    companyProfile: {
       get() {
-        return this.$store.state.employment[this.index].company_profile
+        return this.$store.state.employment[this.index].companyProfile
       }
     },
     from: {

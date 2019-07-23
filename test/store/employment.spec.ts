@@ -7,8 +7,7 @@ const {
   updateProject,
   updateProjects,
   deleteCompany,
-  deleteProject,
-  getInitializedProject
+  deleteProject
 } = mutations
 let testState
 
@@ -94,15 +93,5 @@ describe('mutations', () => {
       j: 0
     })
     expect(testState[0].projects.length).toBe(1)
-  })
-
-  test('getInitializedProject', () => {
-    const project = getInitializedProject()
-    expect(project).toEqual({
-      from: '',
-      to: '',
-      title: '',
-      description: ''
-    })
   })
 })

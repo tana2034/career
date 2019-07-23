@@ -36,7 +36,7 @@ describe('Resume', () => {
     state.address = '東京都千代田区丸の内一丁目'
     state.tel = '000-0000-0000'
     state.summary = '設計・開発をやっています。'
-    state.public_relations = 'JavaScriptが得意です。'
+    state.publicRelations = 'JavaScriptが得意です。'
 
     actions = {
       testAction: jest.fn()
@@ -102,8 +102,8 @@ describe('Resume', () => {
     )
   })
 
-  test('public_relations', () => {
-    expect(wrapper.find('.public_relations').html()).toContain(
+  test('publicRelations', () => {
+    expect(wrapper.find('.publicRelations').html()).toContain(
       'JavaScriptが得意です。'
     )
   })

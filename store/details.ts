@@ -4,10 +4,11 @@ export const state = () => ({
   email: '',
   birth_date: '',
   tel: '',
+  address: '',
   summary: '',
-  public_relations: '',
+  publicRelations: '',
   education: '',
-  graduation_year: ''
+  graduationYear: ''
 })
 
 export const mutations = {

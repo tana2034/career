@@ -81,8 +81,8 @@
         自己PR
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p class="public_relations">
-          {{ $store.state.details.public_relations }}
+        <p class="publicRelations">
+          {{ $store.state.details.publicRelations }}
         </p>
       </v-flex>
     </v-layout>
@@ -191,7 +191,7 @@
     <v-layout row wrap>
       <v-flex xs12 md12 xl12 mb-1 mt-3>
         <div>
-          <span>{{ $store.state.details.graduation_year }}</span>
+          <span>{{ $store.state.details.graduationYear }}</span>
           <h4 class="subheading">
             {{ $store.state.details.education }}
           </h4>
