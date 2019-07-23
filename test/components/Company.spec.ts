@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import Project from '@/components/Project.vue'
+import Company from '@/components/Company.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
@@ -14,19 +14,17 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-describe('Project', () => {
+describe('Company', () => {
   let actions
   let store
   let wrapper
 
   beforeEach(() => {
     const state = experienceState()
-    state[0].projects.push({
-      from: '2019-04',
-      to: '2019-05',
-      title: 'SPAの開発',
-      description: 'nuxt.jsでSPAアプリを開発'
-    })
+    state[0].from = '2019-04'
+    state[0].to = '2019-05'
+    state[0].company = '株式会社テスト'
+    state[0].companyProfile = 'IT企業'
 
     actions = {
       testAction: jest.fn()
@@ -41,13 +39,17 @@ describe('Project', () => {
         }
       }
     })
-    wrapper = shallowMount(Project, {
+    wrapper = shallowMount(Company, {
       store,
       localVue
     })
   })
 
   test('is a Vue instance', () => {
+    wrapper = shallowMount(Company, {
+      store,
+      localVue
+    })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
@@ -59,13 +61,11 @@ describe('Project', () => {
     expect(wrapper.find('.to').html()).toContain('2019-05')
   })
 
-  test('title', () => {
-    expect(wrapper.find('.project-title').html()).toContain('SPAの開発')
+  test('company', () => {
+    expect(wrapper.find('.company').html()).toContain('株式会社テスト')
   })
 
-  test('description', () => {
-    expect(wrapper.find('.description').html()).toContain(
-      'nuxt.jsでSPAアプリを開発'
-    )
+  test('companyProfile', () => {
+    expect(wrapper.find('.companyProfile').html()).toContain('IT企業')
   })
 })

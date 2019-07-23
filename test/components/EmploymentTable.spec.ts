@@ -25,7 +25,7 @@ describe('EmploymentTable', () => {
     state[0].from = '2019-04'
     state[0].to = '2019-05'
     state[0].company = '株式会社テスト'
-    state[0].company_profile = 'IT企業'
+    state[0].companyProfile = 'IT企業'
     state[0].projects.push({
       from: '2019-04',
       to: '2019-05',
@@ -71,8 +71,8 @@ describe('EmploymentTable', () => {
     expect(wrapper.find('.company').html()).toContain('株式会社テスト')
   })
 
-  test('company_profile', () => {
-    expect(wrapper.find('.company_profile').html()).toContain('IT企業')
+  test('companyProfile', () => {
+    expect(wrapper.find('.companyProfile').html()).toContain('IT企業')
   })
 
   test('content-term', () => {
