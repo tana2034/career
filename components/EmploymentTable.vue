@@ -7,8 +7,8 @@
           <h4 class="subheading company">
             {{ work.company }}
           </h4>
-          <p class="grey--text company_profile">
-            {{ work.company_profile }}
+          <p class="grey--text companyProfile">
+            {{ work.companyProfile }}
           </p>
         </div>
 

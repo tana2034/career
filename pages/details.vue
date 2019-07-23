@@ -112,7 +112,7 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-textarea
-                    v-model="public_relations"
+                    v-model="publicRelations"
                     box
                     label="PR"
                     required
@@ -128,7 +128,7 @@
               <v-layout row wrap>
                 <v-flex xs12>
                   <v-menu
-                    v-model="modal_graduation_year"
+                    v-model="modal_graduationYear"
                     :close-on-content-click="false"
                     :nudge-right="40"
                     lazy
@@ -138,20 +138,20 @@
                   >
                     <template v-slot:activator="{on}">
                       <v-text-field
-                        v-model="graduation_year"
+                        v-model="graduationYear"
                         box
-                        name="graduation_year"
+                        name="graduationYear"
                         readonly
                         label="the year of graduation"
                         v-on="on"
                       />
                     </template>
                     <v-date-picker 
-                      v-model="graduation_year" 
+                      v-model="graduationYear" 
                       landscape 
                       type="month"
                       color="blue"
-                      @input="closeModal('modal_graduation_year')"
+                      @input="closeModal('modal_graduationYear')"
                     />
                   </v-menu>
                   <v-text-field
@@ -180,7 +180,7 @@ export default {
   data: function() {
     return {
       modal_birth_date: false,
-      modal_graduation_year: false
+      modal_graduationYear: false
     }
   },
   layout: 'default',
@@ -262,13 +262,13 @@ export default {
         })
       }
     },
-    public_relations: {
+    publicRelations: {
       get() {
-        return this.$store.state.details.public_relations
+        return this.$store.state.details.publicRelations
       },
       set(value) {
         this.$store.commit('details/updateDetail', {
-          key: 'public_relations',
+          key: 'publicRelations',
           value: value
         })
       }
@@ -284,13 +284,13 @@ export default {
         })
       }
     },
-    graduation_year: {
+    graduationYear: {
       get() {
-        return this.$store.state.details.graduation_year
+        return this.$store.state.details.graduationYear
       },
       set(value) {
         this.$store.commit('details/updateDetail', {
-          key: 'graduation_year',
+          key: 'graduationYear',
           value: value
         })
       }
