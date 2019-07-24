@@ -32,7 +32,7 @@ describe('Resume', () => {
     state.lastname = '山田'
     state.firstname = '太郎'
     state.email = 'example@example.com'
-    state.birth_date = '2019-01-01'
+    state.birthDate = '2019-01-01'
     state.address = '東京都千代田区丸の内一丁目'
     state.tel = '000-0000-0000'
     state.summary = '設計・開発をやっています。'
@@ -82,8 +82,8 @@ describe('Resume', () => {
     expect(wrapper.find('.email').html()).toContain('example@example.com')
   })
 
-  test('birth_date', () => {
-    expect(wrapper.find('.birth_date').html()).toContain('2019-01-01')
+  test('birthDate', () => {
+    expect(wrapper.find('.birthDate').html()).toContain('2019-01-01')
   })
 
   test('address', () => {

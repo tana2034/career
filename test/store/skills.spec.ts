@@ -8,9 +8,6 @@ const {
   updateLanguage,
   updateDatabase,
   updateQualification,
-  getInitializedLanguage,
-  getInitializedDatabase,
-  getInitializedQualification,
   addLink,
   addTool,
   updateLink,
@@ -47,11 +44,6 @@ describe('mutations', () => {
     expect(testState.languages[0].description).toBe('業務で３年経験')
   })
 
-  test('getInitializedLanguage', () => {
-    const lang = getInitializedLanguage()
-    expect(lang).toEqual({ name: '', description: '' })
-  })
-
   test('removeElement', () => {
     addLanguage(testState)
     addLanguage(testState)
@@ -83,11 +75,6 @@ describe('mutations', () => {
     expect(testState.databases[0].description).toBe('業務で３年経験')
   })
 
-  test('getInitializedDatabase', () => {
-    const db = getInitializedDatabase()
-    expect(db).toEqual({ name: '', description: '' })
-  })
-
   test('addQualification', () => {
     addQualification(testState)
     expect(testState.qualifications.length).toBe(1)
@@ -109,11 +96,6 @@ describe('mutations', () => {
       value: '2019-07'
     })
     expect(testState.qualifications[0].date).toBe('2019-07')
-  })
-
-  test('getInitializedQualification', () => {
-    const qualification = getInitializedQualification()
-    expect(qualification).toEqual({ date: '', name: '' })
   })
 
   test('addLink', () => {

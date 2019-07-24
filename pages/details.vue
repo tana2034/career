@@ -45,8 +45,8 @@
               <v-layout row>
                 <v-flex xs12>
                   <v-menu
-                    ref="modal_birth_date"
-                    v-model="modal_birth_date"
+                    ref="modal_birthDate"
+                    v-model="modal_birthDate"
                     :close-on-content-click="false"
                     :nudge-right="40"
                     lazy
@@ -57,9 +57,9 @@
                   >
                     <template v-slot:activator="{on}">
                       <v-text-field
-                        v-model="birth_date"
+                        v-model="birthDate"
                         box
-                        name="birth_date"
+                        name="birthDate"
                         readonly
                         label="birth date"
                         prepend-icon="event"
@@ -68,11 +68,11 @@
                     </template>
                     <v-date-picker
                       ref="picker"
-                      v-model="birth_date" 
+                      v-model="birthDate" 
                       color="blue"
                       :max="new Date().toISOString().substr(0, 10)"
                       min="1950-01-01"
-                      @input="closeModal('modal_birth_date')"
+                      @input="closeModal('modal_birthDate')"
                     />
                   </v-menu>
                 </v-flex>
@@ -179,7 +179,7 @@ export default {
   },
   data: function() {
     return {
-      modal_birth_date: false,
+      modal_birthDate: false,
       modal_graduationYear: false
     }
   },
@@ -218,13 +218,13 @@ export default {
         })
       }
     },
-    birth_date: {
+    birthDate: {
       get() {
-        return this.$store.state.details.birth_date
+        return this.$store.state.details.birthDate
       },
       set(value) {
         this.$store.commit('details/updateDetail', {
-          key: 'birth_date',
+          key: 'birthDate',
           value: value
         })
       }
@@ -297,7 +297,7 @@ export default {
     }
   },
   watch: {
-    modal_birth_date(val) {
+    modal_birthDate(val) {
       val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
     }
   },

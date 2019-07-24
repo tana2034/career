@@ -54,14 +54,12 @@
 
 
 <script>
-import { mutations } from '@/store/skills.ts'
-
 export default {
   props: {
     qualification: {
       type: Object,
       default: () => {
-        return mutations.getInitializedQualification()
+        return { name: '', date: '' }
       }
     },
     index: {

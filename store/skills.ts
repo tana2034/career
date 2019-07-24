@@ -1,4 +1,29 @@
-export const state = () => ({
+import { MutationTree } from 'vuex'
+
+export interface Skills {
+  languages: Language[]
+  databases: Database[]
+  tools: string[]
+  qualifications: Qualification[]
+  links: string[]
+}
+
+export interface Language {
+  name: string
+  description: string
+}
+
+export interface Database {
+  name: string
+  description: string
+}
+
+export interface Qualification {
+  name: string
+  date: string
+}
+
+export const state = (): Skills => ({
   languages: [],
   databases: [],
   tools: [],
@@ -6,47 +31,41 @@ export const state = () => ({
   links: []
 })
 
-export const mutations = {
-  updateSkills(state, { key, value }) {
+export const mutations: MutationTree<Skills> = {
+  updateSkills(state, { key, value }): void {
     state[key] = value
   },
-  removeElement(state, { key, index }) {
+  removeElement(state, { key, index }): void {
     state[key].splice(index, 1)
   },
-  getInitializedLanguage() {
-    return { name: '', description: '' }
+  addLanguage(state): void {
+    const language: Language = { name: '', description: '' }
+    state.languages.push(language)
   },
-  addLanguage(state) {
-    state.languages.push(mutations.getInitializedLanguage())
-  },
-  updateLanguage(state, { index, key, value }) {
+  updateLanguage(state, { index, key, value }): void {
     state.languages[index][key] = value
   },
-  getInitializedDatabase() {
-    return { name: '', description: '' }
+  addDatabase(state): void {
+    const database: Database = { name: '', description: '' }
+    state.databases.push(database)
   },
-  addDatabase(state) {
-    state.databases.push(mutations.getInitializedDatabase())
-  },
-  updateDatabase(state, { index, key, value }) {
+  updateDatabase(state, { index, key, value }): void {
     state.databases[index][key] = value
   },
-  getInitializedQualification() {
-    return { name: '', date: '' }
+  addQualification(state): void {
+    const qualification: Qualification = { name: '', date: '' }
+    state.qualifications.push(qualification)
   },
-  addQualification(state) {
-    state.qualifications.push(mutations.getInitializedQualification())
-  },
-  updateQualification(state, { index, key, value }) {
+  updateQualification(state, { index, key, value }): void {
     state.qualifications[index][key] = value
   },
-  addLink(state) {
+  addLink(state): void {
     state.links.push('')
   },
-  updateLink(state, { index, value }) {
+  updateLink(state, { index, value }): void {
     state.links[index] = value
   },
-  addTool(state, value) {
+  addTool(state, value): void {
     const tool = value.trim()
     if (state.tools.includes(tool) || tool === '') return
     state.tools.push(tool)
