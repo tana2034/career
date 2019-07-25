@@ -41,8 +41,8 @@
         生年月日
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p class="birth_date">
-          {{ $store.state.details.birth_date }}
+        <p class="birthDate">
+          {{ $store.state.details.birthDate }}
         </p>
       </v-flex>
     </v-layout>

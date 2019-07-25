@@ -1,8 +1,23 @@
-export const state = () => ({
+import { MutationTree } from 'vuex'
+
+export interface Detail {
+  lastname: string
+  firstname: string
+  email: string
+  birthDate: string
+  tel: string
+  address: string
+  summary: string
+  publicRelations: string
+  education: string
+  graduationYear
+}
+
+export const state = (): Detail => ({
   lastname: '',
   firstname: '',
   email: '',
-  birth_date: '',
+  birthDate: '',
   tel: '',
   address: '',
   summary: '',
@@ -11,7 +26,7 @@ export const state = () => ({
   graduationYear: ''
 })
 
-export const mutations = {
+export const mutations: MutationTree<Detail> = {
   updateDetail(state, content) {
     state[content.key] = content.value
   }

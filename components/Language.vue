@@ -26,14 +26,12 @@
 </template>
 
 <script>
-import { mutations } from '@/store/skills.ts'
-
 export default {
   props: {
     language: {
       type: Object,
       default: () => {
-        return mutations.getInitializedLanguage()
+        return { name: '', description: '' }
       }
     },
     index: {

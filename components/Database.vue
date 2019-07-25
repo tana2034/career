@@ -26,14 +26,12 @@
 </template>
 
 <script>
-import { mutations } from '@/store/skills.ts'
-
 export default {
   props: {
     database: {
       type: Object,
       default: () => {
-        return mutations.getInitializedDatabase()
+        return { name: '', description: '' }
       }
     },
     index: {
