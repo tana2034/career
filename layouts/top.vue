@@ -8,8 +8,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
   data() {
     return {
       clipped: false,
@@ -21,5 +23,6 @@ export default {
       title: '職務経歴書'
     }
   }
-}
+})
+export default class topLayouts extends Vue {}
 </script>
