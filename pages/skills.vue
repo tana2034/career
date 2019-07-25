@@ -149,14 +149,15 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import draggable from 'vuedraggable'
+import { Component, Vue } from 'vue-property-decorator'
 import Language from '@/components/Language.vue'
 import Database from '@/components/Database.vue'
 import Qualification from '@/components/Qualification.vue'
 import Link from '@/components/Link.vue'
 
-export default {
+@Component({
   head() {
     return {
       title: '職務経歴書'
@@ -235,5 +236,6 @@ export default {
       this.tool = ''
     }
   }
-}
+})
+export default class SkillsPage extends Vue {}
 </script>

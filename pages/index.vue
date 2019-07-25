@@ -13,13 +13,16 @@
   </v-container>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
   head() {
     return {
       title: '職務経歴書'
     }
   },
   layout: 'top'
-}
+})
+export default class IndexPage extends Vue {}
 </script>
