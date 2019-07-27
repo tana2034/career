@@ -3,17 +3,17 @@
     <v-flex xs12 md12 xl12>
       <div>
         <div class="mt-3 mb-3">
-          <span class="term">{{ work.from }} - {{ work.to }}</span>
+          <span class="term">{{ company.from }} - {{ company.to }}</span>
           <h4 class="subheading company">
-            {{ work.company }}
+            {{ company.company }}
           </h4>
           <p class="grey--text companyProfile">
-            {{ work.companyProfile }}
+            {{ company.companyProfile }}
           </p>
         </div>
 
         <div
-          v-for="(project, i) in work.projects" 
+          v-for="(project, i) in company.projects" 
           :key="i"
           :project="project"
         >
@@ -41,7 +41,7 @@ import { state } from '@/store/employment.ts'
 
 export default {
   props: {
-    work: {
+    company: {
       type: Object,
       default: () => {
         return state()[0]

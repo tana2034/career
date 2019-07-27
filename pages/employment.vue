@@ -11,7 +11,7 @@
                 </v-flex>
               </v-layout>
               <Company
-                v-for="(work, index) in companies"
+                v-for="(company, index) in companies"
                 :key="index" 
                 :index="index"
                 row
