@@ -204,9 +204,9 @@
       </div>
     </v-layout>
     <EmploymentTable
-      v-for="(work, index) in $store.state.employment"
+      v-for="(company, index) in $store.state.employment"
       :key="index"
-      :work="work"
+      :company="company"
       :index="index"
     />
   </v-container>

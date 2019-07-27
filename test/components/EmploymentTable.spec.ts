@@ -48,7 +48,7 @@ describe('EmploymentTable', () => {
     })
     wrapper = shallowMount(EmploymentTable, {
       propsData: {
-        work: state[0]
+        company: state[0]
       },
       store,
       localVue

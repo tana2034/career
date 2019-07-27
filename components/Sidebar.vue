@@ -31,7 +31,7 @@
             <v-list-tile-title>スキル</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile to="/employment" class="work_employment">
+        <v-list-tile to="/employment" class="company_employment">
           <v-list-tile-action>
             <v-icon>business</v-icon>
           </v-list-tile-action>
