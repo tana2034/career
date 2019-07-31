@@ -8,13 +8,15 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
 import Resume from '~/components/Resume.vue'
 
-export default {
+@Component({
   layout: 'pdf',
   components: {
     Resume
   }
-}
+})
+export default class PreviewPage extends Vue {}
 </script>

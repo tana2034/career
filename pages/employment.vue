@@ -31,10 +31,11 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
 import Company from '~/components/Company.vue'
 
-export default {
+@Component({
   head() {
     return {
       title: '職務経歴書'
@@ -49,5 +50,6 @@ export default {
       }
     }
   }
-}
+})
+export default class EmploymentPage extends Vue {}
 </script>

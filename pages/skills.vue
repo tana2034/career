@@ -149,91 +149,87 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import draggable from 'vuedraggable'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Language from '@/components/Language.vue'
 import Database from '@/components/Database.vue'
 import Qualification from '@/components/Qualification.vue'
 import Link from '@/components/Link.vue'
 
-export default {
+@Component({
   head() {
     return {
       title: '職務経歴書'
     }
   },
   layout: 'default',
-  components: { Language, draggable, Database, Qualification, Link },
-  data: function() {
-    return {
-      tool: ''
+  components: { Language, draggable, Database, Qualification, Link }
+})
+export default class SkillsPage extends Vue {
+  tool = ''
+
+  get languages() {
+    return this.$store.state.skills.languages
+  }
+
+  set languages(value: string) {
+    this.$store.commit('skills/updateSkills', {
+      key: 'languages',
+      value: value
+    })
+  }
+
+  get qualifications() {
+    return this.$store.state.skills.qualifications
+  }
+
+  set qualifications(value: string) {
+    this.$store.commit('skills/updateSkills', {
+      key: 'qualifications',
+      value: value
+    })
+  }
+
+  get databases() {
+    return this.$store.state.skills.databases
+  }
+
+  set databases(value: string) {
+    this.$store.commit('skills/updateSkills', {
+      key: 'databases',
+      value: value
+    })
+  }
+
+  get tools() {
+    return this.$store.state.skills.tools
+  }
+
+  set tools(value: string) {
+    this.$store.commit('skills/updateSkills', {
+      key: 'tools',
+      value: value
+    })
+  }
+
+  get links() {
+    return this.$store.state.skills.links
+  }
+
+  set links(value) {
+    this.$store.commit('skills/updateSkills', {
+      key: 'links',
+      value: value
+    })
+  }
+
+  addTool(event) {
+    if (event.keyCode !== 13) {
+      return
     }
-  },
-  computed: {
-    languages: {
-      get() {
-        return this.$store.state.skills.languages
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', {
-          key: 'languages',
-          value: value
-        })
-      }
-    },
-    qualifications: {
-      get() {
-        return this.$store.state.skills.qualifications
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', {
-          key: 'qualifications',
-          value: value
-        })
-      }
-    },
-    databases: {
-      get() {
-        return this.$store.state.skills.databases
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', {
-          key: 'databases',
-          value: value
-        })
-      }
-    },
-    tools: {
-      get() {
-        return this.$store.state.skills.tools
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', {
-          key: 'tools',
-          value: value
-        })
-      }
-    },
-    links: {
-      get() {
-        return this.$store.state.skills.links
-      },
-      set(value) {
-        this.$store.commit('skills/updateSkills', {
-          key: 'links',
-          value: value
-        })
-      }
-    }
-  },
-  methods: {
-    addTool(event) {
-      if (event.keyCode !== 13) {
-        return
-      }
-      this.$store.commit('skills/addTool', this.tool)
-      this.tool = ''
-    }
+    this.$store.commit('skills/addTool', this.tool)
+    this.tool = ''
   }
 }
 </script>

@@ -170,14 +170,16 @@
   </v-container>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
   head() {
     return {
       title: '職務経歴書'
     }
   },
-  data: function() {
+  data() {
     return {
       modal_birthDate: false,
       modal_graduationYear: false
@@ -298,13 +300,15 @@ export default {
   },
   watch: {
     modal_birthDate(val) {
-      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
+      val &&
+        setTimeout(() => ((this.$refs.picker as any).activePicker = 'YEAR'))
     }
   },
   methods: {
-    closeModal(key) {
-      this.key = false
+    closeModal(key: string) {
+      this[key] = false
     }
   }
-}
+})
+export default class DetailsPage extends Vue {}
 </script>

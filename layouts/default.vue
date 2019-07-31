@@ -9,8 +9,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
   components: {
     Sidebar: () => import('@/components/Sidebar.vue')
   },
@@ -25,5 +27,6 @@ export default {
       title: '職務経歴書'
     }
   }
-}
+})
+export default class DefaultLayouts extends Vue {}
 </script>
