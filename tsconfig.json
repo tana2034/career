@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
     "lib": [
-      "es5",
-      "es2015",
+      "esnext",
       "esnext.asynciterable",
       "dom"
     ],

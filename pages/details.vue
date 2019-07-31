@@ -301,9 +301,7 @@ import { Component, Vue } from 'vue-property-decorator'
   watch: {
     modal_birthDate(val) {
       val &&
-        setTimeout(
-          () => ((this.$refs.picker as HTMLElement).activePicker = 'YEAR')
-        )
+        setTimeout(() => ((this.$refs.picker as any).activePicker = 'YEAR'))
     }
   },
   methods: {
