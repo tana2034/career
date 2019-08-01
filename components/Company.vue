@@ -21,7 +21,7 @@
           </v-flex>
           <v-flex xs6 md6 xl6>
             <v-menu
-              v-model="modal.from"
+              v-model="modalFrom"
               :close-on-content-click="false"
               :nudge-right="40"
               lazy
@@ -51,7 +51,7 @@
           </v-flex>
           <v-flex xs6 md6 xl6>
             <v-menu
-              v-model="modal.to"
+              v-model="modalTo"
               :close-on-content-click="false"
               :nudge-right="40"
               lazy
@@ -115,80 +115,69 @@
   </v-layout>
 </template>
 
-<script>
+<script lang="ts">
 import draggable from 'vuedraggable'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Project from '@/components/Project.vue'
 
-export default {
-  components: { Project, draggable },
-  props: {
-    index: {
-      type: Number,
-      default: () => {
-        return 0
-      }
-    }
-  },
-  data: function() {
-    return {
-      modal: {
-        from: false,
-        to: false
-      }
-    }
-  },
-  computed: {
-    projects: {
-      get() {
-        return this.$store.state.employment[this.index].projects
-      },
-      set(value) {
-        return this.$store.commit('employment/updateProjects', {
-          index: this.index,
-          value: value
-        })
-      }
-    },
-    company: {
-      get() {
-        return this.$store.state.employment[this.index].company
-      }
-    },
-    companyProfile: {
-      get() {
-        return this.$store.state.employment[this.index].companyProfile
-      }
-    },
-    from: {
-      get() {
-        return this.$store.state.employment[this.index].from
-      }
-    },
-    to: {
-      get() {
-        return this.$store.state.employment[this.index].to
-      }
-    }
-  },
-  methods: {
-    closeFromModal() {
-      this.modal.from = false
-    },
-    closeToModal() {
-      this.modal.to = false
-    },
-    updateCompany(key, value) {
-      this.$store.commit('employment/updateCompany', {
-        index: this.index,
-        key: key,
-        value: value
-      })
-    },
-    deleteCompany() {
-      this.$store.commit('employment/deleteCompany', {
-        index: this.index
-      })
-    }
+@Component({
+  components: { Project, draggable }
+})
+export default class Company extends Vue {
+  @Prop({ default: 0 })
+  index!: number
+
+  modalFrom: boolean = false
+
+  modalTo: boolean = false
+
+  get projects() {
+    return this.$store.state.employment[this.index].projects
+  }
+
+  set projects(value: string) {
+    this.$store.commit('employment/updateProjects', {
+      index: this.index,
+      value: value
+    })
+  }
+
+  get company(): string {
+    return this.$store.state.employment[this.index].company
+  }
+
+  get companyProfile(): string {
+    return this.$store.state.employment[this.index].companyProfile
+  }
+
+  get from(): string {
+    return this.$store.state.employment[this.index].from
+  }
+
+  get to(): string {
+    return this.$store.state.employment[this.index].to
+  }
+
+  closeFromModal(): void {
+    this.modalFrom = false
+  }
+
+  closeToModal(): void {
+    this.modalTo = false
+  }
+
+  updateCompany(key, value): void {
+    this.$store.commit('employment/updateCompany', {
+      index: this.index,
+      key: key,
+      value: value
+    })
+  }
+
+  deleteCompany(): void {
+    this.$store.commit('employment/deleteCompany', {
+      index: this.index
+    })
   }
 }
 </script>
