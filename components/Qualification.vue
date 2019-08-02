@@ -53,70 +53,65 @@
 </template>
 
 
-<script>
-export default {
-  props: {
-    qualification: {
-      type: Object,
-      default: () => {
-        return { name: '', date: '' }
-      }
-    },
-    index: {
-      type: Number,
-      default: () => {
-        return 0
-      }
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Qualification as QualificationStore } from '@/store/skills.ts'
+
+@Component
+export default class Qualification extends Vue {
+  @Prop({ default: 0 })
+  index!: number
+
+  @Prop({
+    default: () => {
+      return { name: '', date: '' }
     }
-  },
-  data: function() {
-    return {
-      modal: false
-    }
-  },
-  computed: {
-    name: {
-      get() {
-        return this.qualification.name
-      },
-      set(value) {
-        this.$store.commit('skills/updateQualification', {
-          index: this.index,
-          key: 'name',
-          value: value
-        })
-      }
-    },
-    date: {
-      get() {
-        return this.qualification.date
-      },
-      set(value) {
-        this.$store.commit('skills/updateQualification', {
-          index: this.index,
-          key: 'date',
-          value: value
-        })
-      }
-    }
-  },
-  methods: {
-    closeModal() {
-      this.modal = false
-    },
-    updateDate(value) {
-      this.$store.commit('skills/updateQualification', {
-        index: this.index,
-        key: 'date',
-        value: value
-      })
-    },
-    deleteQualification() {
-      this.$store.commit('skills/removeElement', {
-        key: 'qualifications',
-        index: this.index
-      })
-    }
+  })
+  qualification!: QualificationStore
+
+  modal: boolean = false
+
+  get name() {
+    return this.qualification.name
+  }
+
+  set name(value) {
+    this.$store.commit('skills/updateQualification', {
+      index: this.index,
+      key: 'name',
+      value: value
+    })
+  }
+
+  get date() {
+    return this.qualification.date
+  }
+
+  set date(value) {
+    this.$store.commit('skills/updateQualification', {
+      index: this.index,
+      key: 'date',
+      value: value
+    })
+  }
+
+  closeModal() {
+    this.modal = false
+  }
+
+  updateDate(value) {
+    this.$store.commit('skills/updateQualification', {
+      index: this.index,
+      key: 'date',
+      value: value
+    })
+  }
+
+  deleteQualification() {
+    this.$store.commit('skills/removeElement', {
+      key: 'qualifications',
+      index: this.index
+    })
   }
 }
 </script>

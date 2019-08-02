@@ -212,7 +212,7 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import EmploymentTable from '~/components/EmploymentTable.vue'
 
 export default {
