@@ -25,7 +25,13 @@ describe('Sidebar', () => {
       state: state,
       actions
     })
-    wrapper = shallowMount(Sidebar, { store, localVue })
+    wrapper = shallowMount(Sidebar, {
+      propsData: {
+        sidebar: true
+      },
+      store,
+      localVue
+    })
   })
 
   test('is a Vue instance', () => {

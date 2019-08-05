@@ -18,8 +18,22 @@ describe('Database', () => {
   let actions
   let store
   let wrapper
+  let state
 
   beforeEach(() => {
+    state = skillsState()
+    skillsMutations.addDatabase(state)
+    skillsMutations.updateDatabase(state, {
+      index: 0,
+      key: 'name',
+      value: 'MySQL'
+    })
+    skillsMutations.updateDatabase(state, {
+      index: 0,
+      key: 'description',
+      value: '業務で3年使用'
+    })
+
     actions = {
       testAction: jest.fn()
     }
@@ -27,48 +41,29 @@ describe('Database', () => {
       modules: {
         skills: {
           namespaced: true,
-          state: skillsState(),
+          state: state,
           actions,
           mutations: skillsMutations
         }
       }
     })
     wrapper = shallowMount(Database, {
+      propsData: {
+        index: 0
+      },
       store,
       localVue
     })
   })
 
   test('is a Vue instance', () => {
-    wrapper = shallowMount(Database, {
-      store,
-      localVue
-    })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
   test('displays propsData data(databases and description)', () => {
-    wrapper = shallowMount(Database, {
-      propsData: {
-        database: {
-          name: 'MySQL',
-          description: '業務で3年使用'
-        }
-      },
-      store,
-      localVue
-    })
     expect(wrapper.find('.database-name').html()).toContain('MySQL')
     expect(wrapper.find('.database-description').html()).toContain(
       '業務で3年使用'
     )
-  })
-
-  test('uses props default value', () => {
-    wrapper = shallowMount(Database, {
-      localVue
-    })
-    expect(wrapper.find('.database-name')).toBeTruthy()
-    expect(wrapper.find('.database-description')).toBeTruthy()
   })
 })

@@ -51,16 +51,3 @@
     </v-toolbar>
   </v-navigation-drawer>
 </template>
-
-<script>
-export default {
-  props: {
-    sidebar: {
-      type: Boolean,
-      default: () => {
-        return false
-      }
-    }
-  }
-}
-</script>

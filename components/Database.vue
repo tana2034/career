@@ -25,55 +25,43 @@
   </v-card>
 </template>
 
-<script>
-export default {
-  props: {
-    database: {
-      type: Object,
-      default: () => {
-        return { name: '', description: '' }
-      }
-    },
-    index: {
-      type: Number,
-      default: () => {
-        return 0
-      }
-    }
-  },
-  computed: {
-    name: {
-      get() {
-        return this.database.name
-      },
-      set(value) {
-        this.$store.commit('skills/updateDatabase', {
-          index: this.index,
-          key: 'name',
-          value: value
-        })
-      }
-    },
-    description: {
-      get() {
-        return this.database.description
-      },
-      set(value) {
-        this.$store.commit('skills/updateDatabase', {
-          index: this.index,
-          key: 'description',
-          value: value
-        })
-      }
-    }
-  },
-  methods: {
-    deleteDatabase() {
-      this.$store.commit('skills/removeElement', {
-        key: 'databases',
-        index: this.index
-      })
-    }
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
+
+@Component
+export default class Database extends Vue {
+  @Prop(Number)
+  index!: number
+
+  get name(): string {
+    return this.$store.state.skills.databases[this.index].name
+  }
+
+  set name(value: string) {
+    this.$store.commit('skills/updateDatabase', {
+      index: this.index,
+      key: 'name',
+      value: value
+    })
+  }
+
+  get description(): string {
+    return this.$store.state.skills.databases[this.index].description
+  }
+
+  set description(value: string) {
+    this.$store.commit('skills/updateDatabase', {
+      index: this.index,
+      key: 'description',
+      value: value
+    })
+  }
+
+  deleteDatabase() {
+    this.$store.commit('skills/removeElement', {
+      key: 'databases',
+      index: this.index
+    })
   }
 }
 </script>

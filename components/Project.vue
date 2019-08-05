@@ -22,7 +22,7 @@
       <v-layout>
         <v-flex xs12 md6 xl6>
           <v-menu
-            v-model="modal.from"
+            v-model="modalFrom"
             :close-on-content-click="false"
             :nudge-right="40"
             lazy
@@ -53,7 +53,7 @@
         </v-flex>     
         <v-flex xs12 md6 xl6>
           <v-menu
-            v-model="modal.to"
+            v-model="modalTo"
             :close-on-content-click="false"
             :nudge-right="40"
             lazy
@@ -98,81 +98,59 @@
   </v-card>
 </template>
 
-<script>
-import { state } from '@/store/employment.ts'
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
-export default {
-  props: {
-    project: {
-      type: Object,
-      default: () => {
-        return state().projects
-      }
-    },
-    j: {
-      type: Number,
-      default: () => {
-        return 0
-      }
-    },
-    i: {
-      type: Number,
-      default: () => {
-        return 0
-      }
-    }
-  },
-  data: function() {
-    return {
-      modal: {
-        from: false,
-        to: false
-      }
-    }
-  },
-  computed: {
-    title: {
-      get() {
-        return this.$store.state.employment[this.i].projects[this.j].title
-      }
-    },
-    description: {
-      get() {
-        return this.$store.state.employment[this.i].projects[this.j].description
-      }
-    },
-    from: {
-      get() {
-        return this.$store.state.employment[this.i].projects[this.j].from
-      }
-    },
-    to: {
-      get() {
-        return this.$store.state.employment[this.i].projects[this.j].to
-      }
-    }
-  },
-  methods: {
-    closeFromModal() {
-      this.modal.from = false
-    },
-    closeToModal() {
-      this.modal.to = false
-    },
-    updateProject(key, value) {
-      this.$store.commit('employment/updateProject', {
-        i: this.i,
-        j: this.j,
-        key: key,
-        value: value
-      })
-    },
-    deleteProject() {
-      this.$store.commit('employment/deleteProject', {
-        i: this.i,
-        j: this.j
-      })
-    }
+@Component
+export default class Project extends Vue {
+  modalFrom: boolean = false
+
+  modalTo: boolean = false
+
+  @Prop(Number)
+  i!: number
+
+  @Prop(Number)
+  j!: number
+
+  get title() {
+    return this.$store.state.employment[this.i].projects[this.j].title
+  }
+
+  get description() {
+    return this.$store.state.employment[this.i].projects[this.j].description
+  }
+
+  get from() {
+    return this.$store.state.employment[this.i].projects[this.j].from
+  }
+
+  get to() {
+    return this.$store.state.employment[this.i].projects[this.j].to
+  }
+
+  closeFromModal() {
+    this.modalFrom = false
+  }
+
+  closeToModal() {
+    this.modalTo = false
+  }
+
+  updateProject(key, value) {
+    this.$store.commit('employment/updateProject', {
+      i: this.i,
+      j: this.j,
+      key: key,
+      value: value
+    })
+  }
+
+  deleteProject() {
+    this.$store.commit('employment/deleteProject', {
+      i: this.i,
+      j: this.j
+    })
   }
 }
 </script>

@@ -44,6 +44,10 @@ describe('Project', () => {
       }
     })
     wrapper = shallowMount(Project, {
+      propsData: {
+        i: 0,
+        j: 0
+      },
       store,
       localVue
     })

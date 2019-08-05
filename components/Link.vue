@@ -17,28 +17,23 @@
   </v-card>    
 </template>
 
-<script>
-export default {
-  props: {
-    index: {
-      type: Number,
-      default: () => {
-        return 0
-      }
-    }
-  },
-  computed: {
-    link: {
-      get() {
-        return this.$store.state.skills.links[this.index]
-      },
-      set(value) {
-        this.$store.commit('skills/updateLink', {
-          index: this.index,
-          value: value
-        })
-      }
-    }
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
+
+@Component
+export default class Link extends Vue {
+  @Prop(Number)
+  index!: number
+
+  get link() {
+    return this.$store.state.skills.links[this.index]
+  }
+
+  set link(value: string) {
+    this.$store.commit('skills/updateLink', {
+      index: this.index,
+      value: value
+    })
   }
 }
 </script>
