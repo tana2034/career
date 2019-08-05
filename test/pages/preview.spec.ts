@@ -4,9 +4,17 @@ import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import preview from '@/pages/preview.vue'
 import {
-  state as experienceState,
-  mutations as experienceMutations
+  state as employmentState,
+  mutations as employmentMutations
 } from '@/store/employment.ts'
+import {
+  state as detailsState,
+  mutations as detailsMutations
+} from '@/store/details.ts'
+import {
+  state as skillsState,
+  mutations as skillsMutations
+} from '@/store/skills.ts'
 
 Vue.use(Vuetify)
 
@@ -18,38 +26,37 @@ describe('preview', () => {
   let actions
   let store
   let wrapper
-  let state
 
   beforeEach(() => {
-    state = experienceState()
-
     actions = {
       testAction: jest.fn()
     }
     store = new Vuex.Store({
       modules: {
+        details: {
+          namespaced: true,
+          state: detailsState(),
+          mutations: detailsMutations
+        },
+        skills: {
+          namespaced: true,
+          state: skillsState()
+        },
         employment: {
           namespaced: true,
-          state: state,
+          state: employmentState(),
           actions,
-          mutations: experienceMutations
+          mutations: employmentMutations
         }
       }
     })
     wrapper = shallowMount(preview, {
-      propsData: {
-        company: state[0]
-      },
       store,
       localVue
     })
   })
 
   test('is a Vue instance', () => {
-    wrapper = shallowMount(preview, {
-      store,
-      localVue
-    })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })

@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row>
       <v-flex>
-        <resume />
+        <Resume />
       </v-flex>
     </v-layout>
   </v-container>
@@ -10,12 +10,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Resume from '~/components/Resume.vue'
 
 @Component({
   layout: 'pdf',
   components: {
-    Resume
+    Resume: () => import('@/components/Resume.vue')
   }
 })
 export default class PreviewPage extends Vue {}
