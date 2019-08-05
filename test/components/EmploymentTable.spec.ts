@@ -4,8 +4,8 @@ import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import EmploymentTable from '@/components/EmploymentTable.vue'
 import {
-  state as experienceState,
-  mutations as experienceMutations
+  state as employmentState,
+  mutations as employmentMutations
 } from '@/store/employment.ts'
 
 Vue.use(Vuetify)
@@ -21,16 +21,52 @@ describe('EmploymentTable', () => {
   let state
 
   beforeEach(() => {
-    state = experienceState()
-    state[0].from = '2019-04'
-    state[0].to = '2019-05'
-    state[0].company = '株式会社テスト'
-    state[0].companyProfile = 'IT企業'
-    state[0].projects.push({
-      from: '2019-04',
-      to: '2019-05',
-      title: 'SPAの開発',
-      description: 'nuxt.jsでSPAアプリを開発'
+    state = employmentState()
+    employmentMutations.addCompany(state)
+    employmentMutations.addProject(state, 0)
+    employmentMutations.updateCompany(state, {
+      index: 0,
+      key: 'from',
+      value: '2019-04'
+    })
+    employmentMutations.updateCompany(state, {
+      index: 0,
+      key: 'to',
+      value: '2019-05'
+    })
+    employmentMutations.updateCompany(state, {
+      index: 0,
+      key: 'company',
+      value: '株式会社テスト'
+    })
+    employmentMutations.updateCompany(state, {
+      index: 0,
+      key: 'companyProfile',
+      value: 'IT企業'
+    })
+    employmentMutations.updateProject(state, {
+      i: 0,
+      j: 0,
+      key: 'from',
+      value: '2019-04'
+    })
+    employmentMutations.updateProject(state, {
+      i: 0,
+      j: 0,
+      key: 'to',
+      value: '2019-05'
+    })
+    employmentMutations.updateProject(state, {
+      i: 0,
+      j: 0,
+      key: 'title',
+      value: 'SPAの開発'
+    })
+    employmentMutations.updateProject(state, {
+      i: 0,
+      j: 0,
+      key: 'description',
+      value: 'nuxt.jsでSPAアプリを開発'
     })
 
     actions = {
@@ -42,13 +78,13 @@ describe('EmploymentTable', () => {
           namespaced: true,
           state: state,
           actions,
-          mutations: experienceMutations
+          mutations: employmentMutations
         }
       }
     })
     wrapper = shallowMount(EmploymentTable, {
       propsData: {
-        company: state[0]
+        employment: state[0]
       },
       store,
       localVue
@@ -56,10 +92,6 @@ describe('EmploymentTable', () => {
   })
 
   test('is a Vue instance', () => {
-    wrapper = shallowMount(EmploymentTable, {
-      store,
-      localVue
-    })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 

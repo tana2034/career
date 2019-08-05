@@ -3,17 +3,17 @@
     <v-flex xs12 md12 xl12>
       <div>
         <div class="mt-3 mb-3">
-          <span class="term">{{ company.from }} - {{ company.to }}</span>
+          <span class="term">{{ employment.from }} - {{ employment.to }}</span>
           <h4 class="subheading company">
-            {{ company.company }}
+            {{ employment.company }}
           </h4>
           <p class="grey--text companyProfile">
-            {{ company.companyProfile }}
+            {{ employment.companyProfile }}
           </p>
         </div>
 
         <div
-          v-for="(project, i) in company.projects" 
+          v-for="(project, i) in employment.projects" 
           :key="i"
           :project="project"
         >
@@ -36,17 +36,21 @@
   </v-layout>
 </template>
 
-<script>
-import { state } from '@/store/employment.ts'
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
+import { state, Employment } from '@/store/employment.ts'
 
-export default {
-  props: {
-    company: {
-      type: Object,
-      default: () => {
-        return state()[0]
-      }
+@Component
+export default class EmploymentTable extends Vue {
+  @Prop({
+    default: {
+      from: '',
+      to: '',
+      company: '',
+      companyProfile: '',
+      projects: []
     }
-  }
+  })
+  employment!: Employment
 }
 </script>
