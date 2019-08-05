@@ -204,7 +204,7 @@
       </div>
     </v-layout>
     <EmploymentTable
-      v-for="(employment, index) in $store.state.employment"
+      v-for="(employment, index) in this.$store.state.employment"
       :key="index"
       :employment="employment"
       :index="index"
@@ -213,9 +213,11 @@
 </template>
 
 <script lang="ts">
-import EmploymentTable from '~/components/EmploymentTable.vue'
+import { Component, Vue } from 'vue-property-decorator'
+import EmploymentTable from '@/components/EmploymentTable.vue'
 
-export default {
+@Component({
   components: { EmploymentTable }
-}
+})
+export default class Resume extends Vue {}
 </script>

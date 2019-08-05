@@ -135,7 +135,7 @@ export default class Company extends Vue {
     return this.$store.state.employment[this.index].projects
   }
 
-  set projects(value: string) {
+  set projects(value) {
     this.$store.commit('employment/updateProjects', {
       index: this.index,
       value: value

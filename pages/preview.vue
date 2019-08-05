@@ -10,12 +10,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import Resume from '@/components/Resume.vue'
 
 @Component({
   layout: 'pdf',
-  components: {
-    Resume: () => import('@/components/Resume.vue')
-  }
+  components: { Resume }
 })
 export default class PreviewPage extends Vue {}
 </script>
