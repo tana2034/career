@@ -27,7 +27,7 @@ export default class DefaultLayouts extends Vue {
 
   fixed: boolean = false
 
-  title: boolean = '職務経歴書'
+  title: string = '職務経歴書'
 
   toggleDrawer(): void {
     this.drawer = !this.drawer

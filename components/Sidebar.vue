@@ -60,11 +60,11 @@ export default class Sidebar extends Vue {
     return this.drawer
   }
 
-  set sidebar(value: boolean): void {
+  set sidebar(value: boolean) {
     this.changeDrawer(value)
   }
 
-  @Emit
+  @Emit()
   changeDrawer(value: boolean) {
     return value
   }
