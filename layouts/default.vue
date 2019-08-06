@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <Sidebar />
+    <v-toolbar>
+      <v-toolbar-side-icon @click.stop="toggleDrawer" />
+      <v-toolbar-title>職務経歴書を作る</v-toolbar-title>
+    </v-toolbar>
+    <Sidebar :drawer="drawer" @changeDrawer="drawer = $event" />
     <v-content>
       <v-container fluid>
         <router-view />
@@ -15,18 +19,25 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({
   components: {
     Sidebar: () => import('@/components/Sidebar.vue')
-  },
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: '職務経歴書'
-    }
   }
 })
-export default class DefaultLayouts extends Vue {}
+export default class DefaultLayouts extends Vue {
+  clipped: boolean = false
+
+  drawer: boolean = false
+
+  fixed: boolean = false
+
+  miniVariant: boolean = false
+
+  right: boolean = true
+
+  rightDrawer: boolean = false
+
+  title: boolean = '職務経歴書'
+
+  toggleDrawer() {
+    this.drawer = !this.drawer
+  }
+}
 </script>
