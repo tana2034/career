@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar>
-      <v-toolbar-side-icon @click.stop="toggleDrawer" />
+      <v-toolbar-side-icon @click="toggleDrawer" />
       <v-toolbar-title>職務経歴書を作る</v-toolbar-title>
     </v-toolbar>
     <Sidebar :drawer="drawer" @changeDrawer="drawer = $event" />
@@ -15,11 +15,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import Sidebar from '@/components/Sidebar.vue'
 
 @Component({
-  components: {
-    Sidebar: () => import('@/components/Sidebar.vue')
-  }
+  components: { Sidebar }
 })
 export default class DefaultLayouts extends Vue {
   clipped: boolean = false
@@ -28,15 +27,9 @@ export default class DefaultLayouts extends Vue {
 
   fixed: boolean = false
 
-  miniVariant: boolean = false
-
-  right: boolean = true
-
-  rightDrawer: boolean = false
-
   title: boolean = '職務経歴書'
 
-  toggleDrawer() {
+  toggleDrawer(): void {
     this.drawer = !this.drawer
   }
 }

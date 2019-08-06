@@ -6,7 +6,7 @@ https://blissful-lalande-eab957.netlify.com/
 
 - プラットフォーム：netlify
 - 言語：TypeScript 3.5.3
-- WEBフレームワーク：nuxt.js (SPA mode) 2.8.1
+- WEBフレームワーク：Nuxt.js 2.8.1 (SPA mode)
 - ~~WEBフレームワーク（サーバサイド）：express~~
 - CSSフレームワーク：Vuetify
 - CIツール(テスト実行)：Travis CI
