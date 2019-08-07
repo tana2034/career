@@ -103,19 +103,23 @@ describe('details', () => {
   test('tel', () => {
     expect(wrapper.find('.tel').html()).toContain('090-0000-0000')
   })
-  
+
   test('summary', () => {
-    expect(wrapper.find('.summary').html()).toContain('大学卒業後現在の職場に就職')
+    expect(wrapper.find('.summary').html()).toContain(
+      '大学卒業後現在の職場に就職'
+    )
   })
 
   test('publicRelations', () => {
-    expect(wrapper.find('.publicRelations').html()).toContain('JavaScriptが得意です')
+    expect(wrapper.find('.publicRelations').html()).toContain(
+      'JavaScriptが得意です'
+    )
   })
 
   test('education', () => {
     expect(wrapper.find('.education').html()).toContain('東京大学卒業')
   })
-  
+
   test('graduationYear', () => {
     expect(wrapper.find('.graduationYear').html()).toContain('2019-03')
   })
