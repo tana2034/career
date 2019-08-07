@@ -18,57 +18,51 @@ describe('Qualification', () => {
   let actions
   let store
   let wrapper
+  let state
 
   beforeEach(() => {
     actions = {
       testAction: jest.fn()
     }
+
+    state = skillsState()
+    skillsMutations.addQualification(state)
+    skillsMutations.updateQualification(state, {
+      index: 0,
+      key: 'name',
+      value: '基本情報'
+    })
+    skillsMutations.updateQualification(state, {
+      index: 0,
+      key: 'date',
+      value: '2017-08-19'
+    })
+
     store = new Vuex.Store({
       modules: {
         skills: {
           namespaced: true,
-          state: skillsState(),
+          state: state,
           actions,
           mutations: skillsMutations
         }
       }
     })
     wrapper = shallowMount(Qualification, {
+      propsData: {
+        index: 0
+      },
       store,
       localVue
     })
   })
 
   test('is a Vue instance', () => {
-    wrapper = shallowMount(Qualification, {
-      store,
-      localVue
-    })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  test('displays propsData data(languages and description)', () => {
-    wrapper = shallowMount(Qualification, {
-      propsData: {
-        qualification: {
-          date: '2019-07',
-          name: '基本情報技術者'
-        }
-      },
-      store,
-      localVue
-    })
-    expect(wrapper.find('.qualification-name').html()).toContain(
-      '基本情報技術者'
-    )
-    expect(wrapper.find('.qualification-date').html()).toContain('2019-07')
-  })
-
   test('uses props default value', () => {
-    wrapper = shallowMount(Qualification, {
-      localVue
-    })
-    expect(wrapper.find('.qualification-name')).toBeTruthy()
-    expect(wrapper.find('.qualification-date')).toBeTruthy()
+    expect(wrapper.find('.qualification-name').html()).toContain('基本情報')
+    expect(wrapper.find('.qualification-date').html()).toContain('2017-08-19')
   })
 })

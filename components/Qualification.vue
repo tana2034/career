@@ -55,24 +55,16 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { Qualification as QualificationStore } from '@/store/skills.ts'
 
 @Component
 export default class Qualification extends Vue {
-  @Prop({ default: 0 })
+  @Prop(Number)
   index!: number
-
-  @Prop({
-    default: () => {
-      return { name: '', date: '' }
-    }
-  })
-  qualification!: QualificationStore
 
   modal: boolean = false
 
   get name() {
-    return this.qualification.name
+    return this.$store.state.skills.qualifications[this.index].name
   }
 
   set name(value) {
@@ -84,7 +76,7 @@ export default class Qualification extends Vue {
   }
 
   get date() {
-    return this.qualification.date
+    return this.$store.state.skills.qualifications[this.index].date
   }
 
   set date(value) {
