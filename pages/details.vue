@@ -19,6 +19,7 @@
                     label="Last name"
                     prepend-icon="person"
                     required
+                    class="lastname"
                   />
                 </v-flex>
                 <v-flex xs12 md6 xl6>
@@ -27,6 +28,7 @@
                     box
                     :counter="10"
                     label="First name"
+                    class="firstname"
                     required
                   />
                 </v-flex>
@@ -38,15 +40,16 @@
                     box
                     label="E-mail"
                     prepend-icon="email"
+                    class="email"
                     required
                   />
                 </v-flex>
               </v-layout>
-              <v-layout row>
+              <v-layout row class="test">
                 <v-flex xs12>
                   <v-menu
-                    ref="modal_birthDate"
-                    v-model="modal_birthDate"
+                    ref="modalBirthDate"
+                    v-model="modalBirthDate"
                     :close-on-content-click="false"
                     :nudge-right="40"
                     lazy
@@ -69,10 +72,11 @@
                     <v-date-picker
                       ref="picker"
                       v-model="birthDate" 
+                      class="birthDate"
                       color="blue"
                       :max="new Date().toISOString().substr(0, 10)"
                       min="1950-01-01"
-                      @input="closeModal('modal_birthDate')"
+                      @input="closeModal('modalBirthDate')"
                     />
                   </v-menu>
                 </v-flex>
@@ -84,6 +88,7 @@
                     box
                     label="Address"
                     prepend-icon="map"
+                    class="address"
                     required
                   />
                 </v-flex>
@@ -95,6 +100,7 @@
                     box
                     label="Tel"
                     prepend-icon="phone"
+                    class="tel"
                     required
                   />
                 </v-flex>
@@ -105,6 +111,7 @@
                     v-model="summary"
                     box
                     label="Summary"
+                    class="summary"
                     required
                   />
                 </v-flex>
@@ -115,6 +122,7 @@
                     v-model="publicRelations"
                     box
                     label="PR"
+                    class="publicRelations"
                     required
                   />
                 </v-flex>
@@ -128,7 +136,7 @@
               <v-layout row wrap>
                 <v-flex xs12>
                   <v-menu
-                    v-model="modal_graduationYear"
+                    v-model="modalGraduationYear"
                     :close-on-content-click="false"
                     :nudge-right="40"
                     lazy
@@ -150,13 +158,15 @@
                       v-model="graduationYear" 
                       landscape 
                       type="month"
+                      class="graduationYear"
                       color="blue"
-                      @input="closeModal('modal_graduationYear')"
+                      @input="closeModal('modalGraduationYear')"
                     />
                   </v-menu>
                   <v-text-field
                     v-model="education"
                     box 
+                    class="education"
                     name="education" 
                     label="education"
                   />
@@ -179,136 +189,131 @@ import { Component, Vue } from 'vue-property-decorator'
       title: '職務経歴書'
     }
   },
-  data() {
-    return {
-      modal_birthDate: false,
-      modal_graduationYear: false
-    }
-  },
   layout: 'default',
-  computed: {
-    lastname: {
-      get() {
-        return this.$store.state.details.lastname
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'lastname',
-          value: value
-        })
-      }
-    },
-    firstname: {
-      get() {
-        return this.$store.state.details.firstname
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'firstname',
-          value: value
-        })
-      }
-    },
-    email: {
-      get() {
-        return this.$store.state.details.email
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'email',
-          value: value
-        })
-      }
-    },
-    birthDate: {
-      get() {
-        return this.$store.state.details.birthDate
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'birthDate',
-          value: value
-        })
-      }
-    },
-    address: {
-      get() {
-        return this.$store.state.details.address
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'address',
-          value: value
-        })
-      }
-    },
-    tel: {
-      get() {
-        return this.$store.state.details.tel
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'tel',
-          value: value
-        })
-      }
-    },
-    summary: {
-      get() {
-        return this.$store.state.details.summary
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'summary',
-          value: value
-        })
-      }
-    },
-    publicRelations: {
-      get() {
-        return this.$store.state.details.publicRelations
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'publicRelations',
-          value: value
-        })
-      }
-    },
-    education: {
-      get() {
-        return this.$store.state.details.education
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'education',
-          value: value
-        })
-      }
-    },
-    graduationYear: {
-      get() {
-        return this.$store.state.details.graduationYear
-      },
-      set(value) {
-        this.$store.commit('details/updateDetail', {
-          key: 'graduationYear',
-          value: value
-        })
-      }
-    }
-  },
   watch: {
-    modal_birthDate(val) {
+    modalBirthDate(val) {
       val &&
         setTimeout(() => ((this.$refs.picker as any).activePicker = 'YEAR'))
     }
-  },
-  methods: {
-    closeModal(key: string) {
-      this[key] = false
-    }
   }
 })
-export default class DetailsPage extends Vue {}
+export default class DetailsPage extends Vue {
+  modalBirthDate: boolean = false
+
+  modalGraduationYear: boolean = false
+
+  get lastname(): string {
+    return this.$store.state.details.lastname
+  }
+
+  set lastname(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'lastname',
+      value: value
+    })
+  }
+
+  get firstname(): string {
+    return this.$store.state.details.firstname
+  }
+
+  set firstname(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'firstname',
+      value: value
+    })
+  }
+
+  get email(): string {
+    return this.$store.state.details.email
+  }
+
+  set email(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'email',
+      value: value
+    })
+  }
+
+  get birthDate(): string {
+    return this.$store.state.details.birthDate
+  }
+
+  set birthDate(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'birthDate',
+      value: value
+    })
+  }
+
+  get address(): string {
+    return this.$store.state.details.address
+  }
+
+  set address(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'address',
+      value: value
+    })
+  }
+
+  get tel(): string {
+    return this.$store.state.details.tel
+  }
+
+  set tel(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'tel',
+      value: value
+    })
+  }
+
+  get summary(): string {
+    return this.$store.state.details.summary
+  }
+
+  set summary(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'summary',
+      value: value
+    })
+  }
+
+  get publicRelations(): string {
+    return this.$store.state.details.publicRelations
+  }
+
+  set publicRelations(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'publicRelations',
+      value: value
+    })
+  }
+
+  get education(): string {
+    return this.$store.state.details.education
+  }
+
+  set education(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'education',
+      value: value
+    })
+  }
+
+  get graduationYear(): string {
+    return this.$store.state.details.graduationYear
+  }
+
+  set graduationYear(value: string) {
+    this.$store.commit('details/updateDetail', {
+      key: 'graduationYear',
+      value: value
+    })
+  }
+
+  closeModal(key: string) {
+    this[key] = false
+  }
+}
 </script>

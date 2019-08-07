@@ -27,7 +27,7 @@ export const state = (): Detail => ({
 })
 
 export const mutations: MutationTree<Detail> = {
-  updateDetail(state, content) {
-    state[content.key] = content.value
+  updateDetail(state, { key, value }) {
+    state[key] = value
   }
 }

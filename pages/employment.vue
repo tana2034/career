@@ -42,14 +42,11 @@ import Company from '~/components/Company.vue'
     }
   },
   components: { Company },
-  layout: 'default',
-  computed: {
-    companies: {
-      get() {
-        return this.$store.state.employment
-      }
-    }
-  }
+  layout: 'default'
 })
-export default class EmploymentPage extends Vue {}
+export default class EmploymentPage extends Vue {
+  get companies() {
+    return this.$store.state.employment
+  }
+}
 </script>

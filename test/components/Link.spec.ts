@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
-import { shallowMount, createLocalVue } from '@vue/test-utils'
+import { shallowMount, createLocalVue, mount } from '@vue/test-utils'
 import Link from '@/components/Link.vue'
 import {
   state as skillsState,
@@ -18,8 +18,15 @@ describe('Link', () => {
   let actions
   let store
   let wrapper
+  let state
 
   beforeEach(() => {
+    state = skillsState()
+    skillsMutations.addLink(state)
+    skillsMutations.updateLink(state, {
+      index: 0,
+      value: 'https://github.com/'
+    })
     actions = {
       testAction: jest.fn()
     }
@@ -27,7 +34,7 @@ describe('Link', () => {
       modules: {
         skills: {
           namespaced: true,
-          state: skillsState(),
+          state: state,
           actions,
           mutations: skillsMutations
         }
@@ -40,10 +47,17 @@ describe('Link', () => {
   })
 
   test('is a Vue instance', () => {
+    expect(wrapper.isVueInstance()).toBeTruthy()
+  })
+
+  test('リンクが表示されているか', () => {
     wrapper = shallowMount(Link, {
+      propsData: {
+        index: 0
+      },
       store,
       localVue
     })
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.find('.link').html()).toContain('https://github.com/')
   })
 })
