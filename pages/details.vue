@@ -19,6 +19,7 @@
                     label="Last name"
                     prepend-icon="person"
                     required
+                    class="lastname"
                   />
                 </v-flex>
                 <v-flex xs12 md6 xl6>
@@ -27,6 +28,7 @@
                     box
                     :counter="10"
                     label="First name"
+                    class="firstname"
                     required
                   />
                 </v-flex>
@@ -38,11 +40,12 @@
                     box
                     label="E-mail"
                     prepend-icon="email"
+                    class="email"
                     required
                   />
                 </v-flex>
               </v-layout>
-              <v-layout row>
+              <v-layout row class="test">
                 <v-flex xs12>
                   <v-menu
                     ref="modalBirthDate"
@@ -69,6 +72,7 @@
                     <v-date-picker
                       ref="picker"
                       v-model="birthDate" 
+                      class="birthDate"
                       color="blue"
                       :max="new Date().toISOString().substr(0, 10)"
                       min="1950-01-01"
@@ -84,6 +88,7 @@
                     box
                     label="Address"
                     prepend-icon="map"
+                    class="address"
                     required
                   />
                 </v-flex>
@@ -95,6 +100,7 @@
                     box
                     label="Tel"
                     prepend-icon="phone"
+                    class="tel"
                     required
                   />
                 </v-flex>
@@ -105,6 +111,7 @@
                     v-model="summary"
                     box
                     label="Summary"
+                    class="summary"
                     required
                   />
                 </v-flex>
@@ -115,6 +122,7 @@
                     v-model="publicRelations"
                     box
                     label="PR"
+                    class="publicRelations"
                     required
                   />
                 </v-flex>
@@ -150,6 +158,7 @@
                       v-model="graduationYear" 
                       landscape 
                       type="month"
+                      class="graduationYear"
                       color="blue"
                       @input="closeModal('modalGraduationYear')"
                     />
@@ -157,6 +166,7 @@
                   <v-text-field
                     v-model="education"
                     box 
+                    class="education"
                     name="education" 
                     label="education"
                   />
