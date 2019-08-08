@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import details from '@/pages/details.vue'
+import details from '@/components/Detail.vue'
 import {
   state as detailsState,
   mutations as detailsMutations

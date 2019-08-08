@@ -1,118 +1,117 @@
 <template>
-  <v-layout row wrap>
-    <v-card>
-      <v-card-actions>
-        <v-spacer />
-        <v-icon @click="deleteCompany()">
-          clear
-        </v-icon>
-      </v-card-actions>
-      <v-card-text>
-        <v-layout row wrap>
-          <v-flex xs12 md12 xl12>
-            <v-text-field
-              box
-              :value="company"
-              name="company"
-              label="company"
-              class="company"
-              @input="updateCompany('company', $event)"
-            />
-          </v-flex>
-          <v-flex xs6 md6 xl6>
-            <v-menu
-              v-model="modalFrom"
-              :close-on-content-click="false"
-              :nudge-right="40"
-              lazy
-              transition="scale-transition"
-              full-width
-              min-width="290px"
-            >
-              <template v-slot:activator="{on}">
-                <v-text-field
-                  box
-                  :value="from"
-                  label="from"
-                  readonly
-                  v-on="on"
-                />
-              </template>
-              <v-date-picker 
+  <v-card>
+    <v-card-title primary-title>
+      所属中・所属していた会社の情報
+      <v-spacer />
+      <v-icon @click="deleteCompany()">
+        clear
+      </v-icon>
+    </v-card-title>
+    <v-card-text>
+      <v-layout row wrap>
+        <v-flex xs12 md12 xl12>
+          <v-text-field
+            box
+            :value="company"
+            name="company"
+            label="company"
+            class="company"
+            @input="updateCompany('company', $event)"
+          />
+        </v-flex>
+        <v-flex xs6 md6 xl6>
+          <v-menu
+            v-model="modalFrom"
+            :close-on-content-click="false"
+            :nudge-right="40"
+            lazy
+            transition="scale-transition"
+            full-width
+            min-width="290px"
+          >
+            <template v-slot:activator="{on}">
+              <v-text-field
+                box
                 :value="from"
-                scrollable 
-                landscape 
-                color="blue" 
-                type="month"
-                class="from"
-                @input="updateCompany('from', $event); closeFromModal()"
-              />  
-            </v-menu>
-          </v-flex>
-          <v-flex xs6 md6 xl6>
-            <v-menu
-              v-model="modalTo"
-              :close-on-content-click="false"
-              :nudge-right="40"
-              lazy
-              transition="scale-transition"
-              full-width
-              min-width="290px"
-            >
-              <template v-slot:activator="{on}">
-                <v-text-field
-                  box
-                  :value="to"
-                  label="to"
-                  readonly
-                  @input="updateCompany('to', $event)"
-                  v-on="on"
-                />
-              </template>
-              <v-date-picker 
+                label="from"
+                readonly
+                v-on="on"
+              />
+            </template>
+            <v-date-picker 
+              :value="from"
+              scrollable 
+              landscape 
+              color="blue" 
+              type="month"
+              class="from"
+              @input="updateCompany('from', $event); closeFromModal()"
+            />  
+          </v-menu>
+        </v-flex>
+        <v-flex xs6 md6 xl6>
+          <v-menu
+            v-model="modalTo"
+            :close-on-content-click="false"
+            :nudge-right="40"
+            lazy
+            transition="scale-transition"
+            full-width
+            min-width="290px"
+          >
+            <template v-slot:activator="{on}">
+              <v-text-field
+                box
                 :value="to"
-                scrollable
-                landscape 
-                color="blue" 
-                type="month"
-                class="to"
-                @input="updateCompany('to', $event); closeToModal()"
+                label="to"
+                readonly
+                @input="updateCompany('to', $event)"
+                v-on="on"
               />
-            </v-menu>
-          </v-flex>
-          <v-flex xs12 md12 xl12>
-            <v-text-field
-              box
-              :value="companyProfile"
-              name="company profile"
-              label="company profile"
-              class="companyProfile"
-              @input="updateCompany('companyProfile', $event)"
+            </template>
+            <v-date-picker 
+              :value="to"
+              scrollable
+              landscape 
+              color="blue" 
+              type="month"
+              class="to"
+              @input="updateCompany('to', $event); closeToModal()"
             />
-          </v-flex>
-          <v-flex xs12 md12 xl12>
-            <v-subheader>プロジェクト、案件</v-subheader>
-          </v-flex>
-          <v-flex xs12 md12 xl12>
-            <draggable v-model="projects">
-              <Project
-                v-for="(project, j) in projects" 
-                :key="j" 
-                :project="project" 
-                :j="j"
-                :i="index"
-              />
-            </draggable>
-          </v-flex>
-          <v-flex xs12 md12 xl12>
-            <v-btn color="lime lighten-3" @click="$store.commit('employment/addProject', index)">
-              プロジェクトを追加する
-            </v-btn>
-          </v-flex>
-        </v-layout>
-      </v-card-text>
-    </v-card>
-  </v-layout>
+          </v-menu>
+        </v-flex>
+        <v-flex xs12 md12 xl12>
+          <v-text-field
+            box
+            :value="companyProfile"
+            name="company profile"
+            label="company profile"
+            class="companyProfile"
+            @input="updateCompany('companyProfile', $event)"
+          />
+        </v-flex>
+        <v-flex xs12 md12 xl12>
+          <v-subheader>プロジェクト、案件</v-subheader>
+        </v-flex>
+        <v-flex xs12 md12 xl12>
+          <draggable v-model="projects">
+            <Project
+              v-for="(project, j) in projects" 
+              :key="j" 
+              :project="project" 
+              :j="j"
+              :i="index"
+            />
+          </draggable>
+        </v-flex>
+        <v-flex xs12 md12 xl12>
+          <v-btn color="lime lighten-3" @click="$store.commit('employment/addProject', index)">
+            プロジェクトを追加する
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script lang="ts">
