@@ -13,7 +13,6 @@
             v-model="modal"
             :close-on-content-click="false"
             :nudge-right="40"
-            lazy
             transition="scale-transition"
             full-width
             min-width="290px"

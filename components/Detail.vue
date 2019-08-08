@@ -40,7 +40,6 @@
             v-model="modalBirthDate"
             :close-on-content-click="false"
             :nudge-right="40"
-            lazy
             transition="scale-transition"
             full-width
             offset-y
@@ -122,7 +121,6 @@
             v-model="modalGraduationYear"
             :close-on-content-click="false"
             :nudge-right="40"
-            lazy
             transition="scale-transition"
             full-width
             min-width="290px"
