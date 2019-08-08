@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid grid-list-lg>
+  <v-container fluid grid-list-lg class="grey lighten-4">
     <v-layout row wrap>
       <v-flex xs12>
         <v-form>
@@ -12,8 +12,8 @@
         </v-form>
       </v-flex>
       <v-flex xs12>
-        <v-btn color="lime lighten-3" @click="$store.commit('employment/addCompany')">
-          会社を追加する
+        <v-btn color="amber lighten-3" @click="$store.commit('employment/addCompany')">
+          <v-icon>add</v-icon>会社を追加する
         </v-btn>
       </v-flex>
     </v-layout>

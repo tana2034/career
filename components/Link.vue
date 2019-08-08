@@ -10,7 +10,6 @@
       <v-text-field
         v-model="link"
         class="link"
-        box
         label="URL"
         hint="githubアカウントやその他記載したいURLを追加してください"
       />

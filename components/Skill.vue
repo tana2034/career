@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid grid-list-lg>
+  <v-container fluid grid-list-lg class="grey lighten-4">
     <v-form @submit.prevent>
       <v-layout row>
         <v-subheader>
@@ -8,8 +8,8 @@
       </v-layout>
       <v-layout row>
         <v-flex>
-          <v-btn color="lime lighten-3" @click="$store.commit('skills/addLanguage')">
-            言語を追加する
+          <v-btn color="amber lighten-3" @click="$store.commit('skills/addLanguage')">
+            <v-icon>add</v-icon>言語を追加する
           </v-btn>
         </v-flex>
       </v-layout>
@@ -33,8 +33,8 @@
       </v-layout>
       <v-layout row>
         <v-flex xs12>
-          <v-btn color="lime lighten-3" @click="$store.commit('skills/addDatabase')">
-            DBを追加する
+          <v-btn color="amber lighten-3" @click="$store.commit('skills/addDatabase')">
+            <v-icon>add</v-icon>DBを追加する
           </v-btn>
         </v-flex>
       </v-layout>
@@ -58,8 +58,8 @@
       </v-layout>
       <v-layout row>
         <v-flex xs12>
-          <v-btn color="lime lighten-3" @click="$store.commit('skills/addQualification')">
-            資格を追加する
+          <v-btn color="amber lighten-3" @click="$store.commit('skills/addQualification')">
+            <v-icon>add</v-icon>資格を追加する
           </v-btn>
         </v-flex>
       </v-layout>
@@ -83,8 +83,8 @@
       </v-layout>
       <v-layout row>
         <v-flex xs12>
-          <v-btn color="lime lighten-3" @click="$store.commit('skills/addLink')">
-            URLを追加する
+          <v-btn color="amber lighten-3" @click="$store.commit('skills/addLink')">
+            <v-icon>add</v-icon>URLを追加する
           </v-btn>
         </v-flex>
       </v-layout>
@@ -125,7 +125,7 @@
         <v-flex xs12>
           <v-text-field
             v-model="tool"
-            box
+            outline
             hint="追加したい単語を入力してEnterを押してください"
             required
             @keydown.enter="addTool($event)"

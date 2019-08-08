@@ -1,61 +1,76 @@
 <template>
   <v-container fluid grid-list-lg>
-    <v-stepper
-      v-model="currentStep"
-      vertical
-    >
-      <v-stepper-step
-        step="1"
-        editable
-      >
-        基本情報を入力
-      </v-stepper-step>
-      <v-stepper-content step="1">
-        <Detail />
-        <v-btn color="success" @click="nextStep()">
-          次の入力へ
-        </v-btn>
-      </v-stepper-content>
-      <v-stepper-step
-        step="2"
-        editable      
-      >
-        スキルを入力
-      </v-stepper-step>
-      <v-stepper-content step="2">
-        <Skill />
-        <v-btn color="success" @click="nextStep()">
-          次の入力へ
-        </v-btn>
-      </v-stepper-content>
-      <v-stepper-step
-        step="3"
-        editable
-      >
-        職務経歴を入力
-      </v-stepper-step>
-      <v-stepper-content
-        step="3"
-        editable
-      >
-        <Employment />
-        <v-btn color="success" @click="nextStep()">
-          全体をプレビュー
-        </v-btn>
-      </v-stepper-content>
-      <v-stepper-step 
-        step="4"
-        editable
-      >
-        プレビュー
-      </v-stepper-step>
-      <v-stepper-content step="4">
-        <v-btn color="success" to="/preview">
-          画面全体に表示する
-        </v-btn>
-        <Resume />
-      </v-stepper-content>
-    </v-stepper>
+    <v-layout row wrap mb-4>
+      <v-flex xs12>
+        <h1 class="white--text display-2 font-weight-thin">
+          職務経歴書を作る
+        </h1>
+      </v-flex>
+    </v-layout>
+    <v-layout row wrap>
+      <v-flex xs12>
+        <v-stepper
+          v-model="currentStep"
+          vertical
+        >
+          <v-stepper-step
+            step="1"
+            editable
+            color="indigo"
+          >
+            基本情報を入力
+          </v-stepper-step>
+          <v-stepper-content step="1">
+            <Detail />
+            <v-btn color="amber" ma-5 @click="nextStep()">
+              <v-icon>navigate_next</v-icon>次の入力へ
+            </v-btn>
+          </v-stepper-content>
+          <v-stepper-step
+            step="2"
+            editable
+            color="indigo"
+          >
+            スキルを入力
+          </v-stepper-step>
+          <v-stepper-content step="2">
+            <Skill />
+            <v-btn color="amber" @click="nextStep()">
+              <v-icon>navigate_next</v-icon>次の入力へ
+            </v-btn>
+          </v-stepper-content>
+          <v-stepper-step
+            step="3"
+            editable
+            color="indigo"
+          >
+            職務経歴を入力
+          </v-stepper-step>
+          <v-stepper-content
+            step="3"
+            editable
+          >
+            <Employment />
+            <v-btn color="amber" @click="nextStep()">
+              <v-icon>navigate_next</v-icon>全体をプレビュー
+            </v-btn>
+          </v-stepper-content>
+          <v-stepper-step 
+            step="4"
+            editable
+            color="indigo"
+          >
+            プレビュー
+          </v-stepper-step>
+          <v-stepper-content step="4">
+            <v-btn color="amber" to="/preview">
+              画面全体に表示する
+            </v-btn>
+            <Resume />
+          </v-stepper-content>
+        </v-stepper>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 

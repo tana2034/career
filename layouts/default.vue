@@ -1,8 +1,5 @@
 <template>
-  <v-app>
-    <v-toolbar>
-      <v-toolbar-title>職務経歴書を作る</v-toolbar-title>
-    </v-toolbar>
+  <v-app class="indigo">
     <v-content>
       <v-container fluid>
         <router-view />

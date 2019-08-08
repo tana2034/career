@@ -9,14 +9,12 @@
     <v-card-text>
       <v-text-field
         v-model="name"
-        box
         label="Language"
         class="language-name"
         required
       />
       <v-textarea 
         v-model="description" 
-        box 
         label="description" 
         class="language-description" 
         hint="使ったことのあるバージョン、実務経験、フレームワーク等を記載してください。" 

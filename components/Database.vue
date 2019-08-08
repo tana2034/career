@@ -9,14 +9,12 @@
     <v-card-text>
       <v-text-field
         v-model="name"
-        box
         label="Database"
         class="database-name"
         required
       />
       <v-textarea 
         v-model="description" 
-        box 
         label="description" 
         class="database-description" 
         hint="使ったことのあるバージョン、使用年数等を記載してください。" 

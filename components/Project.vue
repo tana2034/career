@@ -1,5 +1,5 @@
 <template>
-  <v-card color="lime lighten-5">
+  <v-card>
     <v-card-text> 
       <v-layout row wrap>
         <v-flex x12 md12 xl12 class="text-xs-right">
@@ -11,7 +11,6 @@
       <v-layout row wrap>
         <v-flex xs12>
           <v-text-field
-            box
             :value="title"
             label="title" 
             class="project-title"
@@ -33,7 +32,6 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
-                box
                 :value="from"
                 label="from"
                 readonly
@@ -45,7 +43,7 @@
               class="from"
               scrollable
               landscape 
-              color="blue" 
+              color="indigo" 
               type="month"
               @input="updateProject('from', $event); closeFromModal()"
             />  
@@ -64,7 +62,6 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
-                box
                 :value="to" 
                 label="to"
                 readonly
@@ -76,7 +73,7 @@
               class="to"
               scrollable 
               landscape 
-              color="blue" 
+              color="indigo" 
               type="month"
               @input="updateProject('to', $event); closeToModal()"
             />
@@ -86,7 +83,6 @@
       <v-layout row wrap>
         <v-flex xs12>
           <v-textarea 
-            box
             :value="description"
             label="description" 
             class="description"

@@ -11,7 +11,6 @@
       <v-layout row wrap>
         <v-flex xs12 md12 xl12>
           <v-text-field
-            box
             :value="company"
             name="company"
             label="company"
@@ -31,7 +30,6 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
-                box
                 :value="from"
                 label="from"
                 readonly
@@ -42,7 +40,7 @@
               :value="from"
               scrollable 
               landscape 
-              color="blue" 
+              color="indigo" 
               type="month"
               class="from"
               @input="updateCompany('from', $event); closeFromModal()"
@@ -61,7 +59,6 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
-                box
                 :value="to"
                 label="to"
                 readonly
@@ -73,7 +70,7 @@
               :value="to"
               scrollable
               landscape 
-              color="blue" 
+              color="indigo" 
               type="month"
               class="to"
               @input="updateCompany('to', $event); closeToModal()"
@@ -82,7 +79,6 @@
         </v-flex>
         <v-flex xs12 md12 xl12>
           <v-text-field
-            box
             :value="companyProfile"
             name="company profile"
             label="company profile"
@@ -105,8 +101,8 @@
           </draggable>
         </v-flex>
         <v-flex xs12 md12 xl12>
-          <v-btn color="lime lighten-3" @click="$store.commit('employment/addProject', index)">
-            プロジェクトを追加する
+          <v-btn color="amber lighten-3" @click="$store.commit('employment/addProject', index)">
+            <v-icon>add</v-icon>プロジェクトを追加する
           </v-btn>
         </v-flex>
       </v-layout>
