@@ -1,11 +1,10 @@
 <template>
-  <v-container fluid grid-list-lg>
+  <v-container fluid grid-list-lg class="grey lighten-4">
     <v-form>
       <v-layout row>
         <v-flex xs12 md6 xl6>
           <v-text-field
             v-model="lastname"
-            box
             :counter="10"
             label="Last name"
             prepend-icon="person"
@@ -16,7 +15,6 @@
         <v-flex xs12 md6 xl6>
           <v-text-field
             v-model="firstname"
-            box
             :counter="10"
             label="First name"
             class="firstname"
@@ -28,7 +26,6 @@
         <v-flex xs12>
           <v-text-field
             v-model="email"
-            box
             label="E-mail"
             prepend-icon="email"
             class="email"
@@ -52,7 +49,6 @@
             <template v-slot:activator="{on}">
               <v-text-field
                 v-model="birthDate"
-                box
                 name="birthDate"
                 readonly
                 label="birth date"
@@ -64,7 +60,7 @@
               ref="picker"
               v-model="birthDate" 
               class="birthDate"
-              color="blue"
+              color="indigo"
               :max="new Date().toISOString().substr(0, 10)"
               min="1950-01-01"
               @input="closeModal('modalBirthDate')"
@@ -76,7 +72,6 @@
         <v-flex xs12>
           <v-text-field
             v-model="address"
-            box
             label="Address"
             prepend-icon="map"
             class="address"
@@ -88,7 +83,6 @@
         <v-flex xs12>
           <v-text-field
             v-model="tel"
-            box
             label="Tel"
             prepend-icon="phone"
             class="tel"
@@ -100,7 +94,6 @@
         <v-flex xs12>
           <v-textarea
             v-model="summary"
-            box
             label="Summary"
             class="summary"
             required
@@ -111,7 +104,6 @@
         <v-flex xs12>
           <v-textarea
             v-model="publicRelations"
-            box
             label="PR"
             class="publicRelations"
             required
@@ -138,7 +130,6 @@
             <template v-slot:activator="{on}">
               <v-text-field
                 v-model="graduationYear"
-                box
                 name="graduationYear"
                 readonly
                 label="the year of graduation"
@@ -156,7 +147,6 @@
           </v-menu>
           <v-text-field
             v-model="education"
-            box 
             class="education"
             name="education" 
             label="education"

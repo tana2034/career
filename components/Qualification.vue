@@ -20,7 +20,6 @@
           >
             <template v-slot:activator="{on}">
               <v-text-field
-                box
                 :value="date"
                 label="取得年月"
                 readonly
@@ -31,7 +30,7 @@
               :value="date"
               scrollable 
               landscape 
-              color="blue" 
+              color="indigo" 
               type="month"
               class="qualification-date"
               @input="updateDate($event); closeModal()"
@@ -41,7 +40,6 @@
         <v-flex xs12 md8 xl8>
           <v-text-field
             v-model="name"
-            box
             label="資格"
             class="qualification-name"
             required
