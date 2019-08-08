@@ -61,10 +61,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Detail from '@/components/Detail'
-import Skill from '@/components/Skill'
-import Employment from '@/components/Employment'
-import Resume from '@/components/Resume'
+import Detail from '@/components/Detail.vue'
+import Skill from '@/components/Skill.vue'
+import Employment from '@/components/Employment.vue'
+import Resume from '@/components/Resume.vue'
 
 @Component({
   components: { Detail, Skill, Employment, Resume },
