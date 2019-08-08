@@ -10,7 +10,7 @@ export interface Detail {
   summary: string
   publicRelations: string
   education: string
-  graduationYear
+  graduationYear: string
 }
 
 export const state = (): Detail => ({

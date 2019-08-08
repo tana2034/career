@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import employment from '@/pages/employment.vue'
+import employment from '@/components/Employment.vue'
 import {
   state as experienceState,
   mutations as experienceMutations
