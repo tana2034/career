@@ -67,6 +67,11 @@ module.exports = {
   build: {
     transpile: ['vuetify/lib'],
     plugins: [new VuetifyLoaderPlugin()],
+    loaders: {
+      sass: {
+        indentedSyntax: true
+      }
+    },
 
     /*
     ** You can extend webpack config here
