@@ -1,25 +1,32 @@
 <template>
-  <v-card>     
-    <v-card-actions>
-      <v-spacer />
-      <v-icon @click="deleteDatabase()">
-        clear
-      </v-icon>
-    </v-card-actions>
-    <v-card-text>
-      <v-text-field
-        v-model="name"
-        label="Database"
-        class="database-name"
-        required
-      />
-      <v-textarea 
-        v-model="description" 
-        label="description" 
-        class="database-description" 
-        hint="使ったことのあるバージョン、使用年数等を記載してください。" 
-      />
-    </v-card-text>
+  <v-card flat outlined elevation="2">
+    <v-layout row wrap>
+      <v-flex xs11>
+        <v-card-text>
+          <v-text-field
+            v-model="name"
+            label="Database"
+            class="database-name"
+            outlined
+            required
+          />
+          <v-textarea 
+            v-model="description" 
+            label="description" 
+            class="database-description" 
+            hint="使ったことのあるバージョン、使用年数等を記載してください。" 
+            outlined
+          />
+        </v-card-text>
+      </v-flex>
+      <v-flex xs1>
+        <v-card-actions>
+          <v-icon @click="deleteDatabase()">
+            clear
+          </v-icon>
+        </v-card-actions>
+      </v-flex>
+    </v-layout>
   </v-card>
 </template>
 

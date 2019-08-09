@@ -1,51 +1,58 @@
 <template>
-  <v-card>     
-    <v-card-actions>
-      <v-spacer />
-      <v-icon @click="deleteQualification()">
-        clear
-      </v-icon>
-    </v-card-actions>
-    <v-card-text>
-      <v-layout row>
-        <v-flex xs12 md4 xl4>
-          <v-menu
-            v-model="modal"
-            :close-on-content-click="false"
-            :nudge-right="40"
-            transition="scale-transition"
-            full-width
-            min-width="290px"
-          >
-            <template v-slot:activator="{on}">
+  <v-card flat outlined elevation="2">
+    <v-layout row wrap>
+      <v-flex xs11>
+        <v-card-text>
+          <v-layout row>
+            <v-flex xs12 md4 xl4>
+              <v-menu
+                v-model="modal"
+                :close-on-content-click="false"
+                :nudge-right="40"
+                transition="scale-transition"
+                full-width
+                min-width="290px"
+              >
+                <template v-slot:activator="{on}">
+                  <v-text-field
+                    :value="date"
+                    label="取得年月"
+                    readonly
+                    outlined
+                    v-on="on"
+                  />
+                </template>
+                <v-date-picker 
+                  :value="date"
+                  scrollable 
+                  landscape 
+                  color="indigo" 
+                  type="month"
+                  class="qualification-date"
+                  @input="updateDate($event); closeModal()"
+                />  
+              </v-menu>
+            </v-flex>
+            <v-flex xs12 md8 xl8>
               <v-text-field
-                :value="date"
-                label="取得年月"
-                readonly
-                v-on="on"
+                v-model="name"
+                label="資格"
+                class="qualification-name"
+                required
+                outlined
               />
-            </template>
-            <v-date-picker 
-              :value="date"
-              scrollable 
-              landscape 
-              color="indigo" 
-              type="month"
-              class="qualification-date"
-              @input="updateDate($event); closeModal()"
-            />  
-          </v-menu>
-        </v-flex>
-        <v-flex xs12 md8 xl8>
-          <v-text-field
-            v-model="name"
-            label="資格"
-            class="qualification-name"
-            required
-          />
-        </v-flex>
-      </v-layout>
-    </v-card-text>
+            </v-flex>
+          </v-layout>
+        </v-card-text>
+      </v-flex>
+      <v-flex xs1>
+        <v-card-actions>
+          <v-icon @click="deleteQualification()">
+            clear
+          </v-icon>
+        </v-card-actions>
+      </v-flex>
+    </v-layout>
   </v-card>
 </template>
 

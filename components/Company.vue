@@ -1,7 +1,9 @@
 <template>
-  <v-card>
+  <v-card flat outlined elevation="2">
     <v-card-title primary-title>
-      所属中・所属していた会社の情報
+      <p class="title">
+        所属中・所属していた会社の情報
+      </p>
       <v-spacer />
       <v-icon @click="deleteCompany()">
         clear
@@ -15,6 +17,7 @@
             name="company"
             label="company"
             class="company"
+            outlined
             @input="updateCompany('company', $event)"
           />
         </v-flex>
@@ -32,6 +35,7 @@
                 :value="from"
                 label="from"
                 readonly
+                outlined
                 v-on="on"
               />
             </template>
@@ -60,6 +64,7 @@
                 :value="to"
                 label="to"
                 readonly
+                outlined
                 @input="updateCompany('to', $event)"
                 v-on="on"
               />
@@ -81,6 +86,7 @@
             name="company profile"
             label="company profile"
             class="companyProfile"
+            outlined
             @input="updateCompany('companyProfile', $event)"
           />
         </v-flex>
