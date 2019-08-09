@@ -3,11 +3,11 @@
     <v-flex xs12 md12 xl12>
       <div>
         <div class="mt-3 mb-3">
-          <span class="term">{{ employment.from }} - {{ employment.to }}</span>
-          <h4 class="subheading company">
+          <span class="subtitle-1 term">{{ employment.from }} - {{ employment.to }}</span>
+          <h4 class="title company">
             {{ employment.company }}
           </h4>
-          <p class="grey--text companyProfile">
+          <p class="body-1 companyProfile">
             {{ employment.companyProfile }}
           </p>
         </div>
@@ -18,17 +18,13 @@
           :project="project"
         >
           <div class="pl-3">  
-            <div>
-              <div>
-                <small class="caption content-term"> {{ project.from }} - {{ project.to }} </small>
-                <div class="body-2 title">
-                  <span>{{ project.title }}</span>
-                </div>
-                <p class="body-1 grey--text pt-1 description">
-                  {{ project.description }}
-                </p>
-              </div>
+            <small class="subtitle-2 content-term"> {{ project.from }} - {{ project.to }} </small>
+            <div class="subtitle-1 project-title">
+              <span>{{ project.title }}</span>
             </div>
+            <p class="body-2 pt-1 description">
+              {{ project.description }}
+            </p>
           </div>
         </div>
       </div>
