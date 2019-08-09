@@ -109,14 +109,14 @@
         <v-flex xs12>
           <draggable v-model="tools">
             <v-chip 
-              v-for="(tag, index) in tools"
+              v-for="(toolname, index) in tools"
               :key="index"
               :index="index"
-              :tag="tag"
+              :toolname="toolname"
               close
-              @input="$store.commit('skills/removeElement', { key: 'tools', index: index })"
+              @update:active="$store.commit('skills/removeElement', { key: 'tools', index: index })"
             >
-              {{ tag }}
+              {{ toolname }}
             </v-chip>
           </draggable>
         </v-flex>
@@ -125,7 +125,7 @@
         <v-flex xs12>
           <v-text-field
             v-model="tool"
-            outline
+            outlined
             hint="追加したい単語を入力してEnterを押してください"
             required
             @keydown.enter="addTool($event)"

@@ -1,4 +1,3 @@
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const pkg = require('./package')
 
 module.exports = {
@@ -32,7 +31,8 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~/assets/style/app.styl'],
+  css: [],
+  // css: ['vuetify/dist/vuetify.min.css'],
 
   /*
   ** Plugins to load before mounting the App
@@ -58,15 +58,16 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
+  devModules: ['@nuxtjs/vuetify'],
+
   /*
   ** Build configuration
   */
   build: {
     transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
     loaders: {
-      stylus: {
-        import: ['~assets/style/variables.styl']
+      sass: {
+        indentedSyntax: true
       }
     },
 

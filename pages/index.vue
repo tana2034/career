@@ -22,7 +22,7 @@
           </v-stepper-step>
           <v-stepper-content step="1">
             <Detail />
-            <v-btn color="amber" ma-5 @click="nextStep()">
+            <v-btn color="amber mt-5" @click="nextStep()">
               <v-icon>navigate_next</v-icon>次の入力へ
             </v-btn>
           </v-stepper-content>
@@ -35,7 +35,7 @@
           </v-stepper-step>
           <v-stepper-content step="2">
             <Skill />
-            <v-btn color="amber" @click="nextStep()">
+            <v-btn color="amber mt-5" @click="nextStep()">
               <v-icon>navigate_next</v-icon>次の入力へ
             </v-btn>
           </v-stepper-content>
@@ -51,7 +51,7 @@
             editable
           >
             <Employment />
-            <v-btn color="amber" @click="nextStep()">
+            <v-btn color="amber mt-5" @click="nextStep()">
               <v-icon>navigate_next</v-icon>全体をプレビュー
             </v-btn>
           </v-stepper-content>
