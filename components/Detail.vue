@@ -9,6 +9,8 @@
             label="Last name"
             prepend-icon="person"
             required
+            outlined
+            color="white"
             class="lastname"
           />
         </v-flex>
@@ -18,6 +20,7 @@
             :counter="10"
             label="First name"
             class="firstname"
+            outlined
             required
           />
         </v-flex>
@@ -29,6 +32,7 @@
             label="E-mail"
             prepend-icon="email"
             class="email"
+            outlined
             required
           />
         </v-flex>
@@ -52,6 +56,7 @@
                 readonly
                 label="birth date"
                 prepend-icon="event"
+                outlined
                 v-on="on"
               />
             </template>
@@ -74,6 +79,7 @@
             label="Address"
             prepend-icon="map"
             class="address"
+            outlined
             required
           />
         </v-flex>
@@ -85,6 +91,7 @@
             label="Tel"
             prepend-icon="phone"
             class="tel"
+            outlined
             required
           />
         </v-flex>
@@ -95,6 +102,7 @@
             v-model="summary"
             label="Summary"
             class="summary"
+            outlined
             required
           />
         </v-flex>
@@ -105,6 +113,7 @@
             v-model="publicRelations"
             label="PR"
             class="publicRelations"
+            outlined
             required
           />
         </v-flex>
@@ -131,6 +140,7 @@
                 name="graduationYear"
                 readonly
                 label="the year of graduation"
+                outlined
                 v-on="on"
               />
             </template>
@@ -148,6 +158,7 @@
             class="education"
             name="education" 
             label="education"
+            outlined
           />
         </v-flex>
       </v-layout>
