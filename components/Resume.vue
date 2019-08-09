@@ -2,42 +2,37 @@
   <v-container>
     <v-layout row wrap mb-4>
       <v-flex sm12 lg12>
-        <h1 class="display-2">
+        <h1 class="display-2 font-weight-light">
           職務経歴書
         </h1>
       </v-flex>
     </v-layout>
     <v-layout row wrap mb-3>
       <v-flex sm12 lg12>
-        <div>
-          <h2 class="display-1">
-            <span class="lastname">
-              {{ $store.state.details.lastname }}
-            </span>
-            <span class="firstname">
-              {{ $store.state.details.firstname }}
-            </span>
-          </h2>
-        </div>
+        <h2 class="display-1">
+          <span class="lastname">
+            {{ $store.state.details.lastname }}
+          </span>
+          <span class="firstname">
+            {{ $store.state.details.firstname }}
+          </span>
+        </h2>
       </v-flex>
-    </v-layout>
-    <v-layout row wrap my-3>
-      <div class="headline">
-        プロフィール
-      </div>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
-        email
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
+        <p>
+          email
+        </p>
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p class="email">
+        <p class="email body-1">
           {{ $store.state.details.email }}
         </p>
       </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
         生年月日
       </v-flex>
       <v-flex xs10 sm10 lg10>
@@ -47,7 +42,7 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
         住所
       </v-flex>
       <v-flex xs10 sm10 lg10>
@@ -57,7 +52,7 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
         電話番号
       </v-flex>
       <v-flex xs10 sm10 lg10>
@@ -77,7 +72,7 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
         自己PR
       </v-flex>
       <v-flex xs10 sm10 lg10>
@@ -87,76 +82,81 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap my-3>
-      <div class="headline">
-        スキル
-      </div>
+      <v-flex>
+        <div class="headline">
+          スキル
+        </div>
+      </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
         言語
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <v-layout 
-          v-for="(language, index) in this.$store.state.skills.languages" 
-          :key="index" 
-          :language="language"
-          :index="index"
-          row
-          wrap
-        >
-          <v-flex xs12 sm2 xl2>
-            <p>
-              {{ language.name }}
-            </p>
-          </v-flex>
-          <v-flex xs12 sm8 xl8>
-            <p> {{ language.description }} </p>
-          </v-flex>
-        </v-layout>
+        <v-container grid-list-xs>
+          <v-layout 
+            v-for="(language, index) in this.$store.state.skills.languages" 
+            :key="index" 
+            :language="language"
+            :index="index"
+            row
+            wrap
+          >
+            <v-flex xs12 sm2 xl2>
+              <p>
+                {{ language.name }}
+              </p>
+            </v-flex>
+            <v-flex xs12 sm10 xl10>
+              <p> {{ language.description }} </p>
+            </v-flex>
+          </v-layout>
+        </v-container>
       </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
         DB
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <v-layout 
-          v-for="(database, index) in this.$store.state.skills.databases" 
-          :key="index" 
-          :database="database"
-          :index="index"
-          row
-          wrap
-        >
-          <v-flex xs12 sm2 xl2>
-            <p>
-              {{ database.name }}
-            </p>
-          </v-flex>
-          <v-flex xs12 sm8 xl8>
-            <p> {{ database.description }} </p>
-          </v-flex>
-        </v-layout>
+        <v-container grid-list-xs>
+          <v-layout 
+            v-for="(database, index) in this.$store.state.skills.databases" 
+            :key="index" 
+            :database="database"
+            :index="index"
+            row
+            wrap
+          >
+            <v-flex xs12 sm2 xl2>
+              <p>
+                {{ database.name }}
+              </p>
+            </v-flex>
+            <v-flex xs12 sm10 xl10>
+              <p> {{ database.description }} </p>
+            </v-flex>
+          </v-layout>
+        </v-container>
       </v-flex>
-    </v-layout>    <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
+    </v-layout>
+    <v-layout row wrap>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
         資格
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <v-layout 
+        <p 
           v-for="(qualification, index) in this.$store.state.skills.qualifications" 
           :key="index" 
           :qualification="qualification"
           :index="index"
-          row
-          wrap
         >
-          <p> {{ qualification.name }} ({{ qualification.date }} 取得)</p>
-        </v-layout>
+          {{ qualification.name }} ({{ qualification.date }} 取得)
+        </p>
       </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
         URL
       </v-flex>
       <v-flex xs10 sm10 lg10>
@@ -170,7 +170,7 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs2 sm2 lg2>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
         ミドルウェアやツール
       </v-flex>
       <v-flex xs10 sm10 lg10>
@@ -184,24 +184,28 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap mt-3>
-      <div class="headline">
-        最終学歴
-      </div>
+      <v-flex>
+        <div class="headline">
+          最終学歴
+        </div>
+      </v-flex>
     </v-layout>
     <v-layout row wrap>
       <v-flex xs12 md12 xl12 mb-1 mt-3>
         <div>
-          <span>{{ $store.state.details.graduationYear }}</span>
-          <h4 class="subheading">
+          <span class="subtitle-1">{{ $store.state.details.graduationYear }}</span>
+          <h4 class="title">
             {{ $store.state.details.education }}
           </h4>
         </div>
       </v-flex>
     </v-layout>
     <v-layout row wrap mt-3>
-      <div class="headline">
-        職務経歴
-      </div>
+      <v-flex>
+        <div class="headline">
+          職務経歴
+        </div>
+      </v-flex>
     </v-layout>
     <EmploymentTable
       v-for="(employment, index) in this.$store.state.employment"
