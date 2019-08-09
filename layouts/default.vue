@@ -1,6 +1,6 @@
 <template>
-  <v-app class="indigo">
-    <v-content>
+  <v-app>
+    <v-content class="indigo">
       <v-container fluid>
         <router-view />
       </v-container>
