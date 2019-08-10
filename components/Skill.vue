@@ -107,18 +107,23 @@
       </v-layout>
       <v-layout row>
         <v-flex xs12>
-          <draggable v-model="tools">
-            <v-chip 
-              v-for="(toolname, index) in tools"
-              :key="index"
-              :index="index"
-              :toolname="toolname"
-              close
-              @update:active="$store.commit('skills/removeElement', { key: 'tools', index: index })"
-            >
-              {{ toolname }}
-            </v-chip>
-          </draggable>
+          <v-chip-group
+            column
+            multi-line
+          >
+            <draggable v-model="tools">
+              <v-chip 
+                v-for="(toolname, index) in tools"
+                :key="index"
+                :index="index"
+                :toolname="toolname"
+                close
+                @update:active="$store.commit('skills/removeElement', { key: 'tools', index: index })"
+              >
+                {{ toolname }}
+              </v-chip>
+            </draggable>
+          </v-chip-group>
         </v-flex>
       </v-layout>
       <v-layout row>

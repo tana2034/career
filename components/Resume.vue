@@ -174,13 +174,18 @@
         ミドルウェアやツール
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <v-chip
-          v-for="(tool, index) in this.$store.state.skills.tools"
-          :key="index"
-          :tool="tool"
+        <v-chip-group
+          column
+          multi-line
         >
-          {{ tool }}
-        </v-chip>
+          <v-chip
+            v-for="(tool, index) in this.$store.state.skills.tools"
+            :key="index"
+            :tool="tool"
+          >
+            {{ tool }}
+          </v-chip>
+        </v-chip-group>
       </v-flex>
     </v-layout>
     <v-layout row wrap mt-3>
