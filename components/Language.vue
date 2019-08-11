@@ -5,14 +5,14 @@
         <v-card-text>
           <v-text-field
             v-model="name"
-            label="Language"
+            label="言語"
             class="language-name"
             outlined
             required
           />
           <v-textarea 
             v-model="description" 
-            label="description" 
+            label="詳細" 
             class="language-description" 
             outlined
             hint="使ったことのあるバージョン、実務経験、フレームワーク等を記載してください。" 
