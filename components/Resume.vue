@@ -22,7 +22,7 @@
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         <p>
-          email
+          メールアドレス
         </p>
       </v-flex>
       <v-flex xs10 sm10 lg10>
@@ -63,7 +63,7 @@
     </v-layout>
     <v-layout row wrap>
       <v-flex xs2 sm2 lg2>
-        自己紹介
+        略歴
       </v-flex>
       <v-flex xs10 sm10 lg10>
         <p class="summary">
