@@ -6,11 +6,10 @@
           <v-text-field
             v-model="lastname"
             :counter="10"
-            label="Last name"
+            label="姓"
             prepend-icon="person"
             required
             outlined
-            color="white"
             class="lastname"
           />
         </v-flex>
@@ -18,7 +17,7 @@
           <v-text-field
             v-model="firstname"
             :counter="10"
-            label="First name"
+            label="名"
             class="firstname"
             outlined
             required
@@ -29,7 +28,7 @@
         <v-flex xs12>
           <v-text-field
             v-model="email"
-            label="E-mail"
+            label="メールアドレス"
             prepend-icon="email"
             class="email"
             outlined
@@ -54,7 +53,7 @@
                 v-model="birthDate"
                 name="birthDate"
                 readonly
-                label="birth date"
+                label="生年月日"
                 prepend-icon="event"
                 outlined
                 v-on="on"
@@ -76,7 +75,7 @@
         <v-flex xs12>
           <v-text-field
             v-model="address"
-            label="Address"
+            label="住所"
             prepend-icon="map"
             class="address"
             outlined
@@ -88,7 +87,7 @@
         <v-flex xs12>
           <v-text-field
             v-model="tel"
-            label="Tel"
+            label="電話番号"
             prepend-icon="phone"
             class="tel"
             outlined
@@ -100,7 +99,7 @@
         <v-flex xs12>
           <v-textarea
             v-model="summary"
-            label="Summary"
+            label="略歴"
             class="summary"
             outlined
             required
@@ -111,7 +110,7 @@
         <v-flex xs12>
           <v-textarea
             v-model="publicRelations"
-            label="PR"
+            label="自己PR"
             class="publicRelations"
             outlined
             required
@@ -139,7 +138,7 @@
                 v-model="graduationYear"
                 name="graduationYear"
                 readonly
-                label="the year of graduation"
+                label="卒業年度"
                 outlined
                 v-on="on"
               />
@@ -157,7 +156,7 @@
             v-model="education"
             class="education"
             name="education" 
-            label="education"
+            label="所属していた学校名・学部・学科"
             outlined
           />
         </v-flex>

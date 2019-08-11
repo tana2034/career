@@ -5,14 +5,14 @@
         <v-card-text>
           <v-text-field
             v-model="name"
-            label="Database"
+            label="DBの種類"
             class="database-name"
             outlined
             required
           />
           <v-textarea 
             v-model="description" 
-            label="description" 
+            label="詳細" 
             class="database-description" 
             hint="使ったことのあるバージョン、使用年数等を記載してください。" 
             outlined

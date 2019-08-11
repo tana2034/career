@@ -15,7 +15,7 @@
           <v-text-field
             :value="company"
             name="company"
-            label="company"
+            label="会社名"
             class="company"
             outlined
             @input="updateCompany('company', $event)"
@@ -33,7 +33,7 @@
             <template v-slot:activator="{on}">
               <v-text-field
                 :value="from"
-                label="from"
+                label="期間（自）"
                 readonly
                 outlined
                 v-on="on"
@@ -62,7 +62,7 @@
             <template v-slot:activator="{on}">
               <v-text-field
                 :value="to"
-                label="to"
+                label="期間（至）"
                 readonly
                 outlined
                 @input="updateCompany('to', $event)"
@@ -84,7 +84,7 @@
           <v-text-field
             :value="companyProfile"
             name="company profile"
-            label="company profile"
+            label="会社の事業・概要など"
             class="companyProfile"
             outlined
             @input="updateCompany('companyProfile', $event)"

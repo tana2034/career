@@ -11,7 +11,7 @@
             <v-flex xs12>
               <v-text-field
                 :value="title"
-                label="title" 
+                label="プロジェクト概要" 
                 class="project-title"
                 outlined
                 @input="updateProject('title', $event)"
@@ -32,7 +32,7 @@
                 <template v-slot:activator="{on}">
                   <v-text-field
                     :value="from"
-                    label="from"
+                    label="期間（自）"
                     readonly
                     outlined
                     v-on="on"
@@ -62,7 +62,7 @@
                 <template v-slot:activator="{on}">
                   <v-text-field
                     :value="to" 
-                    label="to"
+                    label="期間（至）"
                     readonly
                     outlined
                     v-on="on"
@@ -84,7 +84,7 @@
             <v-flex xs12>
               <v-textarea 
                 :value="description"
-                label="description" 
+                label="プロジェクト詳細" 
                 class="description"
                 outlined
                 @input="updateProject('description', $event)"
