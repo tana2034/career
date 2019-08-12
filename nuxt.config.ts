@@ -64,7 +64,6 @@ module.exports = {
    * markdownit module configuration
    */
   markdownit: {
-    preset: 'default',
     linkify: true,
     breaks: true,
     injected: true

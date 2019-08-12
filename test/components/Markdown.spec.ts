@@ -13,16 +13,14 @@ describe('Markdown', () => {
 
   beforeEach(() => {
     const $md = new MarkdownIt({
-      preset: 'default',
       linkify: true,
-      breaks: true,
-      injected: true
+      breaks: true
     })
     wrapper = shallowMount(Markdown, {
       propsData: {
         text: '# h1-text'
       },
-      mocks: {
+      provide: {
         $md
       },
       localVue
