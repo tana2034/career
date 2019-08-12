@@ -66,9 +66,7 @@
         略歴
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p class="summary">
-          {{ $store.state.details.summary }}
-        </p>
+        <Markdown class="summary" :text="$store.state.details.summary" />
       </v-flex>
     </v-layout>
     <v-layout row wrap>
@@ -76,9 +74,7 @@
         自己PR
       </v-flex>
       <v-flex xs10 sm10 lg10>
-        <p class="publicRelations">
-          {{ $store.state.details.publicRelations }}
-        </p>
+        <Markdown class="publicRelations" :text="$store.state.details.publicRelations" />
       </v-flex>
     </v-layout>
     <v-layout row wrap my-3>
@@ -224,9 +220,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import EmploymentTable from '@/components/EmploymentTable.vue'
+import Markdown from '@/components/Markdown.vue'
 
 @Component({
-  components: { EmploymentTable }
+  components: { EmploymentTable, Markdown }
 })
 export default class Resume extends Vue {}
 </script>

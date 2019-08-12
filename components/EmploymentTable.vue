@@ -22,9 +22,7 @@
             <div class="subtitle-1 project-title">
               <span>{{ project.title }}</span>
             </div>
-            <p class="body-2 pt-1 description">
-              {{ project.description }}
-            </p>
+            <Markdown class="body-2 pt-1 description" :text="project.description" />
           </div>
         </div>
       </div>
@@ -35,8 +33,11 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import { state, Employment } from '@/store/employment.ts'
+import Markdown from '@/components/Markdown.vue'
 
-@Component
+@Component({
+  components: { Markdown }
+})
 export default class EmploymentTable extends Vue {
   @Prop({
     default: {
