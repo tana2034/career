@@ -49,8 +49,10 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/proxy'
+    '@nuxtjs/proxy',
+    '@nuxtjs/markdownit'
   ],
+
   /*
   ** Axios module configuration
   */
@@ -58,6 +60,20 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
+  /**
+   * markdownit module configuration
+   */
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true
+    // See https://github.com/markdown-it/markdown-it
+  },
+
+  /**
+   * Nuxt.js dev Modules
+   */
   devModules: ['@nuxtjs/vuetify'],
 
   /*
