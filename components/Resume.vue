@@ -104,7 +104,7 @@
               </p>
             </v-flex>
             <v-flex xs12 sm10 xl10>
-              <p> {{ language.description }} </p>
+              <Markdown :text="language.description" />
             </v-flex>
           </v-layout>
         </v-container>
@@ -130,7 +130,7 @@
               </p>
             </v-flex>
             <v-flex xs12 sm10 xl10>
-              <p> {{ database.description }} </p>
+              <Markdown :text="database.description" />
             </v-flex>
           </v-layout>
         </v-container>
