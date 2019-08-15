@@ -49,17 +49,6 @@ describe('Resume', () => {
   let wrapper
   let state
 
-  beforeEach(() => {
-    const state = detailsState()
-    state.firstname = '太郎'
-    state.email = 'example@example.com'
-    state.birthDate = '2019-01-01'
-    state.address = '東京都千代田区丸の内一丁目'
-    state.tel = '000-0000-0000'
-    state.summary = '設計・開発をやっています。'
-    state.publicRelations = 'JavaScriptが得意です。'
-  })
-
   test('is a Vue instance', () => {
     wrapper = factory(detailsState(), employmentState(), skillsState())
     expect(wrapper.isVueInstance()).toBeTruthy()
@@ -156,4 +145,5 @@ describe('Resume', () => {
     wrapper = factory(detailsState(), employmentState(), skillsState())
     expect(wrapper.find('.publicRelations').exists()).toBeFalsy()
   })
+
 })
