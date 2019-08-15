@@ -19,7 +19,7 @@
         </h2>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="show($store.state.details.email)" wrap row>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         <p>
           メールアドレス
@@ -31,7 +31,7 @@
         </p>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="show($store.state.details.birthDate)" row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         生年月日
       </v-flex>
@@ -41,7 +41,7 @@
         </p>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="show($store.state.details.address)" row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         住所
       </v-flex>
@@ -51,7 +51,7 @@
         </p>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="show($store.state.details.tel)" row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         電話番号
       </v-flex>
@@ -61,7 +61,7 @@
         </p>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="show($store.state.details.summary)" row wrap>
       <v-flex xs2 sm2 lg2>
         略歴
       </v-flex>
@@ -69,7 +69,7 @@
         <Markdown class="summary" :text="$store.state.details.summary" />
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="show($store.state.details.publicRelations)" row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         自己PR
       </v-flex>
@@ -84,7 +84,7 @@
         </div>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="showArray($store.state.skills.languages)" row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         言語
       </v-flex>
@@ -110,7 +110,7 @@
         </v-container>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="showArray($store.state.skills.databases)" row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         DB
       </v-flex>
@@ -136,7 +136,7 @@
         </v-container>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="showArray($store.state.skills.qualifications)" row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         資格
       </v-flex>
@@ -151,7 +151,7 @@
         </p>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="showArray($store.state.skills.links)" row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         URL
       </v-flex>
@@ -165,7 +165,7 @@
         </p>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="showArray($store.state.skills.tools)" row wrap>
       <v-flex xs2 sm2 lg2 class="subtitle-1">
         ミドルウェアやツール
       </v-flex>
@@ -184,14 +184,14 @@
         </v-chip-group>
       </v-flex>
     </v-layout>
-    <v-layout row wrap mt-3>
+    <v-layout v-if="show($store.state.details.education)" row wrap mt-3>
       <v-flex>
         <div class="headline">
           最終学歴
         </div>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout v-if="show($store.state.details.education)" row wrap>
       <v-flex xs12 md12 xl12 mb-1 mt-3>
         <div>
           <span class="subtitle-1">{{ $store.state.details.graduationYear }}</span>
@@ -225,5 +225,13 @@ import Markdown from '@/components/Markdown.vue'
 @Component({
   components: { EmploymentTable, Markdown }
 })
-export default class Resume extends Vue {}
+export default class Resume extends Vue {
+  show(value: string): boolean {
+    return value !== '' && value !== undefined
+  }
+
+  showArray(values: Array<Object>): boolean {
+    return values.length > 0
+  }
+}
 </script>
