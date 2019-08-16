@@ -44,6 +44,11 @@ describe('EmploymentTable', () => {
       key: 'companyProfile',
       value: 'IT企業'
     })
+    employmentMutations.updateCompany(state, {
+      index: 0,
+      key: 'role',
+      value: 'アプリケーションエンジニア'
+    })
     employmentMutations.updateProject(state, {
       i: 0,
       j: 0,
@@ -105,6 +110,21 @@ describe('EmploymentTable', () => {
 
   test('companyProfile', () => {
     expect(wrapper.find('.companyProfile').html()).toContain('IT企業')
+  })
+
+  test('role', () => {
+    expect(wrapper.find('.role').html()).toContain('アプリケーションエンジニア')
+  })
+
+  test('role　非表示', () => {
+    wrapper = shallowMount(EmploymentTable, {
+      propsData: {
+        employment: employmentState()
+      },
+      store,
+      localVue
+    })
+    expect(wrapper.find('.role').exists()).toBeFalsy()
   })
 
   test('content-term', () => {
