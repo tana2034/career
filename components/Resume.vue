@@ -99,12 +99,12 @@
             wrap
           >
             <v-flex xs12 sm2 xl2>
-              <p>
+              <p class="language-name">
                 {{ language.name }}
               </p>
             </v-flex>
             <v-flex xs12 sm10 xl10>
-              <Markdown :text="language.description" />
+              <Markdown class="language-description" :text="language.description" />
             </v-flex>
           </v-layout>
         </v-container>
@@ -125,12 +125,12 @@
             wrap
           >
             <v-flex xs12 sm2 xl2>
-              <p>
+              <p class="database-name">
                 {{ database.name }}
               </p>
             </v-flex>
             <v-flex xs12 sm10 xl10>
-              <Markdown :text="database.description" />
+              <Markdown class="database-description" :text="database.description" />
             </v-flex>
           </v-layout>
         </v-container>
@@ -146,6 +146,7 @@
           :key="index" 
           :qualification="qualification"
           :index="index"
+          class="qualification-name"
         >
           {{ qualification.name }} ({{ qualification.date }} 取得)
         </p>
@@ -160,6 +161,7 @@
           v-for="(link, index) in this.$store.state.skills.links"
           :key="index"
           :link="link"
+          class="link"
         >
           {{ link }}
         </p>
@@ -178,6 +180,7 @@
             v-for="(tool, index) in this.$store.state.skills.tools"
             :key="index"
             :tool="tool"
+            class="tool"
           >
             {{ tool }}
           </v-chip>
@@ -195,7 +198,7 @@
       <v-flex xs12 md12 xl12 mb-1 mt-3>
         <div>
           <span class="subtitle-1">{{ $store.state.details.graduationYear }}</span>
-          <h4 class="title">
+          <h4 class="title education">
             {{ $store.state.details.education }}
           </h4>
         </div>
