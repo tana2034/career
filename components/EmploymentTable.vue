@@ -7,11 +7,13 @@
           <h4 class="title company">
             {{ employment.company }}
           </h4>
-          <p class="body-1 companyProfile">
+          <p class="caption companyProfile">
             {{ employment.companyProfile }}
           </p>
+          <p v-if="exists(employment.role)" class="body-1 role">
+            {{ employment.role }}
+          </p>
         </div>
-
         <div
           v-for="(project, i) in employment.projects" 
           :key="i"
@@ -49,5 +51,9 @@ export default class EmploymentTable extends Vue {
     }
   })
   employment!: Employment
+
+  exists(value: string): boolean {
+    return value !== '' && value !== undefined
+  }
 }
 </script>

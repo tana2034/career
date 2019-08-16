@@ -25,6 +25,7 @@ describe('Company', () => {
     state[0].to = '2019-05'
     state[0].company = '株式会社テスト'
     state[0].companyProfile = 'IT企業'
+    state[0].role = 'アプリケーションエンジニア'
 
     actions = {
       testAction: jest.fn()
@@ -67,5 +68,9 @@ describe('Company', () => {
 
   test('companyProfile', () => {
     expect(wrapper.find('.companyProfile').html()).toContain('IT企業')
+  })
+
+  test('role', () => {
+    expect(wrapper.find('.role').html()).toContain('アプリケーションエンジニア')
   })
 })

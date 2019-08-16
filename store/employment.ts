@@ -5,6 +5,7 @@ export interface Employment {
   to: string
   company: string
   companyProfile: string
+  role: string
   projects: Project[]
 }
 
@@ -21,6 +22,7 @@ export const state = (): Employment[] => [
     to: '',
     company: '',
     companyProfile: '',
+    role: '',
     projects: []
   }
 ]
@@ -32,6 +34,7 @@ export const mutations: MutationTree<Employment[]> = {
       to: '',
       company: '',
       companyProfile: '',
+      role: '',
       projects: []
     })
   },

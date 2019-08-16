@@ -90,6 +90,20 @@
             @input="updateCompany('companyProfile', $event)"
           />
         </v-flex>
+      </v-layout>
+      <v-layout row wrap>
+        <v-flex xs12 md12 xl12>
+          <v-text-field
+            :value="role"
+            name="role"
+            label="職務"
+            class="role"
+            outlined
+            @input="updateCompany('role', $event)"
+          />
+        </v-flex>
+      </v-layout>
+      <v-layout row wrap>
         <v-flex xs12 md12 xl12>
           <v-subheader>プロジェクト、案件</v-subheader>
         </v-flex>
@@ -155,6 +169,10 @@ export default class Company extends Vue {
 
   get to(): string {
     return this.$store.state.employment[this.index].to
+  }
+
+  get role(): string {
+    return this.$store.state.employment[this.index].role
   }
 
   closeFromModal(): void {

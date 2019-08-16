@@ -22,7 +22,7 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-const factory  = (details, employment, skills) => {
+const factory = (details, employment, skills) => {
   const store = new Vuex.Store({
     modules: {
       details: {
