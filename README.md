@@ -1,7 +1,8 @@
 # career
 
 職務経歴書を作成するWEBサイト
-入力した情報をブラウザのローカルストレージに保存
+
+入力した情報はブラウザのローカルストレージに保存
 
 https://blissful-lalande-eab957.netlify.com/
 
