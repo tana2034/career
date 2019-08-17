@@ -11,6 +11,12 @@ https://blissful-lalande-eab957.netlify.com/
 - CSSフレームワーク：Vuetify
 - CIツール(テスト実行)：Travis CI
 
+![Screenshot_2019-08-17 career](https://user-images.githubusercontent.com/33181485/63205670-d29a9a00-c0e2-11e9-96bb-5511affedeb8.png)
+![Screenshot_2019-08-17 career(1)](https://user-images.githubusercontent.com/33181485/63205669-d2020380-c0e2-11e9-9248-dd6f4ab1c9c6.png)
+![Screenshot_2019-08-17 career(2)](https://user-images.githubusercontent.com/33181485/63205668-d2020380-c0e2-11e9-9e50-a2fd7c1d29ba.png)
+![Screenshot_2019-08-17 career(3)](https://user-images.githubusercontent.com/33181485/63205667-d2020380-c0e2-11e9-840f-157b54c64ca7.png)
+
+
 ## 今後の予定
 
 - ログイン機能追加
