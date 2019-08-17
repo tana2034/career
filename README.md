@@ -1,22 +1,19 @@
 # career
 
-自分の経歴を定期的に棚卸しするためのWEBサイト
+職務経歴書を作成するWEBサイト
+入力した情報をブラウザのローカルストレージに保存
 
 https://blissful-lalande-eab957.netlify.com/
 
 - プラットフォーム：netlify
 - 言語：TypeScript 3.5.3
 - WEBフレームワーク：Nuxt.js 2.8.1 (SPA mode)
-- ~~WEBフレームワーク（サーバサイド）：express~~
 - CSSフレームワーク：Vuetify
 - CIツール(テスト実行)：Travis CI
-
-~~PDFはpuppeteerで生成~~
 
 ## 今後の予定
 
 - ログイン機能追加
-- デザイン変更
 
 ## Build Setup
 

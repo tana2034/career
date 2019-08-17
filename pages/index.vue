@@ -64,7 +64,7 @@
           </v-stepper-step>
           <v-stepper-content step="4">
             <v-btn color="amber mb-3" to="/preview">
-              画面全体に表示する
+              印刷用画面を表示する
             </v-btn>
             <div class="pa-5 grey lighten-4 ">
               <Resume />
