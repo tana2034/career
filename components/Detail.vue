@@ -2,7 +2,7 @@
   <v-container fluid grid-list-lg class="grey lighten-4">
     <v-form>
       <v-layout row>
-        <v-flex xs12 md6 xl6>
+        <v-flex xs12 sm6 md6 xl6>
           <v-text-field
             v-model="lastname"
             :counter="10"
@@ -13,7 +13,7 @@
             class="lastname"
           />
         </v-flex>
-        <v-flex xs12 md6 xl6>
+        <v-flex xs12 sm6 md6 xl6>
           <v-text-field
             v-model="firstname"
             :counter="10"
