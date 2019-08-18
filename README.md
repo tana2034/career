@@ -4,7 +4,7 @@
 
 入力した情報はブラウザのローカルストレージに保存
 
-https://blissful-lalande-eab957.netlify.com/
+https://goodresume.netlify.com/
 
 - プラットフォーム：netlify
 - 言語：TypeScript 3.5.3
