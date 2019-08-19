@@ -48,6 +48,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     '@nuxtjs/pwa',
     '@nuxtjs/proxy',
     '@nuxtjs/markdownit'
@@ -58,6 +59,25 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  /**
+   * auth module configuration
+   */
+  auth: {
+    // See
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/callback',
+      index: '/'
+    },
+    strategies: {
+      github: {
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET
+      }
+    }
   },
 
   /**
