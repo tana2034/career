@@ -4,6 +4,8 @@ module.exports = {
     '**/*.{ts,js,vue}',
     '!**/node_modules/**',
     '!**/dist/**',
+    '!**/static/**',
+    '!**/test/**',
     '!**/coverage/**'
   ],
   moduleNameMapper: {
