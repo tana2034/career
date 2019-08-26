@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
-import { shallowMount, createLocalVue, mount } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Link from '@/components/Link.vue'
 import {
   state as skillsState,
@@ -34,7 +34,7 @@ describe('Link', () => {
       modules: {
         skills: {
           namespaced: true,
-          state: state,
+          state,
           actions,
           mutations: skillsMutations
         }

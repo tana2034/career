@@ -38,7 +38,7 @@ export default class Link extends Vue {
   set link(value: string) {
     this.$store.commit('skills/updateLink', {
       index: this.index,
-      value: value
+      value
     })
   }
 }

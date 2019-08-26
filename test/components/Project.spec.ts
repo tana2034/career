@@ -37,7 +37,7 @@ describe('Project', () => {
       modules: {
         employment: {
           namespaced: true,
-          state: state,
+          state,
           actions,
           mutations: employmentMutations
         }

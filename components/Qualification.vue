@@ -75,7 +75,7 @@ export default class Qualification extends Vue {
     this.$store.commit('skills/updateQualification', {
       index: this.index,
       key: 'name',
-      value: value
+      value
     })
   }
 
@@ -87,7 +87,7 @@ export default class Qualification extends Vue {
     this.$store.commit('skills/updateQualification', {
       index: this.index,
       key: 'date',
-      value: value
+      value
     })
   }
 
@@ -99,7 +99,7 @@ export default class Qualification extends Vue {
     this.$store.commit('skills/updateQualification', {
       index: this.index,
       key: 'date',
-      value: value
+      value
     })
   }
 

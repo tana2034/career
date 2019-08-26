@@ -60,7 +60,7 @@ describe('details', () => {
       modules: {
         details: {
           namespaced: true,
-          state: state,
+          state,
           actions,
           mutations: detailsMutations
         }

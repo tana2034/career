@@ -147,8 +147,8 @@ export default class Project extends Vue {
     this.$store.commit('employment/updateProject', {
       i: this.i,
       j: this.j,
-      key: key,
-      value: value
+      key,
+      value
     })
   }
 

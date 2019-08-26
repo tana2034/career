@@ -11,10 +11,7 @@ import {
   state as detailsState,
   mutations as detailsMutations
 } from '@/store/details.ts'
-import {
-  state as skillsState,
-  mutations as skillsMutations
-} from '@/store/skills.ts'
+import { state as skillsState } from '@/store/skills.ts'
 
 Vue.use(Vuetify)
 

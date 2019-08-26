@@ -41,7 +41,7 @@ describe('Database', () => {
       modules: {
         skills: {
           namespaced: true,
-          state: state,
+          state,
           actions,
           mutations: skillsMutations
         }
