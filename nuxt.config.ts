@@ -91,9 +91,17 @@ module.exports = {
   },
 
   /**
-   * Nuxt.js dev Modules
+   * build modules
    */
-  devModules: ['@nuxtjs/vuetify'],
+  buildModules: [
+    '@nuxtjs/vuetify', 
+    '@nuxt/typescript-build'
+  ],
+
+  typescript: {
+    typeCheck: true,
+    ignoreNotFoundWarnings: true
+  },
 
   /*
   ** Build configuration

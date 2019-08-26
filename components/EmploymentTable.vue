@@ -34,7 +34,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { state, Employment } from '@/store/employment.ts'
+import { Employment } from '@/store/employment.ts'
 import Markdown from '@/components/Markdown.vue'
 
 @Component({

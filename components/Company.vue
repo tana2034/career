@@ -151,7 +151,7 @@ export default class Company extends Vue {
   set projects(value) {
     this.$store.commit('employment/updateProjects', {
       index: this.index,
-      value: value
+      value
     })
   }
 
@@ -186,8 +186,8 @@ export default class Company extends Vue {
   updateCompany(key, value): void {
     this.$store.commit('employment/updateCompany', {
       index: this.index,
-      key: key,
-      value: value
+      key,
+      value
     })
   }
 

@@ -12,14 +12,10 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('pdf', () => {
-  let actions
   let store
   let wrapper
 
   beforeEach(() => {
-    actions = {
-      testAction: jest.fn()
-    }
     wrapper = shallowMount(pdf, {
       localVue
     })

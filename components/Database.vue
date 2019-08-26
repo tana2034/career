@@ -46,7 +46,7 @@ export default class Database extends Vue {
     this.$store.commit('skills/updateDatabase', {
       index: this.index,
       key: 'name',
-      value: value
+      value
     })
   }
 
@@ -58,7 +58,7 @@ export default class Database extends Vue {
     this.$store.commit('skills/updateDatabase', {
       index: this.index,
       key: 'description',
-      value: value
+      value
     })
   }
 

@@ -143,7 +143,7 @@
 
 <script lang="ts">
 import draggable from 'vuedraggable'
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import Language from '@/components/Language.vue'
 import Database from '@/components/Database.vue'
 import Qualification from '@/components/Qualification.vue'
@@ -162,7 +162,7 @@ export default class Skill extends Vue {
   set languages(value: string) {
     this.$store.commit('skills/updateSkills', {
       key: 'languages',
-      value: value
+      value
     })
   }
 
@@ -173,7 +173,7 @@ export default class Skill extends Vue {
   set qualifications(value: string) {
     this.$store.commit('skills/updateSkills', {
       key: 'qualifications',
-      value: value
+      value
     })
   }
 
@@ -184,7 +184,7 @@ export default class Skill extends Vue {
   set databases(value: string) {
     this.$store.commit('skills/updateSkills', {
       key: 'databases',
-      value: value
+      value
     })
   }
 
@@ -195,7 +195,7 @@ export default class Skill extends Vue {
   set tools(value: string) {
     this.$store.commit('skills/updateSkills', {
       key: 'tools',
-      value: value
+      value
     })
   }
 
@@ -206,7 +206,7 @@ export default class Skill extends Vue {
   set links(value) {
     this.$store.commit('skills/updateSkills', {
       key: 'links',
-      value: value
+      value
     })
   }
 

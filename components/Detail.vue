@@ -188,7 +188,7 @@ export default class Detail extends Vue {
   set lastname(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'lastname',
-      value: value
+      value
     })
   }
 
@@ -199,7 +199,7 @@ export default class Detail extends Vue {
   set firstname(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'firstname',
-      value: value
+      value
     })
   }
 
@@ -210,7 +210,7 @@ export default class Detail extends Vue {
   set email(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'email',
-      value: value
+      value
     })
   }
 
@@ -221,7 +221,7 @@ export default class Detail extends Vue {
   set birthDate(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'birthDate',
-      value: value
+      value
     })
   }
 
@@ -232,7 +232,7 @@ export default class Detail extends Vue {
   set address(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'address',
-      value: value
+      value
     })
   }
 
@@ -243,7 +243,7 @@ export default class Detail extends Vue {
   set tel(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'tel',
-      value: value
+      value
     })
   }
 
@@ -254,7 +254,7 @@ export default class Detail extends Vue {
   set summary(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'summary',
-      value: value
+      value
     })
   }
 
@@ -265,7 +265,7 @@ export default class Detail extends Vue {
   set publicRelations(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'publicRelations',
-      value: value
+      value
     })
   }
 
@@ -276,7 +276,7 @@ export default class Detail extends Vue {
   set education(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'education',
-      value: value
+      value
     })
   }
 
@@ -287,7 +287,7 @@ export default class Detail extends Vue {
   set graduationYear(value: string) {
     this.$store.commit('details/updateDetail', {
       key: 'graduationYear',
-      value: value
+      value
     })
   }
 
