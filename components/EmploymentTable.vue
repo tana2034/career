@@ -7,9 +7,9 @@
           <h4 class="title company">
             {{ employment.company }}
           </h4>
-          <p class="caption companyProfile">
+          <div class="caption companyProfile">
             {{ employment.companyProfile }}
-          </p>
+          </div>
           <p v-if="exists(employment.role)" class="body-1 role">
             {{ employment.role }}
           </p>
@@ -24,7 +24,7 @@
             <div class="subtitle-1 project-title">
               <span>{{ project.title }}</span>
             </div>
-            <Markdown class="body-2 pt-1 description" :text="project.description" />
+            <Markdown class="body-2 pt-1 pb-3 description" :text="project.description" />
           </div>
         </div>
       </div>
