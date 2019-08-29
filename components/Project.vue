@@ -43,6 +43,8 @@
                   class="from"
                   scrollable
                   landscape 
+                  :max="new Date().toISOString().substr(0, 10)"
+                  min="1950-01-01"
                   color="indigo" 
                   type="month"
                   @input="updateProject('from', $event); closeFromModal()"
@@ -73,6 +75,8 @@
                   class="to"
                   scrollable 
                   landscape 
+                  :max="new Date().toISOString().substr(0, 10)"
+                  min="1950-01-01"
                   color="indigo" 
                   type="month"
                   @input="updateProject('to', $event); closeToModal()"

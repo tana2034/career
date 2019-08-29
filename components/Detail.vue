@@ -149,6 +149,8 @@
               type="month"
               class="graduationYear"
               color="blue"
+              :max="new Date().toISOString().substr(0, 10)"
+              min="1950-01-01"
               @input="closeModal('modalGraduationYear')"
             />
           </v-menu>
