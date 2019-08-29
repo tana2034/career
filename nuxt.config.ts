@@ -93,10 +93,7 @@ module.exports = {
   /**
    * build modules
    */
-  buildModules: [
-    '@nuxtjs/vuetify', 
-    '@nuxt/typescript-build'
-  ],
+  buildModules: ['@nuxtjs/vuetify', '@nuxt/typescript-build'],
 
   typescript: {
     typeCheck: true,

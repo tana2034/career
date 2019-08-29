@@ -26,6 +26,8 @@
                   :value="date"
                   scrollable 
                   landscape 
+                  :max="new Date().toISOString().substr(0, 10)"
+                  min="1950-01-01"
                   color="indigo" 
                   type="month"
                   class="qualification-date"
