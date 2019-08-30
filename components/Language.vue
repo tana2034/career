@@ -15,7 +15,7 @@
             label="詳細" 
             class="language-description" 
             outlined
-            hint="使ったことのあるバージョン、実務経験、フレームワーク等を記載してください。" 
+            hint="使ったことのあるバージョン、実務経験、フレームワーク等を記載してください。Markdown記法も可能です。" 
           />
         </v-card-text>
       </v-flex>

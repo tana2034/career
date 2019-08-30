@@ -90,6 +90,7 @@
                 :value="description"
                 label="プロジェクト詳細" 
                 class="description"
+                hint="Markdown記法も可能です。"
                 outlined
                 @input="updateProject('description', $event)"
               />

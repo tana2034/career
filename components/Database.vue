@@ -14,7 +14,7 @@
             v-model="description" 
             label="詳細" 
             class="database-description" 
-            hint="使ったことのあるバージョン、使用年数等を記載してください。" 
+            hint="使ったことのあるバージョン、使用年数等を記載してください。Markdown記法も可能です。" 
             outlined
           />
         </v-card-text>
