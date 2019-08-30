@@ -101,6 +101,7 @@
             v-model="summary"
             label="略歴"
             class="summary"
+            hint="Markdown記法も可能です。"
             outlined
             required
           />
@@ -112,6 +113,7 @@
             v-model="publicRelations"
             label="自己PR"
             class="publicRelations"
+            hint="Markdown記法も可能です。"
             outlined
             required
           />
