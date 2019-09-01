@@ -19,6 +19,7 @@
           :key="i"
           :project="project"
         >
+          <v-divider />
           <div class="pl-3">  
             <small class="subtitle-2 content-term"> {{ project.from }} - {{ project.to }} </small>
             <div class="subtitle-1 project-title">
