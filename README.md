@@ -10,6 +10,7 @@ https://goodresume.netlify.com/
 - 言語：TypeScript 3.5.3
 - WEBフレームワーク：Nuxt.js 2.8.1 (SPA mode)
 - CSSフレームワーク：Vuetify 2.0.5
+- テストフレームワーク：jest
 - CIツール(テスト実行)：Travis CI
 
 ![Screenshot_2019-08-17 career](https://user-images.githubusercontent.com/33181485/63205670-d29a9a00-c0e2-11e9-96bb-5511affedeb8.png)
