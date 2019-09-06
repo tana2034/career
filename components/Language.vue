@@ -12,6 +12,7 @@
           />
           <v-textarea 
             v-model="description" 
+            auto-grow
             label="詳細" 
             class="language-description" 
             outlined

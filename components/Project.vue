@@ -88,6 +88,7 @@
             <v-flex xs12>
               <v-textarea 
                 :value="description"
+                auto-grow
                 label="プロジェクト詳細" 
                 class="description"
                 hint="Markdown記法も可能です。"
