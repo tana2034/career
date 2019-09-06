@@ -99,6 +99,7 @@
         <v-flex xs12>
           <v-textarea
             v-model="summary"
+            auto-grow
             label="略歴"
             class="summary"
             hint="Markdown記法も可能です。"
@@ -111,6 +112,7 @@
         <v-flex xs12>
           <v-textarea
             v-model="publicRelations"
+            auto-grow
             label="自己PR"
             class="publicRelations"
             hint="Markdown記法も可能です。"
