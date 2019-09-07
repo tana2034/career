@@ -77,6 +77,21 @@
         <Markdown class="publicRelations" :text="$store.state.details.publicRelations" />
       </v-flex>
     </v-layout>
+    <v-layout v-if="showArray($store.state.skills.links)" row wrap>
+      <v-flex xs2 sm2 lg2 class="subtitle-1">
+        URL
+      </v-flex>
+      <v-flex xs10 sm10 lg10>
+        <p
+          v-for="(link, index) in this.$store.state.skills.links"
+          :key="index"
+          :link="link"
+          class="link"
+        >
+          {{ link }}
+        </p>
+      </v-flex>
+    </v-layout>
     <v-layout row wrap my-3>
       <v-flex>
         <div class="headline">
@@ -149,21 +164,6 @@
           class="qualification-name"
         >
           {{ qualification.name }} ({{ qualification.date }} 取得)
-        </p>
-      </v-flex>
-    </v-layout>
-    <v-layout v-if="showArray($store.state.skills.links)" row wrap>
-      <v-flex xs2 sm2 lg2 class="subtitle-1">
-        URL
-      </v-flex>
-      <v-flex xs10 sm10 lg10>
-        <p
-          v-for="(link, index) in this.$store.state.skills.links"
-          :key="index"
-          :link="link"
-          class="link"
-        >
-          {{ link }}
         </p>
       </v-flex>
     </v-layout>
