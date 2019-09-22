@@ -9,6 +9,7 @@
             class="language-name"
             outlined
             required
+            clearable
           />
           <v-textarea 
             v-model="description" 

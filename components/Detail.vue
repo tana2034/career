@@ -11,6 +11,7 @@
             required
             outlined
             class="lastname"
+            clearable
           />
         </v-flex>
         <v-flex xs12 sm6 md6 xl6>
@@ -21,6 +22,7 @@
             class="firstname"
             outlined
             required
+            clearable
           />
         </v-flex>
       </v-layout>
@@ -33,6 +35,7 @@
             class="email"
             outlined
             required
+            clearable
           />
         </v-flex>
       </v-layout>
@@ -80,6 +83,7 @@
             class="address"
             outlined
             required
+            clearable
           />
         </v-flex>
       </v-layout>
@@ -92,6 +96,7 @@
             class="tel"
             outlined
             required
+            clearable
           />
         </v-flex>
       </v-layout>
@@ -164,6 +169,7 @@
             name="education" 
             label="所属していた学校名・学部・学科"
             outlined
+            clearable
           />
         </v-flex>
       </v-layout>

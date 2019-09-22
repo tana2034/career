@@ -9,6 +9,7 @@
             label="URL"
             hint="githubアカウントやその他記載したいURLを追加してください"
             outlined
+            clearable
           />
         </v-card-text>
       </v-flex>
