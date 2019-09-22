@@ -42,6 +42,7 @@
                 class="qualification-name"
                 required
                 outlined
+                clearable
               />
             </v-flex>
           </v-layout>

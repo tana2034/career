@@ -14,6 +14,7 @@
                 label="プロジェクト概要" 
                 class="project-title"
                 outlined
+                clearable
                 @input="updateProject('title', $event)"
               />
             </v-flex>

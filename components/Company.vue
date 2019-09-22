@@ -18,6 +18,7 @@
             label="会社名"
             class="company"
             outlined
+            clearable
             @input="updateCompany('company', $event)"
           />
         </v-flex>
@@ -90,6 +91,7 @@
             name="company profile"
             label="会社の事業・概要など"
             class="companyProfile"
+            clearable
             outlined
             @input="updateCompany('companyProfile', $event)"
           />
@@ -102,6 +104,7 @@
             name="role"
             label="職務"
             class="role"
+            clearable
             outlined
             @input="updateCompany('role', $event)"
           />
